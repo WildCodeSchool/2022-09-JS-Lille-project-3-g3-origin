@@ -1,12 +1,12 @@
+import "./reset.scss";
+import "./App.scss";
 import Home from "./pages/Home";
-
-import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <Home />
-      <p>coucou</p>
+      <p>App Origins Digital</p>
     </div>
   );
 }
