@@ -10,7 +10,8 @@ $secondary-color: #ff2415;
 }
 
 button.modalToggle,
-input[type="submit"] {
+input[type="submit"],
+input[type="button"] {
   border-radius: 15px;
   margin-top: 2%;
   background: linear-gradient(
@@ -47,4 +48,21 @@ input[type="email"] {
   display: flex;
   justify-content: right;
   margin-right: 2%;
+}
+
+.buttonSubscribe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.subscribePage {
+  height: 80%;
+
+  img {
+    border-radius: 5%;
+    width: 100%;
+    height: 50%;
+  }
 }

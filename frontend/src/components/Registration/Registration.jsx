@@ -1,6 +1,7 @@
-import useModal from "@components/useModal/useModal";
-import Modal from "@components/Modal/Modal";
+import useModal from "../useModal/useModal";
+import Modal from "../Modal/Modal";
 import "./registration.scss";
+import chart from "../../assets/chart.jpg";
 
 export default function Registration() {
   const { isShowing: isLoginFromShowed, toggle: toggleLoginForm } = useModal();
@@ -8,6 +9,10 @@ export default function Registration() {
     isShowing: isRegistrationFormShowed,
     toggle: toggleRegistrationForm,
   } = useModal();
+  const { isShowing: isSubscribeShowed, toggle: toggleSubscribe } = useModal();
+
+  const { isShowing: isPremiumSelectedShowed, toggle: togglePremiumSelected } =
+    useModal();
 
   return (
     <div className="home">
@@ -29,7 +34,7 @@ export default function Registration() {
             <input type="text" placeholder="Username" />
           </div>
           <div className="formGroup">
-            <input type="text" placeholder="Password" />
+            <input type="password" placeholder="Password" />
           </div>
           <div className="formGroup">
             <input type="submit" value="Login" />
@@ -44,7 +49,7 @@ export default function Registration() {
       >
         <form>
           <div className="formGroup">
-            <input type="text" placeholder="Email Address" />
+            <input type="email" placeholder="Email Address" />
           </div>
 
           <div className="formGroup">
@@ -52,11 +57,69 @@ export default function Registration() {
           </div>
 
           <div className="formGroup">
-            <input type="text" placeholder="Password" />
+            <input type="password" placeholder="Password" />
           </div>
 
           <div className="formGroup">
-            <input type="submit" placeholder="Register" />
+            <input
+              type="button"
+              placeholder="Register"
+              value="Register"
+              onClick={toggleSubscribe}
+            />
+          </div>
+        </form>
+      </Modal>
+      <Modal
+        isShowing={isSubscribeShowed}
+        hide={toggleSubscribe}
+        title="Subscribe to"
+      >
+        <div className="subscribePage">
+          <img src={chart} alt="chart" />
+          <form className="buttonSubscribe">
+            <div className="formGroup">
+              <input
+                type="button"
+                value="Go Premium"
+                onClick={togglePremiumSelected}
+              />
+            </div>
+            <div className="formGroup">
+              <input type="submit" value="Stay Freemium" />
+            </div>
+          </form>
+        </div>
+      </Modal>
+      <Modal
+        isShowing={isPremiumSelectedShowed}
+        hide={togglePremiumSelected}
+        title="Registration field :"
+      >
+        <form>
+          <div className="formGroup">
+            <input type="text" placeholder="Firstname" />
+          </div>
+          <div className="formGroup">
+            <input type="text" placeholder="Lastname" />
+          </div>
+          <div className="formGroup">
+            <input type="text" placeholder="Adress" />
+          </div>
+          <div className="formGroup">
+            <input type="text" placeholder="City" />
+          </div>
+          <div className="formGroup">
+            <input type="text" placeholder="Credit Card Numbers" />
+          </div>
+          <div className="formGroup">
+            <input type="text" placeholder="CVV" />
+          </div>
+          <div className="formGroup">
+            <input type="text" placeholder="Expiration Date (Day/Month/Year)" />
+          </div>
+          <div className="formGroup">
+            <input type="submit" value="Confirm" />
           </div>
         </form>
       </Modal>
