@@ -7,7 +7,7 @@
     color: var(--white-color);
     font-family: var(Raleway);
     text-align: center;
-    padding-top: 1rem;
+    padding: 1rem;
   }
   h1 {
     font-size: 2rem;
@@ -16,6 +16,8 @@
   h3 {
     font-size: 1.5rem;
     border: 0.1rem solid #faf8ff;
+    padding: 0.5rem;
+    margin: 0 1rem;
   }
   #col {
     column-count: 2;
