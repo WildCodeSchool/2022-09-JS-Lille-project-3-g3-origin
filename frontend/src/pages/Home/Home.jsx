@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Mousewheel, Keyboard, FreeMode } from "swiper";
+import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import YouTube from "react-youtube";
 import NavBar from "../../components/NavBar/NavBar";
 /* eslint-disable import/no-unresolved */
@@ -44,11 +44,6 @@ export default function Home() {
             </SwiperSlide>
           );
         })}
-
-        {/* <SwiperSlide>
-          <YouTube videoId="DyBax0Xg3NY" />
-        </SwiperSlide> */}
-
         <SwiperSlide>
           <img
             src="https://fr.web.img4.acsta.net/pictures/22/09/23/15/11/2942764.jpg"
