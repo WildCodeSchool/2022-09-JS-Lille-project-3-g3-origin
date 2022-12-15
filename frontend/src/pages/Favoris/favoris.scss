@@ -6,26 +6,47 @@
   h3 {
     color: variables.$white-color;
     font-family: variables.$font-family;
-    text-align: center;
-    padding-top: 1rem;
+    font-weight: bold;
   }
   h1 {
     font-size: 2rem;
+    text-align: center;
+    padding-top: 1rem;
   }
   h2,
   h3 {
-    font-size: 1.5rem;
+    color: variables.$white-color;
+    font-size: 1.2rem;
+    font-weight: bold;
     border: 0.1rem solid variables.$white-color;
-    padding: 0.5rem;
-    margin: 0 1rem;
-  }
-  #col {
-    column-count: 2;
+    width: fit-content;
+    padding: 0.5rem 1.5rem;
+    margin-top: 6vh;
+    position: relative;
+    left: 7vw;
   }
 
-  .img {
-    width: 100%;
-    height: 50vh;
-    object-fit: scale-down;
+  .swiperFavoris {
+    width: 95vw;
+    .swiper-button-next {
+      color: variables.$red-color;
+      position: absolute;
+      right: -0.7vw;
+      top: 17vh;
+    }
+
+    .swiper-button-prev {
+      color: variables.$red-color;
+      position: absolute;
+      left: -0.7vw;
+      top: 17vh;
+    }
+    img {
+      width: 100%;
+      object-fit: scale-down;
+      height: 30vh;
+      position: relative;
+      top: 3vh;
+    }
   }
 }
