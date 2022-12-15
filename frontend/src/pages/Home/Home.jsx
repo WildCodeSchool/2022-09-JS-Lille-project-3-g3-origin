@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
+import { Navigation, Pagination, Mousewheel, Keyboard, FreeMode } from "swiper";
 import YouTube from "react-youtube";
 import NavBar from "../../components/NavBar/NavBar";
 /* eslint-disable import/no-unresolved */
@@ -39,37 +39,13 @@ export default function Home() {
       >
         {videos.map((video) => {
           return (
-            <SwiperSlide>
+            <SwiperSlide className="YoutubeHome">
               <YouTube videoId={video.url} />
             </SwiperSlide>
           );
         })}
-        <SwiperSlide>
-          <img
-            src="https://fr.web.img4.acsta.net/pictures/22/09/23/15/11/2942764.jpg"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.affiches-et-posters.com//albums/3/4661/4661-poster-film-drive.jpg"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://fr.web.img4.acsta.net/pictures/22/09/23/15/11/2942764.jpg"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.affiches-et-posters.com//albums/3/4661/4661-poster-film-drive.jpg"
-            alt=""
-          />
-        </SwiperSlide>
       </Swiper>
-      {/* <h2>Films</h2>
+      <h2>Films</h2>
       <Swiper
         slidesPerView={2}
         spaceBetween={8}
@@ -164,7 +140,7 @@ export default function Home() {
             alt=""
           />
         </SwiperSlide>
-      </Swiper> */}
+      </Swiper>
       <div className="img-home">
         <img
           src="https://images.affiches-et-posters.com//albums/3/4661/4661-poster-film-drive.jpg"

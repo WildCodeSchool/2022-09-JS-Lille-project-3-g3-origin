@@ -10,16 +10,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* <ul>
-          {videos.map((video) => {
-            return (
-              <li>
-                <YouTube videoId={video.url} />
-              </li>
-            );
-          })}
-        </ul> */}
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
