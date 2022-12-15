@@ -1,0 +1,22 @@
+@use "../src/variables.scss";
+
+img.avatar {
+  width: 10vh;
+  border-radius: 50%;
+  display: flex;
+  justify-content: right;
+  margin: 2rem 2rem;
+}
+.viewProfil {
+  color: variables.$white-color;
+  margin: 1rem;
+  font-family: variables.$font-family;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #b9b9b9;
+  background-color: #b9b9b9;
+}
+.blocProfil {
+  margin-bottom: 5rem;
+}

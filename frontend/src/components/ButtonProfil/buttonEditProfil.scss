@@ -1,0 +1,41 @@
+@use "../src/variables.scss";
+
+button.modalEditProfil,
+input[type="submit"],
+input[type="button"] {
+  border-radius: 15px;
+  margin-top: 2%;
+  background: linear-gradient(
+    to right,
+    variables.$orange-color,
+    #ff7100,
+    #ff5d02,
+    #ff460c,
+    variables.$red-color
+  );
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  border: none;
+  font-family: variables.$font-family;
+}
+
+button.modalEditProfil:not(:first-child) {
+  margin-left: 10px;
+}
+
+.formEditProfil {
+  margin-top: 10px;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+}
+
+.buttonEditProfil {
+  display: flex;
+  justify-content: center;
+  margin-right: 2%;
+}
