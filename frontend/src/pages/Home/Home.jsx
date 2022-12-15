@@ -1,10 +1,10 @@
 import "./home.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Mousewheel, Keyboard, FreeMode } from "swiper";
 import YouTube from "react-youtube";
+import Registration from "@components/Registration/Registration";
 import NavBar from "../../components/NavBar/NavBar";
 /* eslint-disable import/no-unresolved */
 import "swiper/css";
@@ -29,6 +29,7 @@ export default function Home() {
 
   return (
     <header className="home">
+      <Registration />
       <Swiper
         cssMode
         pagination
