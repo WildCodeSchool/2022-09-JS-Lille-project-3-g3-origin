@@ -15,7 +15,7 @@ export default function SearchBar() {
           name="search"
           placeholder="Prêt à regarder Origins Digital ?"
           value={resultSearch}
-          onCHange={handleInput}
+          onChange={handleInput}
         />
       </form>
     </div>

@@ -1,10 +1,9 @@
-import "./search.scss";
 import NavBar from "../../components/NavBar/NavBar";
 
-export default function Search() {
+export default function Profil() {
   return (
-    <div className="search">
-      <h1>Search</h1>
+    <div className="profil">
+      <h1>Profil</h1>
       <NavBar />
     </div>
   );
