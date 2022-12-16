@@ -11,20 +11,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-/* eslint-enable import/no-unresolved */
-
 export default function Home() {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/videos")
-      .then(({ data }) => {
-        setVideos(data);
-      })
-      .catch((err) => {
-        console.warn("------------", err);
-      });
+    axios.get("http://localhost:5000/videos").then(({ data }) => {
+      setVideos(data);
+    });
   }, []);
 
   return (
@@ -41,7 +34,7 @@ export default function Home() {
         {videos.map((video) => {
           return (
             <SwiperSlide className="YoutubeHome">
-              <YouTube videoId={video.url} />
+              <YouTube key={video.id} videoId={video.url} />
             </SwiperSlide>
           );
         })}
