@@ -3,6 +3,11 @@ import SearchBar from "@components/SearchBar/SearchBar";
 import { Navigation, Pagination, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import NavBar from "../../components/NavBar/NavBar";
+/* eslint-disable import/no-unresolved */
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+/* eslint-enable import/no-unresolved */
 
 export default function Favoris() {
   return (
@@ -11,7 +16,7 @@ export default function Favoris() {
       <SearchBar />
       <h2>Films</h2>
       <Swiper
-        slidesPerView={2}
+        slidesPerView={1}
         spaceBetween={8}
         pagination={{
           clickable: true,
@@ -51,7 +56,7 @@ export default function Favoris() {
       </Swiper>
       <h3>Séries</h3>
       <Swiper
-        slidesPerView={2}
+        slidesPerView={1}
         spaceBetween={8}
         pagination={{
           clickable: true,
