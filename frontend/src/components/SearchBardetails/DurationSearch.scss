@@ -1,0 +1,35 @@
+div {
+  color: white;
+  .search {
+    text-align: center;
+  }
+  .categories {
+    list-style: none;
+    width: 50%;
+    position: sticky;
+    top: 0;
+    :hover {
+      // display: block;
+    }
+    .scrolling {
+      .underScrolling {
+        // display: none;
+        overflow: hidden;
+        height: 5rem;
+        overflow: scroll;
+        border-radius: 2px;
+        margin-left: 2%;
+      }
+    }
+  }
+  h2 {
+    color: #ff8200;
+    text-align: center;
+    font-size: 2rem;
+  }
+  img {
+    width: 100%;
+    object-fit: scale-down;
+    height: 30vh;
+  }
+}
