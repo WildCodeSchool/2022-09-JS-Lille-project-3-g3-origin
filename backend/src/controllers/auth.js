@@ -16,8 +16,9 @@ const hashPassword = async (req, res, next) => {
 };
 
 const verifyPassword = async (req, res) => {
-  const { hashedPassword } = req.user.hashedPassword;
+  const { hashedPassword } = req.user;
   const clearPassword = req.body.password;
+
   try {
     if (await argon2.verify(hashedPassword, clearPassword)) {
       const token = jwt.sign(

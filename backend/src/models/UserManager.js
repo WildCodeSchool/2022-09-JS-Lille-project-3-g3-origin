@@ -39,10 +39,10 @@ class userManager extends AbstractManager {
     );
   }
 
-  getUserFromEmail(email) {
+  getUserFromUsername(username) {
     return this.connection.query(
-      `select * from ${this.table} where email = ?`,
-      [email]
+      `select * from ${this.table} where username = ?`,
+      [username]
     );
   }
 }

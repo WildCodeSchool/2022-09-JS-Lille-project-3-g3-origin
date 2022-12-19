@@ -12,7 +12,7 @@ router.post("/users", auth.hashPassword, userControllers.add);
 router.get("/users", userControllers.browse);
 router.post(
   "/login",
-  userControllers.getUserByEmailWithPasswordAndPassToNext,
+  userControllers.getUserByUsernameWithPasswordAndPassToNext,
   auth.verifyPassword
 );
 router.get("/users/:id", userControllers.read);
