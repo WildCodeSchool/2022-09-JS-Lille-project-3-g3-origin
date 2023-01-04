@@ -33,8 +33,8 @@ export default function Home() {
       >
         {videos.map((video) => {
           return (
-            <SwiperSlide className="YoutubeHome">
-              <YouTube key={video.id} videoId={video.url} />
+            <SwiperSlide className="YoutubeHome" key={video.id}>
+              <YouTube videoId={video.url} />
             </SwiperSlide>
           );
         })}
