@@ -1,13 +1,12 @@
 import "./search.scss";
-import DurationSearch from "@components/SearchBardetails/DurationSearch";
-
+import SearchBarDetails from "@components/SearchBarDetails/SearchBarDetails";
 import NavBar from "../../components/NavBar/NavBar";
 
-export default function Profil() {
+export default function Search() {
   return (
     <div className="search">
       <h1>Filtres</h1>
-      <DurationSearch />
+      <SearchBarDetails />
       <NavBar />
     </div>
   );
