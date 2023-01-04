@@ -1,6 +1,6 @@
-import "./DurationSearch.scss";
+import "./SearchBarDetails.scss";
 
-export default function durationSearch() {
+export default function SearchBarDetails() {
   return (
     <>
       <div className="search">

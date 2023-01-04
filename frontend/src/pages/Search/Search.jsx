@@ -1,5 +1,5 @@
 import "./search.scss";
-import DurationSearch from "@components/SearchBardetails/DurationSearch";
+import DurationSearch from "@components/SearchBarDetails/SearchBarDetails";
 
 import NavBar from "../../components/NavBar/NavBar";
 
