@@ -13,7 +13,8 @@ export default function SearchBar() {
           type="search"
           id="search_searchComponent"
           name="search"
-          placeholder="Prêt à regarder Origins Digital ?"
+          placeholder="Que souhaitez vous regarder ?"
+
           value={resultSearch}
           onChange={handleInput}
         />
