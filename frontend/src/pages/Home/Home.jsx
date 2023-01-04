@@ -50,42 +50,13 @@ export default function Home() {
         modules={[FreeMode, Pagination, Navigation]}
         className="my-free-swiper"
       >
-        <SwiperSlide>
-          <img
-            src="https://images.affiches-et-posters.com//albums/3/4661/4661-poster-film-drive.jpg"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.affiches-et-posters.com//albums/3/4661/4661-poster-film-drive.jpg"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.affiches-et-posters.com//albums/3/4661/4661-poster-film-drive.jpg"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.affiches-et-posters.com//albums/3/4661/4661-poster-film-drive.jpg"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.affiches-et-posters.com//albums/3/4661/4661-poster-film-drive.jpg"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.affiches-et-posters.com//albums/3/4661/4661-poster-film-drive.jpg"
-            alt=""
-          />
-        </SwiperSlide>
+        {videos.map((video) => {
+          return (
+            <SwiperSlide className="YoutubeHomeFilms" key={video.id}>
+              <YouTube videoId={video.url} />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
       <h2>Series</h2>
       <Swiper
@@ -98,49 +69,14 @@ export default function Home() {
         modules={[FreeMode, Pagination, Navigation]}
         className="my-free-swiper"
       >
-        <SwiperSlide>
-          <img
-            src="https://fr.web.img4.acsta.net/pictures/22/09/23/15/11/2942764.jpg"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://fr.web.img4.acsta.net/pictures/22/09/23/15/11/2942764.jpg"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://fr.web.img4.acsta.net/pictures/22/09/23/15/11/2942764.jpg"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://fr.web.img4.acsta.net/pictures/22/09/23/15/11/2942764.jpg"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://fr.web.img4.acsta.net/pictures/22/09/23/15/11/2942764.jpg"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://fr.web.img4.acsta.net/pictures/22/09/23/15/11/2942764.jpg"
-            alt=""
-          />
-        </SwiperSlide>
+        {videos.map((video) => {
+          return (
+            <SwiperSlide className="YoutubeHomeSeries" key={video.id}>
+              <YouTube videoId={video.url} />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
-      <div className="img-home">
-        <img
-          src="https://images.affiches-et-posters.com//albums/3/4661/4661-poster-film-drive.jpg"
-          alt=""
-        />
-      </div>
       <NavBar className="nav-bar-home" />
     </header>
   );
