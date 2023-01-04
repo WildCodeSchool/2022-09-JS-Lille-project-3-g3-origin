@@ -5,17 +5,20 @@
   bottom: 0;
   z-index: 1;
   width: 100%;
+  background-color: rgb(1, 13, 24);
 
   .nav-option {
     text-align: center;
     text-decoration: none;
     padding: 2vh 0;
-    width: 24vw;
+    width: 26vw;
   }
 
   .nav-links {
     text-decoration: none;
-    background-color: rgba(252, 252, 252, 0.9);
-    color: rgba(3, 3, 3, 0.9);
+    // background-color: rgba(252, 252, 252, 0.9);
+    // color: rgba(3, 3, 3, 0.9);
+    background-color: rgb(1, 13, 24);
+    color: white;
   }
 }

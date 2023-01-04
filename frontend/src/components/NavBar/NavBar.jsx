@@ -1,12 +1,13 @@
 import "./navbar.scss";
 import { NavLink } from "react-router-dom";
-import { GrHomeRounded, GrFavorite } from "react-icons/gr";
+import { FiHeart } from "react-icons/fi";
 import { BsSearch } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
+import { BiHomeAlt } from "react-icons/bi";
 
 export default function NavBar() {
   const activeStyle = {
-    backgroundColor: "rgba(3, 3, 3, 0.9)",
+    backgroundColor: "#ff8200",
     color: "white",
     borderColor: "rgba(252, 252, 252, 0.9)",
   };
@@ -19,7 +20,7 @@ export default function NavBar() {
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
       >
         <li className="nav-option">
-          Home <GrHomeRounded />
+          Home <BiHomeAlt />
         </li>
       </NavLink>
       <NavLink
@@ -46,7 +47,7 @@ export default function NavBar() {
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
       >
         <li className="nav-option">
-          Favoris <GrFavorite />
+          Favoris <FiHeart />
         </li>
       </NavLink>
     </ul>
