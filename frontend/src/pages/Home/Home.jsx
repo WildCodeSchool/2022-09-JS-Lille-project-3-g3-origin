@@ -16,7 +16,11 @@ export default function Home() {
 
   useEffect(() => {
     axios.get("http://localhost:5000/videos").then(({ data }) => {
-      setVideos(data);
+      setVideos(
+        data.filter((movie, id) => {
+          return id < 10;
+        })
+      );
     });
   }, []);
 
