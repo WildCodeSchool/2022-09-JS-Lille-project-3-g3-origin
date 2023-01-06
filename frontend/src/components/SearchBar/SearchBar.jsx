@@ -14,7 +14,6 @@ export default function SearchBar() {
           id="search_searchComponent"
           name="search"
           placeholder="Que souhaitez vous regarder ?"
-
           value={resultSearch}
           onChange={handleInput}
         />

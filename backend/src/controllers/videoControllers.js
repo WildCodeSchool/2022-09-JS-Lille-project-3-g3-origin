@@ -81,6 +81,17 @@ const destroy = (req, res) => {
       res.sendStatus(500);
     });
 };
+const videoFav = (req, res) => {
+  models.video
+    .videoFav(parseInt(req.params.id, 10))
+    .then(([result]) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
 
 module.exports = {
   browse,
@@ -88,4 +99,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  videoFav,
 };
