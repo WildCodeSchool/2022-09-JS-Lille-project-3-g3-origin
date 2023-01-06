@@ -47,7 +47,7 @@ const edit = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.sendStatus(204);
+        res.status(200).send(user);
       }
     })
     .catch((err) => {
@@ -64,7 +64,9 @@ const add = (req, res) => {
   models.user
     .insert(user)
     .then(([result]) => {
-      res.location(`/users/${result.insertId}`).sendStatus(201);
+      user.id = result.insertId;
+      delete user.hashedPassword;
+      res.status(201).send(user);
     })
     .catch((err) => {
       console.error(err);
