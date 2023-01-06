@@ -1,3 +1,6 @@
+import { useContext, useState } from "react";
+import axios from "axios";
+import UserContext from "../../contexts/UserContext";
 import useModal from "../useModal/useModal";
 import Modal from "../Modal/Modal";
 import "./registration.scss";
@@ -14,6 +17,41 @@ export default function Registration() {
   const { isShowing: isPremiumSelectedShowed, toggle: togglePremiumSelected } =
     useModal();
 
+  const { hLogin, setLoginForm, loginForm, setCurrentUser } =
+    useContext(UserContext);
+
+  const [registrationForm, setRegistrationForm] = useState({
+    username: "",
+    lastname: "",
+    email: "",
+    password: "",
+    premium: 0,
+  });
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const hLoginChange = (evt) => {
+    setLoginForm({ ...loginForm, [evt.target.name]: evt.target.value });
+  };
+
+  const hRegistrationChange = (evt) =>
+    setRegistrationForm({
+      ...registrationForm,
+      [evt.target.name]: evt.target.value,
+    });
+
+  const hRegistration = (evt) => {
+    evt.preventDefault();
+    axios
+      .post("http://localhost:5000/users", registrationForm)
+      .then(({ data }) => {
+        setCurrentUser(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   return (
     <div className="home">
       <div className="buttonWrapper">
@@ -29,12 +67,30 @@ export default function Registration() {
         </button>
       </div>
       <Modal isShowing={isLoginFromShowed} hide={toggleLoginForm} title="Login">
-        <form>
+        <form onSubmit={hLogin}>
           <div className="formGroup">
-            <input type="text" placeholder="Username" />
+            <input
+              name="username"
+              type="text"
+              placeholder="Username"
+              onChange={hLoginChange}
+              value={loginForm.username}
+            />
           </div>
           <div className="formGroup">
-            <input type="password" placeholder="Password" />
+            <input
+              name="password"
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              onChange={hLoginChange}
+              value={loginForm.password}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
           </div>
           <div className="formGroup">
             <input type="submit" value="Login" />
@@ -49,15 +105,43 @@ export default function Registration() {
       >
         <form>
           <div className="formGroup">
-            <input type="email" placeholder="Email Address" />
+            <input
+              type="email"
+              placeholder="Email Address"
+              name="email"
+              onChange={hRegistrationChange}
+              value={registrationForm.email}
+            />
           </div>
 
           <div className="formGroup">
-            <input type="text" placeholder="Username" />
+            <input
+              type="text"
+              placeholder="Username"
+              name="username"
+              onChange={hRegistrationChange}
+              value={registrationForm.username}
+            />
           </div>
 
           <div className="formGroup">
-            <input type="password" placeholder="Password" />
+            <input
+              type="text"
+              placeholder="Lastname"
+              name="lastname"
+              onChange={hRegistrationChange}
+              value={registrationForm.lastname}
+            />
+          </div>
+
+          <div className="formGroup">
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              onChange={hRegistrationChange}
+              value={registrationForm.password}
+            />
           </div>
 
           <div className="formGroup">
@@ -77,7 +161,7 @@ export default function Registration() {
       >
         <div className="subscribePage">
           <img src={chart} alt="chart" />
-          <form className="buttonSubscribe">
+          <form className="buttonSubscribe" onSubmit={hRegistration}>
             <div className="formGroup">
               <input
                 type="button"
@@ -104,10 +188,10 @@ export default function Registration() {
             <input type="text" placeholder="Lastname" />
           </div>
           <div className="formGroup">
-            <input type="text" placeholder="Adress" />
+            <input type="text" placeholder="Adress" name="adress" />
           </div>
           <div className="formGroup">
-            <input type="text" placeholder="City" />
+            <input type="text" placeholder="City" name="city" />
           </div>
           <div className="formGroup">
             <input type="text" placeholder="Credit Card Numbers" />
