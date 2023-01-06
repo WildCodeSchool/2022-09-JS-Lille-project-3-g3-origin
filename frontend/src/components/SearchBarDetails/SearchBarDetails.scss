@@ -48,3 +48,71 @@ div {
     }
   }
 }
+
+figcaption {
+  font-family: "Bangers", cursive;
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+}
+
+label[for="1"] {
+  content: url("../../assets/action.svg");
+  cursor: pointer;
+}
+label[for="2"] {
+  content: url("../../assets/sci-fi.svg");
+  cursor: pointer;
+}
+label[for="3"] {
+  content: url("../../assets/comedy.svg");
+  cursor: pointer;
+}
+label[for="4"] {
+  content: url("../../assets/thriller.svg");
+  cursor: pointer;
+}
+label[for="5"] {
+  content: url("../../assets/police-movie.svg");
+  cursor: pointer;
+}
+label[for="6"] {
+  content: url("../../assets/western.svg");
+  cursor: pointer;
+}
+label[for="7"] {
+  content: url("../../assets/horror.svg");
+  cursor: pointer;
+}
+label[for="8"] {
+  content: url("../../assets/child-movie.svg");
+  cursor: pointer;
+}
+label[for="9"] {
+  content: url("../../assets/romantic.svg");
+  cursor: pointer;
+}
+
+figure:hover {
+  color: #ff8200;
+  text-shadow: 1px 3px 30px whitesmoke;
+  text-decoration: underline;
+}
+
+.containerForm {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 4rem;
+  width: 100vw;
+  color: #daa622;
+  align-items: center;
+  justify-items: center;
+}
