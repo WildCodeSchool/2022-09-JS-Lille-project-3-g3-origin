@@ -1,4 +1,3 @@
-import "./favoris.scss";
 import SearchBar from "@components/SearchBar/SearchBar";
 import YouTube from "react-youtube";
 import { Navigation, Pagination, FreeMode } from "swiper";
@@ -11,6 +10,7 @@ import "swiper/css/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import NavBar from "../../components/NavBar/NavBar";
+import "./favoris.scss";
 
 export default function Favoris() {
   const [users, setUsers] = useState([]);
@@ -32,9 +32,9 @@ export default function Favoris() {
     <div className="favoris">
       {users.map((user) => {
         return (
-          <ul className="account_favoris" key={user.user_id}>
-            <li className="element_account_favoris">Bonjour {user.username}</li>
-            <li className="element_account_favoris">
+          <ul className="account-favoris" key={user.id}>
+            <li className="element-account-favoris">Bonjour {user.username}</li>
+            <li className="element-account-favoris">
               Accès : {user.premium === 1 ? "premium" : "freemium"}
             </li>
           </ul>
@@ -50,12 +50,25 @@ export default function Favoris() {
         }}
         navigation
         modules={[FreeMode, Pagination, Navigation]}
-        className="swiperFavoris"
+        className="favoris-swiper"
       >
         {videos.map((video) => {
           return (
-            <SwiperSlide className="favorisFilms" key={video.id}>
-              <YouTube videoId={video.url} />
+            <SwiperSlide className="favoris-films" key={video.id}>
+              <YouTube className="favoris-video" videoId={video.url} />
+              <ul>
+                <li className="details-video">{video.title}</li>
+                <li className="details-video">Résumé : {video.synopsis}</li>
+                <li className="details-video">
+                  Producteur(s): {video.producer}
+                </li>
+                <li className="details-video">Acteur(s) : {video.actor}</li>
+                <li className="details-video">Durée : {video.duration} min</li>
+                <li className="details-video">Genre : {video.label_genre}</li>
+                <li className="details-video">
+                  Catégorie : {video.label_category}
+                </li>
+              </ul>
             </SwiperSlide>
           );
         })}
