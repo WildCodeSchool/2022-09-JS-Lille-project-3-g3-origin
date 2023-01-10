@@ -1,10 +1,23 @@
 const models = require("../models");
 
 const browse = (req, res) => {
+  const categoryId = parseInt(req.query.category_id, 10) || null;
+  const needle = req.query.needle || null;
   models.video
     .findAll()
     .then(([rows]) => {
-      res.send(rows);
+      return rows
+        .filter((elt) => {
+          if (!categoryId) return true;
+          return elt.category_id === categoryId;
+        })
+        .filter((elt) => {
+          if (!needle) return true;
+          return elt.title.includes(needle);
+        });
+    })
+    .then((movies) => {
+      res.send(movies);
     })
     .catch((err) => {
       console.error(err);
