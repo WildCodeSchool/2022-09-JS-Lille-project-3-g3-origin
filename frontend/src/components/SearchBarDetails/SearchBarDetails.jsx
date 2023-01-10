@@ -4,8 +4,17 @@ import YouTube from "react-youtube";
 import "./SearchBarDetails.scss";
 
 export default function SearchBarDetails() {
+  const [filterVideos, setFilterVideos] = useState("");
   const [videos, setVideos] = useState([]);
   const [selectedRadio, setSelectedRadio] = useState("");
+  const resultSearch = (evt) => {
+    evt.preventDefault();
+    setFilterVideos(
+      axios.video.filter((videos) =>
+        videos.title.toLowerCase().includes(videos.toLowerCase())
+      )
+    );
+  };
 
   const radios = [
     {
@@ -44,11 +53,19 @@ export default function SearchBarDetails() {
       genre_id: 5,
       category_id: 25,
     },
+    {
+      name: "all",
+      id: 0,
+      genre_id: 5,
+      category_id: 0,
+    },
   ];
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/videos?category_id=${selectedRadio}`)
+      .get(
+        `http://localhost:5000/videos?category_id=${selectedRadio}&needle=${filterVideos}`
+      )
       .then(({ data }) => {
         setVideos(
           data.filter((video, id) => {
@@ -56,54 +73,55 @@ export default function SearchBarDetails() {
           })
         );
       });
-  }, [selectedRadio]);
+  }, [selectedRadio, filterVideos]);
 
   return (
     <>
-      <div className="search">
-        <input type="search" placeholder="Titre, genre ..." />
-      </div>
-      <div className="range">
-        <label>
-          Durée
-          <input type="range" id="duration" min="00:30:00" max="03:00:00" />
-        </label>
-      </div>
-      <div className="radio">
-        <label>
-          Films <input type="radio" id="duration" name="Films" />
-        </label>
-
-        <label>
-          Séries <input type="radio" id="duration" name="Serie" />
-        </label>
-      </div>
-      <div className="containerForm">
-        {radios.map((radio) => (
-          <figure>
-            <label htmlFor={radio.id}>
+      <div className="Background">
+        <h2>Recherche vidéos</h2>
+        <div className="search">
+          <form onSubmit={resultSearch}>
+            <label>
               <input
-                key={radio.id}
-                type="checkbox"
-                id={radio.id}
-                name={radio.name}
-                checked={radios === selectedRadio}
-                onChange={(e) => setSelectedRadio(e.target.value)}
-                value={radio.category_id}
+                type="search"
+                name="Recherche"
+                placeholder="Titre, genre ..."
+                id="idVideo"
+                value={filterVideos}
+                onChange={(evt) => {
+                  setFilterVideos(evt.target.value);
+                }}
               />
             </label>
+          </form>
+        </div>
+        <div className="containerForm">
+          {radios.map((radio) => (
+            <figure>
+              <label htmlFor={radio.id}>
+                <input
+                  key={radio.id}
+                  type="checkbox"
+                  id={radio.id}
+                  name={radio.name}
+                  checked={radios === selectedRadio}
+                  onChange={(e) => setSelectedRadio(e.target.value)}
+                  value={radio.category_id}
+                />
+              </label>
 
-            <figcaption>{radio.name}</figcaption>
-          </figure>
-        ))}
-        {videos.map((video) => {
-          return (
-            <div className="YoutubeHome" key={video.id}>
-              <YouTube videoId={video.url} />
-            </div>
-          );
-        })}
+              <figcaption>{radio.name}</figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
+      {videos.map((video) => {
+        return (
+          <div className="YoutubeHome" key={video.id}>
+            <YouTube videoId={video.url} />
+          </div>
+        );
+      })}
     </>
   );
 }
