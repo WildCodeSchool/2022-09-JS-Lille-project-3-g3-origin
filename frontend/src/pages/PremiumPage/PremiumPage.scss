@@ -1,0 +1,84 @@
+@use "../src/variables.scss";
+// import logo from "@assets/logo.png"
+* {
+  max-height: 100%;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      display: inline-block;
+      margin: 3vw;
+      width: 10vw;
+      height: 10vh;
+      // border: 2px red solid
+    }
+  }
+  .video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    aspect-ratio: 16/9;
+    top: 0%;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .goPremium {
+    display: flex;
+    justify-content: center;
+  }
+
+  .goPremium1 {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border-radius: 10rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.15rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: variables.$orange-color;
+      border-radius: 10rem;
+      z-index: -2;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: darken(variables.$red-color, 10%);
+      transition: all 0.3s;
+      border-radius: 10rem;
+      z-index: -1;
+    }
+    &:hover {
+      color: #fff;
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+  .presentation {
+    width: 70vw;
+    margin: auto;
+    color: variables.$orange-color;
+    padding: 2rem;
+  }
+}
