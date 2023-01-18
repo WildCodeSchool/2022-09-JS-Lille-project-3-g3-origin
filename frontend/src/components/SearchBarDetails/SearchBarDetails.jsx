@@ -10,7 +10,7 @@ export default function SearchBarDetails() {
   const resultSearch = (evt) => {
     evt.preventDefault();
     setFilterVideos(
-      axios.video.filter((videos) =>
+      axios.video.filter(() =>
         videos.title.toLowerCase().includes(videos.toLowerCase())
       )
     );

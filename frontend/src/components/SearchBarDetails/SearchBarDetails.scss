@@ -10,6 +10,15 @@ h2 {
   text-align: center;
 }
 
+#idVideo {
+  border-radius: 2.5rem;
+  width: 70vw;
+  height: 2.5rem;
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+  margin-top: 5vw;
+}
+
 .search {
   text-align: center;
 }
@@ -29,6 +38,12 @@ figure {
   width: 33%;
 }
 
+label[for="0"] {
+  content: url("../../assets/horror.svg");
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
 label[for="1"] {
   content: url("../../assets/comedy.svg");
   cursor: pointer;
@@ -55,7 +70,7 @@ label[for="6"] {
 }
 
 figure:hover {
-  color: #ff8200;
+  color: whitesmoke;
   text-shadow: 1px 3px 30px whitesmoke;
   text-decoration: underline;
 }
@@ -66,22 +81,22 @@ figure:hover {
   flex-wrap: wrap;
   padding-top: 4rem;
   width: 100vw;
-  color: #daa622;
+  color: #ff8200;
   align-items: center;
   justify-items: center;
 }
 
 .YoutubeHome {
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
   padding-top: 4rem;
-  height: 50vw;
-  width: 50vw;
+  height: 40vw;
 }
 
 .Background {
-  background: linear-gradient(#010d18aa, #010d18aa),
+  background: linear-gradient(#010d18, #010d18aa, #010d18),
     url("../../assets/wallpaper.jpg");
   background-size: cover;
   background-repeat: no-repeat;
