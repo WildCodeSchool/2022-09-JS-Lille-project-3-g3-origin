@@ -10,7 +10,6 @@ import Favoris from "./pages/Favoris/Favoris";
 
 function App() {
   return (
-    
     <UserInfosContext>
       <Router>
         <div className="App">
