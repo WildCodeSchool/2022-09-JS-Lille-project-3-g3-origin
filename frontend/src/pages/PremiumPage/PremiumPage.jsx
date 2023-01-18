@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import "./PremiumPage.scss";
 import Registration from "@components/Registration/Registration";
 import axios from "axios";
@@ -27,9 +26,8 @@ export default function PremiumPage() {
   return (
     <div className="premiumPage">
       <div className="header">
-        {" "}
         <img className="logo" src={logo} alt="logo" />
-        <Registration className="header" />{" "}
+        <Registration className="header" />
       </div>
 
       {videos.map((video) => {
@@ -64,6 +62,7 @@ export default function PremiumPage() {
       </div>
       <div className="goPremium">
         <button
+          type="button"
           value="Go Premium"
           className="goPremium1"
           onClick={togglePremiumSelected}
@@ -104,6 +103,7 @@ export default function PremiumPage() {
             </div>
             <div className="formGroup">
               <input
+                className="formGroup1"
                 type="submit"
                 value="Confirm"
                 onClick={(evt) => {
@@ -114,10 +114,6 @@ export default function PremiumPage() {
             </div>
           </form>
         </Modal>
-        <br />
-        <br />
-        <br />
-        <br />
       </div>
     </div>
   );

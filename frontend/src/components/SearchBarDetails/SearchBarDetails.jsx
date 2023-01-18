@@ -7,14 +7,6 @@ export default function SearchBarDetails() {
   const [filterVideos, setFilterVideos] = useState("");
   const [videos, setVideos] = useState([]);
   const [selectedRadio, setSelectedRadio] = useState("");
-  const resultSearch = (evt) => {
-    evt.preventDefault();
-    setFilterVideos(
-      axios.video.filter(() =>
-        videos.title.toLowerCase().includes(videos.toLowerCase())
-      )
-    );
-  };
 
   const radios = [
     {
@@ -80,7 +72,7 @@ export default function SearchBarDetails() {
       <div className="Background">
         <h2>Recherche vidéos</h2>
         <div className="search">
-          <form onSubmit={resultSearch}>
+          <form>
             <label>
               <input
                 type="search"
