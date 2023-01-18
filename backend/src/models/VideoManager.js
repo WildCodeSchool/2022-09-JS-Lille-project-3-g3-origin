@@ -42,9 +42,11 @@ class videoManager extends AbstractManager {
 
   videoFav(id) {
     return this.connection.query(
-      `SELECT ${this.table}.* FROM ${this.table}
+      `SELECT ${this.table}.*, genre.label as label_genre, category.label as label_category FROM ${this.table}
       inner JOIN favoris ON ${this.table}.id = favoris.video_id
       inner JOIN user ON user.id = favoris.user_id
+      inner JOIN genre ON ${this.table}.genre_id = genre.id
+      inner JOIN category ON ${this.table}.category_id = category.id
       WHERE user.id = ?`,
       [id]
     );
