@@ -44,6 +44,7 @@ export default function Home() {
         })}
       </Swiper>
       <h2>Films</h2>
+
       <Swiper
         slidesPerView={2}
         spaceBetween={8}
