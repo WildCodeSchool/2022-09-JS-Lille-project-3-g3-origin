@@ -1,13 +1,10 @@
 @use "../src/variables.scss";
 
 .favoris {
-  h1,
-  h2,
-  h3 {
-    color: variables.$white-color;
-    font-family: variables.$font-family;
-    font-weight: bold;
-  }
+  font-family: variables.$font-family;
+  font-weight: bold;
+  color: variables.$white-color;
+  height: 100vh;
   h1 {
     font-size: 2rem;
     text-align: center;
@@ -47,6 +44,26 @@
       height: 30vh;
       position: relative;
       top: 3vh;
+    }
+  }
+
+  .favorisFilms {
+    display: flex;
+    margin-top: 3%;
+  }
+  .account_favoris {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .element_account_favoris {
+    padding: 1rem;
+  }
+
+  @media (max-width: 850px) {
+    .favorisFilms {
+      height: 100vh;
+      width: 50%;
     }
   }
 }
