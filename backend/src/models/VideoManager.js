@@ -39,6 +39,16 @@ class videoManager extends AbstractManager {
       ]
     );
   }
+
+  videoFav(id) {
+    return this.connection.query(
+      `SELECT ${this.table}.* FROM ${this.table}
+      inner JOIN favoris ON ${this.table}.id = favoris.video_id
+      inner JOIN user ON user.id = favoris.user_id
+      WHERE user.id = ?`,
+      [id]
+    );
+  }
 }
 
 module.exports = videoManager;
