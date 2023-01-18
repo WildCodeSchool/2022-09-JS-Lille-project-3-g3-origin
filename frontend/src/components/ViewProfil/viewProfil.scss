@@ -1,11 +1,11 @@
 @use "../src/variables.scss";
 
 img.avatar {
-  width: 10vh;
+  width: 20vh;
   border-radius: 50%;
+  margin: auto;
   display: flex;
-  justify-content: right;
-  margin: 2rem 2rem;
+  box-shadow: -2px 2px 53px variables.$orange-color;
 }
 .viewProfil {
   color: variables.$white-color;
