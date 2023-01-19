@@ -1,4 +1,7 @@
 .App {
+  min-height: 100vh;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: rgb(1, 13, 24);
   background: linear-gradient(#010d18 0, #010d18aa 50vh, #010d18 100vh),
     url("../../frontend/src/assets/wallpaper.jpg");
   background-size: 100%;
