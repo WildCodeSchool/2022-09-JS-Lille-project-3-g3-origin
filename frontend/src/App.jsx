@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/profil" element={<Profil />} />
-          <Route path="favoris" element={<Favoris />} />
+          <Route path="/favoris" element={<Favoris />} />
         </Routes>
       </div>
     </Router>
