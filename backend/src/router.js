@@ -4,6 +4,7 @@ const router = express.Router();
 
 const videoControllers = require("./controllers/videoControllers");
 const userControllers = require("./controllers/userControllers");
+const favorisControllers = require("./controllers/favorisControllers");
 
 const auth = require("./controllers/auth");
 
@@ -26,6 +27,7 @@ router.delete("/videos/:id", videoControllers.destroy);
 
 router.put("/users/:id", userControllers.edit);
 router.put("/videos/:id", videoControllers.edit);
+router.put("favoris/:id", favorisControllers.edit);
 
 router.use(auth.verifyToken);
 
