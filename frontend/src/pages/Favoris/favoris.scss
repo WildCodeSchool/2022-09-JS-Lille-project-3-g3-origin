@@ -11,14 +11,14 @@
   justify-content: top;
   align-items: center;
 
-  h1 {
+  .favoris-title {
     font-size: 2rem;
     text-align: center;
     padding-top: 1rem;
     font-weight: bold;
   }
 
-  .account-favoris {
+  .favoris-account {
     margin-top: 1rem;
   }
   .favoris-video {
@@ -26,7 +26,7 @@
     justify-content: center;
     aspect-ratio: 16/9;
   }
-  .details-video {
+  .favoris-details-video {
     color: variables.$orange-color;
   }
 
@@ -35,12 +35,18 @@
       display: flex;
       flex-direction: column;
     }
-    .account-favoris {
+    .favoris-video {
+      & > iframe {
+        width: 80%;
+        height: 100%;
+      }
+    }
+    .favoris-account {
       display: flex;
       justify-content: center;
     }
-    .element-account-favoris,
-    .details-video {
+    .favoris-user,
+    .favoris-details-video {
       padding: 1rem;
       max-width: 80%;
       margin: auto;
@@ -50,23 +56,23 @@
       .swiper-button-next {
         color: variables.$red-color;
         position: absolute;
-        top: 20vh;
+        top: 50vh;
       }
 
       .swiper-button-prev {
         color: variables.$red-color;
         position: absolute;
-        top: 20vh;
+        top: 50vh;
       }
     }
   }
   @media (max-width: 850px) {
-    .details-video {
+    .favoris-details-video {
       margin: 1rem;
     }
     .favoris-video {
       & > iframe {
-        width: 100%;
+        width: 90%;
         height: 100%;
       }
     }
@@ -75,13 +81,15 @@
       .swiper-button-next {
         color: variables.$red-color;
         position: absolute;
-        top: 10vh;
+        top: 15vh;
+        right: -1vw;
       }
 
       .swiper-button-prev {
         color: variables.$red-color;
         position: absolute;
-        top: 10vh;
+        top: 15vh;
+        left: -1vw;
       }
     }
     .favoris-swipers {
