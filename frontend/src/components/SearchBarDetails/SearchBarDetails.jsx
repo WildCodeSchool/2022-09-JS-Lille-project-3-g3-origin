@@ -69,44 +69,51 @@ export default function SearchBarDetails() {
 
   return (
     <>
+
       <div className="Background">
         <h2>Recherche vidéos</h2>
         <div className="search">
           <form>
             <label>
+
+      <h2>Recherche vidéos</h2>
+      <div className="search">
+        <form onSubmit={resultSearch}>
+          <label>
+            <input
+              type="search"
+              name="Recherche"
+              placeholder="Titre, genre ..."
+              id="idVideo"
+              value={filterVideos}
+              onChange={(evt) => {
+                setFilterVideos(evt.target.value);
+              }}
+            />
+          </label>
+        </form>
+      </div>
+      <div className="containerForm">
+        {radios.map((radio) => (
+          <figure>
+            <label htmlFor={radio.id}>
+
               <input
-                type="search"
-                name="Recherche"
-                placeholder="Titre, genre ..."
-                id="idVideo"
-                value={filterVideos}
-                onChange={(evt) => {
-                  setFilterVideos(evt.target.value);
-                }}
+                key={radio.id}
+                type="checkbox"
+                id={radio.id}
+                name={radio.name}
+                checked={radios === selectedRadio}
+                onChange={(e) => setSelectedRadio(e.target.value)}
+                value={radio.category_id}
               />
             </label>
-          </form>
-        </div>
-        <div className="containerForm">
-          {radios.map((radio) => (
-            <figure>
-              <label htmlFor={radio.id}>
-                <input
-                  key={radio.id}
-                  type="checkbox"
-                  id={radio.id}
-                  name={radio.name}
-                  checked={radios === selectedRadio}
-                  onChange={(e) => setSelectedRadio(e.target.value)}
-                  value={radio.category_id}
-                />
-              </label>
 
-              <figcaption>{radio.name}</figcaption>
-            </figure>
-          ))}
-        </div>
+            <figcaption>{radio.name}</figcaption>
+          </figure>
+        ))}
       </div>
+
       {videos.map((video) => {
         return (
           <div className="YoutubeHome" key={video.id}>
