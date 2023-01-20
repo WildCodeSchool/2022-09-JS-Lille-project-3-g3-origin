@@ -12,11 +12,14 @@
   "dependencies": {
     "axios": "^1.2.1",
     "prop-types": "^15.8.1",
+    "props": "^0.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-icons": "^4.7.1",
     "react-router-dom": "^6.4.4",
     "react-youtube": "^10.1.0",
-    "swiper": "^8.4.5"
+    "swiper": "^8.4.5",
+    "template-fullstack": "file:.."
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
