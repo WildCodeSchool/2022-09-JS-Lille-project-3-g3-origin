@@ -23,6 +23,7 @@ class userManager extends AbstractManager {
   }
 
   update(user) {
+    // let sql = "update * from users";
     return this.connection.query(
       `update ${this.table} set username = ?, firstname = ?, lastname = ?, email = ?, city = ?, language = ?, address = ?, premium = ? where id = ?`,
       [

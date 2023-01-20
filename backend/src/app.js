@@ -2,6 +2,9 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
+const passport = require("passport");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
 const router = require("./router");
 
 const app = express();
@@ -15,6 +18,19 @@ app.use(
 );
 
 app.use(express.json());
+app.use(cookieParser());
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true },
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+require("./services/passport");
 
 // Serve the public folder for public resources
 app.use(express.static(path.join(__dirname, "../public")));

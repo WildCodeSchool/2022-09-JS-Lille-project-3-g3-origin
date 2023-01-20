@@ -36,6 +36,18 @@ const read = (req, res) => {
 
 const edit = (req, res) => {
   const user = req.body;
+  // console.log([...user]);
+  // const userReq = [...user];
+
+  // if (user.firstname !== undefined) {
+  //   userReq.push("firstname");
+  // } else if (user.address !== undefined) {
+  //   userReq.push("address");
+  // } else if (user.city !== undefined) {
+  //   userReq.push("city");
+  // } else if (user.language !== undefined) {
+  //   userReq.push("language");
+  // }
 
   // TODO validations (length, format...)
 
@@ -47,6 +59,7 @@ const edit = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
+        delete user.hashedPassword;
         res.status(200).send(user);
       }
     })

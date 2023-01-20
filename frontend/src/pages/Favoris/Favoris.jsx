@@ -1,7 +1,12 @@
 import SearchBar from "@components/SearchBar/SearchBar";
 import YouTube from "react-youtube";
+import "./favoris.scss";
 import { Navigation, Pagination, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useContext } from "react";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import NavBar from "../../components/NavBar/NavBar";
+import UserContext from "../../contexts/UserContext";
 /* eslint-disable import/no-unresolved */
 import "swiper/css";
 import "swiper/css/pagination";
@@ -13,20 +18,10 @@ import NavBar from "../../components/NavBar/NavBar";
 import "./favoris.scss";
 
 export default function Favoris() {
-  const [users, setUsers] = useState([]);
-  const [videos, setVideos] = useState([]);
+  const { currentUser, isAuthenticated } = useContext(UserContext);
 
-  useEffect(() => {
-    axios.get("http://localhost:5000/users/1").then(({ data }) => {
-      setUsers([data]);
-    });
-  }, []);
-
-  useEffect(() => {
-    axios.get("http://localhost:5000/favoris/1").then(({ data }) => {
-      setVideos(data);
-    });
-  }, []);
+  // console.log(currentUser);
+  // console.log(isAuthenticated);
 
   return (
     <div className="favoris">

@@ -5,28 +5,14 @@ import "./viewProfil.scss";
 import UserContext from "../../contexts/UserContext";
 
 export default function ViewProfil() {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser, hEditFormSubmit, userProfil, setUserProfil } =
+    useContext(UserContext);
 
-  const [userProfil, setUserProfil] = useState(currentUser);
-
-  useEffect(() => {
-    setUserProfil(currentUser);
-  }, [currentUser]);
+  const { token } = currentUser;
 
   const hFormChange = (evt) =>
     setUserProfil({ ...userProfil, [evt.target.name]: evt.target.value });
-
-  const hEditFormSubmit = (evt) => {
-    evt.preventDefault();
-    axios
-      .put(`http://localhost:5000/users/${currentUser.id}`, userProfil)
-      .then(({ data }) => {
-        setCurrentUser(data);
-      })
-      .catch((err) => {
-        console.error("Error editing the user", err);
-      });
-  };
+  console.log(userProfil);
 
   return (
     <form className="blocProfil" onSubmit={hEditFormSubmit}>
