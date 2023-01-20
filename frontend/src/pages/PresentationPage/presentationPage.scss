@@ -1,0 +1,179 @@
+body {
+  width: 100vw;
+  height: 100vh;
+}
+@keyframes slideIn {
+  from {
+    transform: translate(-200px, 0px);
+  }
+}
+@keyframes slideInRight {
+  from {
+    transform: translate(200px, 0px);
+  }
+}
+.presentationPage {
+  padding-left: 5%;
+  display: flex;
+  align-items: center;
+  gap: 5%;
+  background-image: url(../../assets/BackgroundLoginBis.jpg);
+}
+.imagePresentationPage {
+  display: flex;
+  flex-flow: column;
+  animation-name: slideInRight;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+
+  img {
+    width: 40vw;
+    height: 50vh;
+    border-radius: 25%;
+    padding: 2%;
+    cursor: url("../../assets/popcorn.png"), auto;
+  }
+}
+
+.textPresentationPage {
+  color: white;
+  background-color: rgb(2, 29, 53);
+  left: 5%;
+  top: 15%;
+  font-size: 23px;
+  width: 25vw;
+  padding: 5%;
+  text-align: center;
+  border-radius: 5%;
+  animation-name: slideIn;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+}
+
+.logoPresentationPage {
+  height: 10vh;
+  margin: 0;
+}
+
+.backgroundSampleHome {
+  width: 40vw;
+  height: 40vh;
+}
+
+.presentationOfPremium {
+  padding-right: 5%;
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: center;
+  gap: 5%;
+  height: 100vh;
+  border-top: solid 2px orange;
+  border-bottom: solid 2px orange;
+}
+
+.textOfPremium {
+  color: white;
+  background-color: rgb(2, 29, 53);
+  left: 5%;
+  top: 15%;
+  font-size: 23px;
+  width: 35vw;
+  padding: 5%;
+  text-align: center;
+  border-radius: 5%;
+  border: solid 1px orange;
+}
+
+.presentationOfProfile {
+  padding-left: 5%;
+  display: flex;
+  align-items: center;
+  gap: 5%;
+  height: 100vh;
+}
+
+.textOfProfile {
+  color: white;
+  background-color: rgb(2, 29, 53);
+  left: 5%;
+  top: 15%;
+  font-size: 23px;
+  width: 35vw;
+  padding: 5%;
+  text-align: center;
+  border-radius: 5%;
+  border: solid 1px orange;
+}
+
+.outsideMovie {
+  width: 40vw;
+  height: 50vh;
+  border-radius: 15%;
+}
+
+.typeWriterPresentation {
+  color: white;
+  background-color: rgb(2, 29, 53);
+  left: 5%;
+  top: 15%;
+  font-size: 23px;
+  width: 35vw;
+  padding: 5%;
+  text-align: center;
+  border-radius: 5%;
+  border: solid 1px orange;
+}
+
+@media screen and (max-width: 700px) {
+  .presentationPage {
+    display: flex;
+    flex-flow: column;
+    padding-left: 0;
+  }
+
+  .textPresentationPage {
+    width: 80vw;
+  }
+  .imagePresentationPage {
+    display: flex;
+    flex-flow: column;
+
+    img {
+      width: 70vw;
+      height: 30vh;
+      border-radius: 25%;
+      padding: 2%;
+    }
+  }
+  .presentationOfPremium {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding-top: 2%;
+    padding-right: 0;
+  }
+  .backgroundSampleHome {
+    width: 80vw;
+    height: 40vh;
+  }
+
+  .textOfPremium {
+    width: 80vw;
+  }
+
+  .presentationOfProfile {
+    display: flex;
+    flex-flow: column;
+    padding-left: 0;
+    padding-top: 2%;
+    height: 100vh;
+  }
+
+  .textOfProfile {
+    width: 80vw;
+  }
+  .friendMovie {
+    width: 55vw;
+    height: 40vh;
+  }
+}
