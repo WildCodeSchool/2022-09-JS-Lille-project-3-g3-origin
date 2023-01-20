@@ -2,68 +2,101 @@
 
 .favoris {
   font-family: variables.$font-family;
-  font-weight: bold;
-  color: variables.$white-color;
-  height: 100vh;
+  color: variables.$orange-color;
+  min-height: 100vh;
+  width: auto;
+  margin: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+
   h1 {
     font-size: 2rem;
     text-align: center;
     padding-top: 1rem;
-  }
-  h2,
-  h3 {
-    color: variables.$white-color;
-    font-size: 1.2rem;
     font-weight: bold;
-    border: 0.1rem solid variables.$white-color;
-    width: fit-content;
-    padding: 0.5rem 1.5rem;
-    margin-top: 6vh;
-    position: relative;
-    left: 7vw;
   }
 
-  .swiperFavoris {
-    width: 95vw;
-    .swiper-button-next {
-      color: variables.$red-color;
-      position: absolute;
-      right: -0.7vw;
-      top: 17vh;
-    }
-
-    .swiper-button-prev {
-      color: variables.$red-color;
-      position: absolute;
-      left: -0.7vw;
-      top: 17vh;
-    }
-    img {
-      width: 100%;
-      object-fit: scale-down;
-      height: 30vh;
-      position: relative;
-      top: 3vh;
-    }
+  .account-favoris {
+    margin-top: 1rem;
   }
-
-  .favorisFilms {
+  .favoris-video {
     display: flex;
-    margin-top: 3%;
-  }
-  .account_favoris {
-    display: flex;
-    flex-direction: row;
     justify-content: center;
+    aspect-ratio: 16/9;
   }
-  .element_account_favoris {
-    padding: 1rem;
+  .details-video {
+    color: variables.$orange-color;
   }
 
+  @media (min-width: 851px) {
+    .favoris-films {
+      display: flex;
+      flex-direction: column;
+    }
+    .account-favoris {
+      display: flex;
+      justify-content: center;
+    }
+    .element-account-favoris,
+    .details-video {
+      padding: 1rem;
+      max-width: 80%;
+      margin: auto;
+    }
+    .favoris-swiper {
+      width: 80vw;
+      .swiper-button-next {
+        color: variables.$red-color;
+        position: absolute;
+        top: 20vh;
+      }
+
+      .swiper-button-prev {
+        color: variables.$red-color;
+        position: absolute;
+        top: 20vh;
+      }
+    }
+  }
   @media (max-width: 850px) {
-    .favorisFilms {
-      height: 100vh;
-      width: 50%;
+    .details-video {
+      margin: 1rem;
+    }
+    .favoris-video {
+      & > iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .favoris-swiper {
+      width: 80vw;
+      .swiper-button-next {
+        color: variables.$red-color;
+        position: absolute;
+        top: 10vh;
+      }
+
+      .swiper-button-prev {
+        color: variables.$red-color;
+        position: absolute;
+        top: 10vh;
+      }
+    }
+    .favoris-swipers {
+      width: 80vw;
+      .swiper-button-next {
+        color: variables.$red-color;
+        position: absolute;
+        top: 15vh;
+      }
+
+      .swiper-button-prev {
+        color: variables.$red-color;
+        position: absolute;
+        top: 15vh;
+      }
     }
   }
 }

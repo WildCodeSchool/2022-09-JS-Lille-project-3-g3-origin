@@ -1,6 +1,7 @@
 import "./reset.scss";
 import "./App.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PremiumPage from "@pages/PremiumPage/PremiumPage";
 import { UserInfosContext } from "./contexts/UserContext";
 import Home from "./pages/Home/Home";
 import Search from "./pages/Search/Search";
@@ -15,6 +16,7 @@ function App() {
         <div className="App">
           <Routes>
             <Route path="/" element={<PresentationPage />} />
+            <Route path="/premium" element={<PremiumPage />} />
             <Route path="/home" element={<Home />} />
             <Route path="/search" element={<Search />} />
             <Route path="/profil" element={<Profil />} />
