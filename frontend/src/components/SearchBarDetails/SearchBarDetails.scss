@@ -1,50 +1,99 @@
-div {
-  color: white;
-  .search {
-    text-align: center;
-  }
-  .categories {
-    list-style: none;
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap");
 
-    .scrolling {
-      .underScrolling {
-        overflow: hidden;
-        height: 5rem;
-        overflow: scroll;
-        border-radius: 2px;
-        margin-left: 2%;
-      }
-    }
-  }
-  h2 {
-    color: #ff8200;
-    text-align: center;
-    font-size: 2rem;
-    margin: 2%;
-  }
-  img {
-    width: 100%;
-    object-fit: scale-down;
-    height: 30vh;
-    margin: 1.5%;
-  }
-  .affiche {
-    margin: 2%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 3px;
-  }
-  @media screen and (min-width: 1300px) {
-    * {
-      img {
-        display: grid;
-      }
-      .affiche {
-        display: grid;
-        grid-template-columns: max-content max-content max-content max-content max-content;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-      }
-    }
-  }
+h2 {
+  width: auto;
+  margin-bottom: 0px;
+  font-family: "Red Hat Display", sans-serif;
+  color: #ff8200;
+  font-size: 44px;
+  font-weight: 800;
+  text-align: center;
+}
+
+#idVideo {
+  border-radius: 2.5rem;
+  width: 70vw;
+  height: 2.5rem;
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+  margin-top: 5vw;
+}
+
+.search {
+  text-align: center;
+}
+
+figcaption {
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+  font-family: "Red Hat Display", sans-serif;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+}
+
+label[for="0"] {
+  content: url("../../assets/horror.svg");
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+label[for="1"] {
+  content: url("../../assets/comedy.svg");
+  cursor: pointer;
+}
+label[for="2"] {
+  content: url("../../assets/sci-fi.svg");
+  cursor: pointer;
+}
+label[for="3"] {
+  content: url("../../assets/action.svg");
+  cursor: pointer;
+}
+label[for="4"] {
+  content: url("../../assets/western.svg");
+  cursor: pointer;
+}
+label[for="5"] {
+  content: url("../../assets/police-movie.svg");
+  cursor: pointer;
+}
+label[for="6"] {
+  content: url("../../assets/child-movie.svg");
+  cursor: pointer;
+}
+label[for="7"] {
+  content: url("../../assets/thriller.svg");
+  cursor: pointer;
+}
+figure:hover {
+  color: whitesmoke;
+  text-shadow: 1px 3px 30px whitesmoke;
+  text-decoration: underline;
+}
+
+.containerForm {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 4rem;
+  width: 100vw;
+  color: #ff8200;
+  align-items: center;
+  justify-items: center;
+}
+
+.YoutubeHome {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4rem;
+  height: 40vw;
 }
