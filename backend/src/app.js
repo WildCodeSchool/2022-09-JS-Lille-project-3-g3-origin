@@ -4,11 +4,12 @@ const path = require("path");
 const cors = require("cors");
 const passport = require("passport");
 const session = require("express-session");
-const cookieParser = require("cookie-parser");
 const router = require("./router");
+require("./services/passport");
 
 const app = express();
 
+app.use(passport.initialize());
 // use some application-level middlewares
 app.use(
   cors({
@@ -18,7 +19,7 @@ app.use(
 );
 
 app.use(express.json());
-app.use(cookieParser());
+
 app.use(
   session({
     secret: "keyboard cat",
@@ -28,9 +29,7 @@ app.use(
   })
 );
 
-app.use(passport.initialize());
 app.use(passport.session());
-require("./services/passport");
 
 // Serve the public folder for public resources
 app.use(express.static(path.join(__dirname, "../public")));
