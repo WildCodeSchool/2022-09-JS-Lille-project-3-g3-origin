@@ -7,22 +7,30 @@ export default function SearchBarDetails() {
   const [filterVideos, setFilterVideos] = useState("");
   const [videos, setVideos] = useState([]);
   const [selectedRadio, setSelectedRadio] = useState("");
+  const resultSearch = (evt) => {
+    evt.preventDefault();
+    setFilterVideos(
+      axios.video.filter(() =>
+        videos.title.toLowerCase().includes(videos.toLowerCase())
+      )
+    );
+  };
 
   const radios = [
     {
-      name: "Comédie",
+      name: "Comedy",
       id: 1,
       genre_id: 5,
       category_id: 14,
     },
     {
-      name: "Science Fiction",
+      name: "Sci Fi",
       id: 2,
       genre_id: 5,
       category_id: 16,
     },
     {
-      name: "Aventure",
+      name: "Adventure",
       id: 3,
       genre_id: 6,
       category_id: 18,
@@ -34,7 +42,7 @@ export default function SearchBarDetails() {
       category_id: 22,
     },
     {
-      name: "Histoire",
+      name: "History",
       id: 5,
       genre_id: 6,
       category_id: 24,
@@ -46,7 +54,14 @@ export default function SearchBarDetails() {
       category_id: 25,
     },
     {
-      name: "all",
+      name: "Spy",
+      id: 7,
+      genre_id: 5,
+      category_id: 26,
+    },
+
+    {
+      name: "All",
       id: 0,
       genre_id: 5,
       category_id: 0,
@@ -69,13 +84,6 @@ export default function SearchBarDetails() {
 
   return (
     <>
-
-      <div className="Background">
-        <h2>Recherche vidéos</h2>
-        <div className="search">
-          <form>
-            <label>
-
       <h2>Recherche vidéos</h2>
       <div className="search">
         <form onSubmit={resultSearch}>
@@ -97,7 +105,6 @@ export default function SearchBarDetails() {
         {radios.map((radio) => (
           <figure>
             <label htmlFor={radio.id}>
-
               <input
                 key={radio.id}
                 type="checkbox"

@@ -1,14 +1,13 @@
 @use "../src/variables.scss";
-* {
+.premiumPage {
   max-height: 100%;
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     .logo {
-      display: inline-block;
+      display: flex;
       margin: 3vw;
-      width: 10vw;
       height: 10vh;
     }
   }

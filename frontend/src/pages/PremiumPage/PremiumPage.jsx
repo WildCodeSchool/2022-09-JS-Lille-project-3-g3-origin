@@ -35,7 +35,7 @@ export default function PremiumPage() {
       })}
 
       <div className="presentation">
-        <h2> Presentation</h2>
+        <h2> Présentation</h2>
         <p>
           Bienvenue sur notre site <span>Origin's Digital</span> ! Nous sommes
           ravis de vous accueillir sur notre plateforme de diffusion en ligne.
