@@ -28,7 +28,7 @@ const read = (req, res) => {
     });
 };
 
-const edit = (req, res) => {
+const edit = (req, res, next) => {
   const favoris = req.body;
 
   // TODO validations (length, format...)
@@ -39,7 +39,7 @@ const edit = (req, res) => {
     .update(favoris)
     .then(([result]) => {
       if (result.affectedRows === 0) {
-        res.sendStatus(404);
+        next();
       } else {
         res.sendStatus(204);
       }

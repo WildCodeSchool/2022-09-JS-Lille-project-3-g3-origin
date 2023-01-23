@@ -27,7 +27,7 @@ router.delete("/videos/:id", videoControllers.destroy);
 
 router.put("/users/:id", userControllers.edit);
 router.put("/videos/:id", videoControllers.edit);
-router.put("favoris/:id", favorisControllers.edit);
+router.put("/favoris/:id", favorisControllers.edit, favorisControllers.destroy);
 
 router.use(auth.verifyToken);
 

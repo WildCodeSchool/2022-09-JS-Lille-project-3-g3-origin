@@ -1,4 +1,3 @@
-import SearchBar from "@components/SearchBar/SearchBar";
 import YouTube from "react-youtube";
 import { Navigation, Pagination, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,13 +17,13 @@ export default function Favoris() {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/users/1`).then(({ data }) => {
+    axios.get(`http://localhost:5000/users/6`).then(({ data }) => {
       setusers(data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/favoris/1").then(({ data }) => {
+    axios.get("http://localhost:5000/favoris/6").then(({ data }) => {
       setVideos(data);
     });
   }, []);
@@ -38,7 +37,6 @@ export default function Favoris() {
       </ul>
 
       <h1 className="favoris-title">Vos favoris</h1>
-      <SearchBar />
       <Swiper
         slidesPerView={1}
         spaceBetween={8}

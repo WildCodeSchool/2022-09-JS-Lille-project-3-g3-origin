@@ -7,14 +7,14 @@ import "./buttonLike.scss";
 function ButtonLike({ usersId, videosId }) {
   const [liked, setLiked] = useState(false);
   const [button, setButton] = useState({
-    user_id: { usersId },
     videos_id: { videosId },
+    user_id: { usersId },
   });
 
   function handleClick() {
     setLiked(!liked);
     setButton();
-    axios.put(`${import.meta.env.VITE_BACKEND_URL}/favoris`, button);
+    axios.put(`${import.meta.env.VITE_BACKEND_URL}/favoris/6`, button);
   }
 
   return (
@@ -27,6 +27,6 @@ function ButtonLike({ usersId, videosId }) {
 export default ButtonLike;
 
 ButtonLike.propTypes = {
-  usersId: PropTypes.string.isRequired,
   videosId: PropTypes.string.isRequired,
+  usersId: PropTypes.string.isRequired,
 };
