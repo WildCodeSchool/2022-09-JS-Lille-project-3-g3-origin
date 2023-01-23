@@ -1,4 +1,3 @@
-import "./swiperHome.scss";
 import YouTube from "react-youtube";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -8,6 +7,8 @@ import { Navigation, Pagination, Mousewheel, Keyboard, FreeMode } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+/* eslint-enable import/no-unresolved */
+import "./swiperHome.scss";
 
 export default function SwiperHome() {
   const [videos, setVideos] = useState([]);
