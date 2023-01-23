@@ -1,16 +1,15 @@
 import "./presentationPage.scss";
 import Typewriter from "typewriter-effect";
 import Registration from "../../components/Registration/Registration";
-import BackgroundTwo from "../../assets/BackgroundLogin.png";
+import chart from "../../assets/chart.jpg";
 import outsideMovie from "../../assets/outsideMovie.png";
-import countdown from "../../assets/countdown.gif";
 import Logo from "../../assets/logo.png";
+import popcorn from "../../assets/popcorn.svg";
 import ScrollTopButton from "../../components/ScrollTopButton/ScrollTopButton";
 
 export default function PresentationPage() {
   return (
     <div className="LoginPage">
-      <img className="logoPresentationPage" src={Logo} alt="logo" />
       <div className="presentationPage">
         <div className="textPresentationPage">
           <h2>Bienvenue sur Origins Digital ! </h2>
@@ -36,7 +35,7 @@ export default function PresentationPage() {
           <Registration />
         </div>
         <div className="imagePresentationPage">
-          <img className="countdown" src={countdown} alt="countdown " />
+          <img className="logoPresentationPage" src={Logo} alt="logo" />
           <div className="typeWriterPresentation">
             <Typewriter
               options={{
@@ -50,6 +49,7 @@ export default function PresentationPage() {
               }}
             />
           </div>
+          <img className="popcorn" src={popcorn} alt="popcorn" />
         </div>
       </div>
       <div className="presentationOfPremium">
@@ -65,11 +65,7 @@ export default function PresentationPage() {
           <h3>Voici un exemple &#10132;</h3>
           <br />
         </div>
-        <img
-          className="backgroundSampleHome"
-          src={BackgroundTwo}
-          alt="Background"
-        />
+        <img className="backgroundSampleHome" src={chart} alt="Background" />
       </div>
       <div className="presentationOfProfile">
         <div className="textOfProfile">

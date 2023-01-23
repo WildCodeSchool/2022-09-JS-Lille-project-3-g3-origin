@@ -17,7 +17,7 @@ body {
   display: flex;
   align-items: center;
   gap: 5%;
-  background-image: url(../../assets/BackgroundLoginBis.jpg);
+  background: url("../../frontend/src/assets/wallpaper.jpg");
 }
 .imagePresentationPage {
   display: flex;
@@ -28,11 +28,13 @@ body {
 
   img {
     width: 40vw;
-    height: 50vh;
+    height: 40vh;
     border-radius: 25%;
-    padding: 2%;
-    cursor: url("../../assets/popcorn.png"), auto;
   }
+}
+
+.popcorn {
+  padding-top: 2%;
 }
 
 .textPresentationPage {
@@ -50,14 +52,9 @@ body {
   animation-iteration-count: 1;
 }
 
-.logoPresentationPage {
-  height: 10vh;
-  margin: 0;
-}
-
 .backgroundSampleHome {
-  width: 40vw;
-  height: 40vh;
+  width: 50vw;
+  height: 50vh;
 }
 
 .presentationOfPremium {
@@ -124,7 +121,7 @@ body {
   border: solid 1px orange;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 850px) {
   .presentationPage {
     display: flex;
     flex-flow: column;
@@ -152,10 +149,6 @@ body {
     padding-top: 2%;
     padding-right: 0;
   }
-  .backgroundSampleHome {
-    width: 80vw;
-    height: 40vh;
-  }
 
   .textOfPremium {
     width: 80vw;
@@ -172,8 +165,12 @@ body {
   .textOfProfile {
     width: 80vw;
   }
-  .friendMovie {
+  .outsideMovie {
     width: 55vw;
     height: 40vh;
+  }
+
+  .typeWriterPresentation {
+    width: 60vw;
   }
 }
