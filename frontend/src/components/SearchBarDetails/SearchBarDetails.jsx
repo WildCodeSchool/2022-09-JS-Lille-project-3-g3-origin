@@ -18,19 +18,19 @@ export default function SearchBarDetails() {
 
   const radios = [
     {
-      name: "Comédie",
+      name: "Comedy",
       id: 1,
       genre_id: 5,
       category_id: 14,
     },
     {
-      name: "Science Fiction",
+      name: "Sci Fi",
       id: 2,
       genre_id: 5,
       category_id: 16,
     },
     {
-      name: "Aventure",
+      name: "Adventure",
       id: 3,
       genre_id: 6,
       category_id: 18,
@@ -42,7 +42,7 @@ export default function SearchBarDetails() {
       category_id: 22,
     },
     {
-      name: "Histoire",
+      name: "History",
       id: 5,
       genre_id: 6,
       category_id: 24,
@@ -54,7 +54,14 @@ export default function SearchBarDetails() {
       category_id: 25,
     },
     {
-      name: "all",
+      name: "Spy",
+      id: 7,
+      genre_id: 5,
+      category_id: 26,
+    },
+
+    {
+      name: "All",
       id: 0,
       genre_id: 5,
       category_id: 0,
