@@ -7,6 +7,7 @@ import Home from "./pages/Home/Home";
 import Search from "./pages/Search/Search";
 import Profil from "./pages/Profil/Profil";
 import Favoris from "./pages/Favoris/Favoris";
+import PresentationPage from "./pages/PresentationPage/PresentationPage";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <Router>
         <div className="App">
           <Routes>
-            <Route path="/" element={<PremiumPage />} />
+            <Route path="/" element={<PresentationPage />} />
+            <Route path="/premium" element={<PremiumPage />} />
             <Route path="/home" element={<Home />} />
             <Route path="/search" element={<Search />} />
             <Route path="/profil" element={<Profil />} />

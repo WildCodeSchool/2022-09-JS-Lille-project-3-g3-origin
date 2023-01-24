@@ -19,7 +19,8 @@
     "react-router-dom": "^6.4.4",
     "react-youtube": "^10.1.0",
     "swiper": "^8.4.5",
-    "template-fullstack": "file:.."
+    "template-fullstack": "file:..",
+    "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
