@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState, useContext, useEffect } from "react";
-import ButtonEditProfil from "@components/ButtonProfil/ButtonEditProfil";
 import avatar1 from "@assets/avatar1.jpg";
 import "./viewProfil.scss";
 import UserContext from "../../contexts/UserContext";
