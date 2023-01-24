@@ -91,9 +91,11 @@ figure:hover {
 
 .YoutubeHome {
   display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  padding-top: 4rem;
-  height: 40vw;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 5vw;
+}
+
+.YoutubeVideo {
+  margin: 3vw;
 }
