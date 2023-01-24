@@ -29,13 +29,6 @@ export default function ViewProfil() {
       });
   };
 
-  // fonction pour avatar
-  // const [isChecked, setIsChecked] = useState(false);
-
-  const [active, setActive] = useState(true);
-  const handleChange = () => {
-    setActive(!active);
-  };
   return (
     <form className="blocProfil" onSubmit={hEditFormSubmit}>
       <header>
@@ -56,7 +49,7 @@ export default function ViewProfil() {
           Prénom
           <input
             type="text"
-            name="lastname"
+            name="firstname"
             value={userProfil.lastname}
             onChange={hFormChange}
           />
@@ -65,7 +58,7 @@ export default function ViewProfil() {
           Nom
           <input
             type="text"
-            name="email"
+            name="nom"
             value={userProfil.firstname}
             onChange={hFormChange}
           />
@@ -74,7 +67,7 @@ export default function ViewProfil() {
           Adresse
           <input
             type="text"
-            name="email"
+            name="adresse"
             value={userProfil.address}
             onChange={hFormChange}
           />
@@ -83,7 +76,7 @@ export default function ViewProfil() {
           Ville
           <input
             type="text"
-            name="email"
+            name="ville"
             value={userProfil.city}
             onChange={hFormChange}
           />
@@ -99,7 +92,7 @@ export default function ViewProfil() {
           />
         </p>
       </div>
-      <ButtonEditProfil />
+      <input className="boutonValid" type="submit" value="Enregistrer" />
     </form>
   );
 }

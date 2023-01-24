@@ -27,8 +27,6 @@
   }
   .inputProf {
     width: auto;
-    //   display: flex;
-    //   flex-direction: column;
     margin: auto;
     padding: 1vw;
     font-size: 1.2rem;
@@ -41,16 +39,21 @@
     width: 60vw;
     font-family: variables.$font-family;
     padding: 3vh;
-    // font-size: 1.2rem;
-    // border-radius: 15px;
     color: variables.$orange-color;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // box-shadow: -2px 4px 5px variables.$orange-color;
   }
   input {
     border-radius: 50px;
+  }
+  .boutonValid {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 40%;
+    margin-top: 5vh;
+    background-color: variables.$orange-color;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    padding: 3px;
   }
 }
 @media (min-width: 800px) {
@@ -63,6 +66,10 @@
     padding-bottom: 15vh;
     .viewProfil {
       width: 50vw;
+    }
+    .boutonValid {
+      width: 20vw;
+      margin-bottom: 10vh;
     }
   }
 }
