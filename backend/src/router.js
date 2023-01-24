@@ -8,6 +8,7 @@ const userControllers = require("./controllers/userControllers");
 const auth = require("./controllers/auth");
 
 router.get("/videos", videoControllers.browse);
+router.get("/videosfilter", videoControllers.filterAllVideo);
 router.get("/videos/:id", videoControllers.read);
 router.get("/users", userControllers.browse);
 router.get("/users/:id", userControllers.read);
