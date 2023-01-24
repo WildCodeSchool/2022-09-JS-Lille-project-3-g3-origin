@@ -1,23 +1,68 @@
 @use "../src/variables.scss";
 
-img.avatar {
-  width: 20vh;
-  border-radius: 50%;
-  margin: auto;
-  display: flex;
-  box-shadow: -2px 2px 53px variables.$orange-color;
-}
-.viewProfil {
-  color: variables.$white-color;
-  margin: 1rem;
-  font-family: variables.$font-family;
-  padding: 1rem;
-  font-size: 1.5rem;
-  border-radius: 1rem;
-  border: 1px solid #b9b9b9;
-  background-color: #b9b9b9;
-  display: flex;
-}
 .blocProfil {
-  margin-bottom: 5rem;
+  height: 120vh;
+  input {
+    border-radius: 50px;
+  }
+  header {
+    color: variables.$orange-color;
+    text-align: center;
+    font-family: variables.$font-family;
+
+    h1 {
+      padding: 1vw;
+      font-size: 2rem;
+    }
+  }
+
+  img.avatar {
+    width: 20vh;
+    border-radius: 50%;
+    display: flex;
+    margin: auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    box-shadow: -2px 2px 50px variables.$orange-color;
+  }
+  .inputProf {
+    width: auto;
+    //   display: flex;
+    //   flex-direction: column;
+    margin: auto;
+    padding: 1vw;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    border: variables.$orange-color 3px solid;
+  }
+  .viewProfil {
+    color: variables.$white-color;
+    margin: auto;
+    width: 60vw;
+    font-family: variables.$font-family;
+    padding: 3vh;
+    // font-size: 1.2rem;
+    // border-radius: 15px;
+    color: variables.$orange-color;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // box-shadow: -2px 4px 5px variables.$orange-color;
+  }
+  input {
+    border-radius: 50px;
+  }
+}
+@media (min-width: 800px) {
+  .blocProfil {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    padding-bottom: 15vh;
+    .viewProfil {
+      width: 50vw;
+    }
+  }
 }

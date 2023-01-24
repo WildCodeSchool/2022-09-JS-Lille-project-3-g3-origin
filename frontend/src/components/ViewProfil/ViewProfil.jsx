@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useContext, useEffect } from "react";
-import avatar1 from "../../assets/avatar1.jpg";
+import ButtonEditProfil from "@components/ButtonProfil/ButtonEditProfil";
+import avatar1 from "@assets/avatar1.jpg";
 import "./viewProfil.scss";
 import UserContext from "../../contexts/UserContext";
 
@@ -28,43 +29,77 @@ export default function ViewProfil() {
       });
   };
 
+  // fonction pour avatar
+  // const [isChecked, setIsChecked] = useState(false);
+
+  const [active, setActive] = useState(true);
+  const handleChange = () => {
+    setActive(!active);
+  };
   return (
     <form className="blocProfil" onSubmit={hEditFormSubmit}>
-      <img className="avatar" src={avatar1} alt="avatar profil" />
-      <p className="viewProfil">
-        USERNAME:
-        <input
-          type="text"
-          name="username"
-          value={userProfil.username}
-          onChange={hFormChange}
-        />
-      </p>
-      <p className="viewProfil">
-        LASTNAME:
-        <input
-          type="text"
-          name="lastname"
-          value={userProfil.lastname}
-          onChange={hFormChange}
-        />
-      </p>
-      <p className="viewProfil">
-        EMAIL:
-        <input
-          type="text"
-          name="email"
-          value={userProfil.email}
-          onChange={hFormChange}
-        />
-      </p>
-      <input
-        type="button"
-        name="edit-button"
-        id="edit-button"
-        onClick={hEditFormSubmit}
-        value="Edit Profil"
-      />
+      <header>
+        <h1>Username</h1>
+        <img className="avatar" src={avatar1} alt="avatar profil" />
+      </header>
+      <div className="inputProf">
+        <p className="viewProfil">
+          Pseudo
+          <input
+            type="text"
+            name="username"
+            value={userProfil.username}
+            onChange={hFormChange}
+          />
+        </p>
+        <p className="viewProfil">
+          Prénom
+          <input
+            type="text"
+            name="lastname"
+            value={userProfil.lastname}
+            onChange={hFormChange}
+          />
+        </p>
+        <p className="viewProfil">
+          Nom
+          <input
+            type="text"
+            name="email"
+            value={userProfil.firstname}
+            onChange={hFormChange}
+          />
+        </p>
+        <p className="viewProfil">
+          Adresse
+          <input
+            type="text"
+            name="email"
+            value={userProfil.address}
+            onChange={hFormChange}
+          />
+        </p>
+        <p className="viewProfil">
+          Ville
+          <input
+            type="text"
+            name="email"
+            value={userProfil.city}
+            onChange={hFormChange}
+          />
+        </p>
+
+        <p className="viewProfil">
+          E-mail:
+          <input
+            type="text"
+            name="email"
+            value={userProfil.email}
+            onChange={hFormChange}
+          />
+        </p>
+      </div>
+      <ButtonEditProfil />
     </form>
   );
 }
