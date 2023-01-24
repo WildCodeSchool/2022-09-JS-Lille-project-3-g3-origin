@@ -51,6 +51,14 @@ class videoManager extends AbstractManager {
       [id]
     );
   }
+
+  filterAllVideo() {
+    return this.connection.query(
+      `SELECT ${this.table}.*, category.label as category, genre.label as genre FROM ${this.table}
+      INNER JOIN category on ${this.table}.category_id = category.id 
+      INNER JOIN genre on  ${this.table}.genre_id = genre.id`
+    );
+  }
 }
 
 module.exports = videoManager;
