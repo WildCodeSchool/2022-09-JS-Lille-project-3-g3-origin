@@ -15,7 +15,7 @@ export default function NavBar() {
   return (
     <ul className="main-nav-bar">
       <NavLink
-        to="/"
+        to="/home"
         className="nav-links"
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
       >
