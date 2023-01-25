@@ -1,5 +1,4 @@
 import "./profil.scss";
-import ButtonEditProfil from "@components/ButtonProfil/ButtonEditProfil";
 import ViewProfil from "@components/ViewProfil/ViewProfil";
 import NavBar from "../../components/NavBar/NavBar";
 
