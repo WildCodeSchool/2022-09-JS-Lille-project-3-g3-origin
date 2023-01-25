@@ -1,0 +1,45 @@
+.footerContainer {
+  color: blanchedalmond;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 1%;
+  border-top: solid 1px orange;
+}
+
+.footerLogoContainer {
+  display: flex;
+  gap: 10px;
+}
+.footerLogo {
+  width: 5vw;
+  height: 10vh;
+}
+
+.footerTermsPrivacy {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 1%;
+}
+
+.footerText {
+  font-size: 1.5rem;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:visited {
+    color: white;
+  }
+
+  .footerTextLegal {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .footerLogo {
+    width: 10vw;
+  }
+}

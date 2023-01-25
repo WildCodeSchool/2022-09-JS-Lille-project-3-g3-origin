@@ -74,7 +74,7 @@ export default function PresentationPage() {
           <br />
           <h3>Créer un compte personnalisé.</h3>
           <br />
-          <h3>Voici un exemple &#10132;</h3>
+          <h3>Voici un tableau pour vous aider à faire votre choix &#10132;</h3>
           <br />
         </div>
         <img className="backgroundSampleHome" src={chart} alt="Background" />

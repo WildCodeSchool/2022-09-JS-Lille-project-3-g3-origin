@@ -1,3 +1,5 @@
+$font-family: Gilroy, sans-serif;
+
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -22,7 +24,7 @@
 }
 
 .modal {
-  background: #fff;
+  background: linear-gradient(to right, #e0e0d9, #b9c0b7, #91a29a);
   position: relative;
   margin: auto;
   border-radius: 5px;
@@ -37,11 +39,29 @@
   align-items: center;
 }
 
+.modalTitle {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: $font-family;
+}
+
 .modalCloseButton {
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #000;
   cursor: pointer;
   border: none;
   background: transparent;
+  &:hover {
+    color: white;
+    border-radius: 2.5rem;
+    background: linear-gradient(
+      to right,
+      #ff2415,
+      #ff460c,
+      #ff5d02,
+      #ff7100,
+      #ff8200
+    );
+  }
 }
