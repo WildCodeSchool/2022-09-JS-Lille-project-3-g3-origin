@@ -16,10 +16,8 @@ export default UserContext;
 
 export function UserInfosContext({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   const [videos, setVideos] = useState([]);
   const [favVideos, setFavVideos] = useState([]);
-
   const [currentUser, setCurrentUser] = useState({
     username: "",
     lastname: "",
