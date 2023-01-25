@@ -4,6 +4,7 @@
   height: 120vh;
   input {
     border-radius: 50px;
+    width: 50vw;
   }
   header {
     color: variables.$orange-color;
@@ -68,6 +69,11 @@
     .boutonValid {
       width: 20vw;
       margin-bottom: 10vh;
+    }
+    h1 {
+      padding: 1vw;
+      font-size: 2rem;
+      padding-top: 12%;
     }
   }
 }
