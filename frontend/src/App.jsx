@@ -8,6 +8,7 @@ import Search from "./pages/Search/Search";
 import Profil from "./pages/Profil/Profil";
 import Favoris from "./pages/Favoris/Favoris";
 import PresentationPage from "./pages/PresentationPage/PresentationPage";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/profil" element={<Profil />} />
             <Route path="/favoris" element={<Favoris />} />
           </Routes>
+          <Footer />
         </div>
       </Router>
     </UserInfosContext>

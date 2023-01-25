@@ -1,6 +1,5 @@
 import "./presentationPage.scss";
 import Typewriter from "typewriter-effect";
-import Footer from "../../components/Footer/Footer";
 import Registration from "../../components/Registration/Registration";
 import chart from "../../assets/chart.jpg";
 import outsideMovie from "../../assets/outsideMovie.png";
@@ -86,7 +85,6 @@ export default function PresentationPage() {
         <img className="outsideMovie" src={outsideMovie} alt="OutsideMovie" />
       </div>
       <ScrollTopButton />
-      <Footer />
     </div>
   );
 }
