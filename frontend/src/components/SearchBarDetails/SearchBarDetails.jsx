@@ -54,7 +54,14 @@ export default function SearchBarDetails() {
       category_id: 25,
     },
     {
-      name: "all",
+      name: "Espion",
+      id: 7,
+      genre_id: 5,
+      category_id: 26,
+    },
+
+    {
+      name: "Tous",
       id: 0,
       genre_id: 5,
       category_id: 0,
@@ -113,14 +120,15 @@ export default function SearchBarDetails() {
           </figure>
         ))}
       </div>
-
-      {videos.map((video) => {
-        return (
-          <div className="YoutubeHome" key={video.id}>
-            <YouTube videoId={video.url} />
-          </div>
-        );
-      })}
+      <div className="YoutubeHome" key={videos.id}>
+        {videos.map((video) => {
+          return (
+            <div className="YoutubeVideo">
+              <YouTube videoId={video.url} />;
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }

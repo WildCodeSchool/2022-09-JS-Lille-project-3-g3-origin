@@ -68,7 +68,10 @@ label[for="6"] {
   content: url("../../assets/child-movie.svg");
   cursor: pointer;
 }
-
+label[for="7"] {
+  content: url("../../assets/thriller.svg");
+  cursor: pointer;
+}
 figure:hover {
   color: whitesmoke;
   text-shadow: 1px 3px 30px whitesmoke;
@@ -88,9 +91,11 @@ figure:hover {
 
 .YoutubeHome {
   display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  padding-top: 4rem;
-  height: 40vw;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 5vw;
+}
+
+.YoutubeVideo {
+  margin: 3vw;
 }

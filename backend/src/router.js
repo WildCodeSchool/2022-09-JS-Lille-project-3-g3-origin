@@ -8,6 +8,7 @@ const videoControllers = require("./controllers/videoControllers");
 const userControllers = require("./controllers/userControllers");
 
 router.get("/videos", videoControllers.browse);
+router.get("/videosfilter", videoControllers.filterAllVideo);
 router.get("/videos/:id", videoControllers.read);
 router.get("/users/:id", userControllers.read);
 router.get("/favoris/:id", videoControllers.videoFav);
