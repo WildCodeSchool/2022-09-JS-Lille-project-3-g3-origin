@@ -1,5 +1,8 @@
 import "./presentationPage.scss";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Typewriter from "typewriter-effect";
+import UserContext from "../../contexts/UserContext";
 import Registration from "../../components/Registration/Registration";
 import chart from "../../assets/chart.jpg";
 import outsideMovie from "../../assets/outsideMovie.png";
@@ -8,6 +11,15 @@ import popcorn from "../../assets/popcorn.svg";
 import ScrollTopButton from "../../components/ScrollTopButton/ScrollTopButton";
 
 export default function PresentationPage() {
+  const { isAuthenticated, currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  // TO DO : handle routes with router
+  useEffect(() => {
+    if (isAuthenticated && currentUser.premium) navigate("/home");
+    if (isAuthenticated) navigate("/premium");
+  }, [isAuthenticated, currentUser]);
+
   return (
     <div className="LoginPage">
       <div className="presentationPage">
