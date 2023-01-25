@@ -16,7 +16,8 @@ export default UserContext;
 
 export function UserInfosContext({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+  const [videos, setVideos] = useState([]);
+  const [favVideos, setFavVideos] = useState([]);
   const [currentUser, setCurrentUser] = useState({
     username: "",
     lastname: "",
@@ -35,6 +36,8 @@ export function UserInfosContext({ children }) {
   const [loginForm, setLoginForm] = useState({ username: "", password: "" });
 
   const [userProfil, setUserProfil] = useState(currentUser);
+
+  useEffect(() => async () => setVideos(await Query.getAllVideos()), []);
 
   const hUserQueryRes = async (func, loc) => {
     const queryResult = await func;
@@ -74,10 +77,13 @@ export function UserInfosContext({ children }) {
       registrationForm,
       userProfil,
       isAuthenticated,
+      videos,
+      favVideos,
       setUserProfil,
       setRegistrationForm,
       setCurrentUser,
       setLoginForm,
+      setFavVideos,
       hLogin,
       hRegistration,
       hEditFormSubmit,
@@ -88,10 +94,13 @@ export function UserInfosContext({ children }) {
       registrationForm,
       userProfil,
       isAuthenticated,
+      videos,
+      favVideos,
       setUserProfil,
       setRegistrationForm,
       setLoginForm,
       setCurrentUser,
+      setFavVideos,
     ]
   );
 
