@@ -4,7 +4,6 @@ import Registration from "../../components/Registration/Registration";
 import chart from "../../assets/chart.jpg";
 import outsideMovie from "../../assets/outsideMovie.png";
 import Logo from "../../assets/logo.png";
-import popcorn from "../../assets/popcorn.svg";
 import ScrollTopButton from "../../components/ScrollTopButton/ScrollTopButton";
 
 export default function PresentationPage() {
@@ -45,11 +44,11 @@ export default function PresentationPage() {
                   "Qu'avez-vous envie de regarder en ce moment ?",
                   "Un film ?",
                   "Ou alors une série ?",
+                  "N'oubliez pas les 🍿👀📽 !",
                 ],
               }}
             />
           </div>
-          <img className="popcorn" src={popcorn} alt="popcorn" />
         </div>
       </div>
       <div className="presentationOfPremium">

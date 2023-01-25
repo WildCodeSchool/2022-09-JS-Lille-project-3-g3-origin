@@ -18,10 +18,13 @@ body {
   align-items: center;
   gap: 5%;
   background: url("../../frontend/src/assets/wallpaper.jpg");
+  padding-bottom: 2%;
+  padding-top: 2%;
 }
 .imagePresentationPage {
   display: flex;
   flex-flow: column;
+  justify-content: center;
   animation-name: slideInRight;
   animation-duration: 2s;
   animation-iteration-count: 1;
@@ -50,6 +53,7 @@ body {
   animation-name: slideIn;
   animation-duration: 2s;
   animation-iteration-count: 1;
+  border: solid 1px orange;
 }
 
 .backgroundSampleHome {
@@ -117,7 +121,7 @@ body {
   width: 35vw;
   padding: 5%;
   text-align: center;
-  border-radius: 5%;
+  border-radius: 2.5rem;
   border: solid 1px orange;
 }
 
