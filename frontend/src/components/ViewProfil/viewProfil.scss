@@ -1,23 +1,79 @@
 @use "../src/variables.scss";
 
-img.avatar {
-  width: 10vh;
-  border-radius: 50%;
-  display: flex;
-  justify-content: right;
-  margin: 2rem 2rem;
-}
-.viewProfil {
-  color: variables.$white-color;
-  margin: 1rem;
-  font-family: variables.$font-family;
-  padding: 1rem;
-  font-size: 1.5rem;
-  border-radius: 1rem;
-  border: 1px solid #b9b9b9;
-  background-color: #b9b9b9;
-  display: flex;
-}
 .blocProfil {
-  margin-bottom: 5rem;
+  height: 120vh;
+  input {
+    border-radius: 50px;
+    width: 50vw;
+  }
+  header {
+    color: variables.$orange-color;
+    text-align: center;
+    font-family: variables.$font-family;
+
+    h1 {
+      padding: 1vw;
+      font-size: 2rem;
+    }
+  }
+
+  img.avatar {
+    width: 20vh;
+    border-radius: 50%;
+    display: flex;
+    margin: auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    box-shadow: -2px 2px 50px variables.$orange-color;
+  }
+  .inputProf {
+    width: auto;
+    margin: auto;
+    padding: 1vw;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    border: variables.$orange-color 3px solid;
+  }
+  .viewProfil {
+    color: variables.$white-color;
+    margin: auto;
+    width: 60vw;
+    font-family: variables.$font-family;
+    padding: 3vh;
+    color: variables.$orange-color;
+  }
+  .boutonValid {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 40%;
+    margin-top: 5vh;
+    background-color: variables.$orange-color;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    padding: 3px;
+    font-family: variables.$font-family;
+  }
+}
+@media (min-width: 800px) {
+  .blocProfil {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    padding-bottom: 15vh;
+    .viewProfil {
+      width: 50vw;
+    }
+    .boutonValid {
+      width: 20vw;
+      margin-bottom: 10vh;
+    }
+    h1 {
+      padding: 1vw;
+      font-size: 2rem;
+      padding-top: 12%;
+    }
+  }
 }
