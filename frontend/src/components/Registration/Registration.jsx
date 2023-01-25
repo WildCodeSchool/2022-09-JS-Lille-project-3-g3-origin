@@ -18,16 +18,15 @@ export default function Registration() {
   const { isShowing: isPremiumSelectedShowed, toggle: togglePremiumSelected } =
     useModal();
 
-  const { hLogin, setLoginForm, loginForm, setCurrentUser } =
-    useContext(UserContext);
-
-  const [registrationForm, setRegistrationForm] = useState({
-    username: "",
-    lastname: "",
-    email: "",
-    password: "",
-    premium: 0,
-  });
+  const {
+    hLogin,
+    setLoginForm,
+    loginForm,
+    registrationForm,
+    setRegistrationForm,
+    currentUser,
+    hRegistration,
+  } = useContext(UserContext);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -40,18 +39,6 @@ export default function Registration() {
       ...registrationForm,
       [evt.target.name]: evt.target.value,
     });
-
-  const hRegistration = (evt) => {
-    evt.preventDefault();
-    axios
-      .post("http://localhost:5000/users", registrationForm)
-      .then(({ data }) => {
-        setCurrentUser(data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
 
   return (
     <div className="home">
@@ -69,6 +56,11 @@ export default function Registration() {
       </div>
       <Modal isShowing={isLoginFromShowed} hide={toggleLoginForm} title="Login">
         <form onSubmit={hLogin}>
+          <h2>
+            {currentUser.username !== ""
+              ? `Welcome ${currentUser.username}`
+              : ""}
+          </h2>
           <div className="formGroup">
             <input
               name="username"

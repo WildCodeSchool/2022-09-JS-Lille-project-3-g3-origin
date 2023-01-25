@@ -1,7 +1,7 @@
 import "./reset.scss";
 import "./App.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import PremiumPage from "@pages/PremiumPage/PremiumPage";
+import PremiumPage from "./pages/PremiumPage/PremiumPage";
 import { UserInfosContext } from "./contexts/UserContext";
 import Home from "./pages/Home/Home";
 import Search from "./pages/Search/Search";

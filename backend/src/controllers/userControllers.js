@@ -5,7 +5,7 @@ const browse = (req, res) => {
     .findAll()
     .then(([rows]) => {
       for (const row of rows) {
-        delete row.hashedPassword;
+        delete row.hashedpassword;
       }
       res.send(rows);
     })
@@ -22,9 +22,9 @@ const read = (req, res) => {
       if (rows[0] == null) {
         res.sendStatus(404);
       } else {
-        for (const row of rows) {
-          delete row.hashedPassword;
-        }
+        const [user] = rows;
+        delete user.hashedpassword;
+
         res.send(rows[0]);
       }
     })
@@ -37,8 +37,6 @@ const read = (req, res) => {
 const edit = (req, res) => {
   const user = req.body;
 
-  // TODO validations (length, format...)
-
   user.id = parseInt(req.params.id, 10);
 
   models.user
@@ -47,6 +45,7 @@ const edit = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
+        delete user.hashedpassword;
         res.status(200).send(user);
       }
     })
@@ -65,7 +64,7 @@ const add = (req, res) => {
     .insert(user)
     .then(([result]) => {
       user.id = result.insertId;
-      delete user.hashedPassword;
+      delete user.hashedpassword;
       res.status(201).send(user);
     })
     .catch((err) => {
