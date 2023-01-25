@@ -1,32 +1,14 @@
-import axios from "axios";
-import { useState, useContext, useEffect } from "react";
+import { useContext } from "react";
 import avatar1 from "../../assets/avatar1.jpg";
 import "./viewProfil.scss";
 import UserContext from "../../contexts/UserContext";
 
 export default function ViewProfil() {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-
-  const [userProfil, setUserProfil] = useState(currentUser);
-
-  useEffect(() => {
-    setUserProfil(currentUser);
-  }, [currentUser]);
+  const { hEditFormSubmit, userProfil, setUserProfil } =
+    useContext(UserContext);
 
   const hFormChange = (evt) =>
     setUserProfil({ ...userProfil, [evt.target.name]: evt.target.value });
-
-  const hEditFormSubmit = (evt) => {
-    evt.preventDefault();
-    axios
-      .put(`http://localhost:5000/users/${currentUser.id}`, userProfil)
-      .then(({ data }) => {
-        setCurrentUser(data);
-      })
-      .catch((err) => {
-        console.error("Error editing the user", err);
-      });
-  };
 
   return (
     <form className="blocProfil" onSubmit={hEditFormSubmit}>
