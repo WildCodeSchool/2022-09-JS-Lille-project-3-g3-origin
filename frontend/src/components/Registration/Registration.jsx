@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import axios from "axios";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import UserContext from "../../contexts/UserContext";
 import useModal from "../useModal/useModal";
 import Modal from "../Modal/Modal";
@@ -77,8 +78,9 @@ export default function Registration() {
               value={loginForm.username}
             />
           </div>
-          <div className="formGroup">
+          <div className="formGroupPassword">
             <input
+              className="inputPassword"
               name="password"
               type={showPassword ? "text" : "password"}
               placeholder="Password"
@@ -86,10 +88,11 @@ export default function Registration() {
               value={loginForm.password}
             />
             <button
+              className="ShowHidePassword"
               type="button"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? "Hide" : "Show"}
+              {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
             </button>
           </div>
           <div className="formGroup">
@@ -134,14 +137,22 @@ export default function Registration() {
             />
           </div>
 
-          <div className="formGroup">
+          <div className="formGroupPassword">
             <input
-              type="password"
+              className="inputPassword"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               name="password"
               onChange={hRegistrationChange}
               value={registrationForm.password}
             />
+            <button
+              className="ShowHidePassword"
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+            </button>
           </div>
 
           <div className="formGroup">
