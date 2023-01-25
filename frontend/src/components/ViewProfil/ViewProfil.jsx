@@ -9,12 +9,20 @@ export default function ViewProfil() {
 
   const [userProfil, setUserProfil] = useState(currentUser);
 
+  const [users, setUsers] = useState([]);
+
   useEffect(() => {
     setUserProfil(currentUser);
   }, [currentUser]);
 
-  const hFormChange = (evt) =>
-    setUserProfil({ ...userProfil, [evt.target.name]: evt.target.value });
+  useEffect(() => {
+    axios.get("http://localhost:5000/users/8").then(({ data }) => {
+      setUsers(data);
+    });
+  }, []);
+  const hFormChange = (evt) => {
+    setUsers(evt.target);
+  };
 
   const hEditFormSubmit = (evt) => {
     evt.preventDefault();
@@ -31,7 +39,7 @@ export default function ViewProfil() {
   return (
     <form className="blocProfil" onSubmit={hEditFormSubmit}>
       <header>
-        <h1>Username</h1>
+        <h1 key={users.id}>Hello {users.username} </h1>
         <img className="avatar" src={avatar1} alt="avatar profil" />
       </header>
       <div className="inputProf">
@@ -40,7 +48,7 @@ export default function ViewProfil() {
           <input
             type="text"
             name="username"
-            value={userProfil.username}
+            value={users.username}
             onChange={hFormChange}
           />
         </p>
@@ -49,7 +57,7 @@ export default function ViewProfil() {
           <input
             type="text"
             name="firstname"
-            value={userProfil.lastname}
+            value={users.lastname}
             onChange={hFormChange}
           />
         </p>
@@ -58,7 +66,7 @@ export default function ViewProfil() {
           <input
             type="text"
             name="nom"
-            value={userProfil.firstname}
+            value={users.firstname}
             onChange={hFormChange}
           />
         </p>
@@ -67,7 +75,7 @@ export default function ViewProfil() {
           <input
             type="text"
             name="adresse"
-            value={userProfil.address}
+            value={users.address}
             onChange={hFormChange}
           />
         </p>
@@ -76,7 +84,7 @@ export default function ViewProfil() {
           <input
             type="text"
             name="ville"
-            value={userProfil.city}
+            value={users.city}
             onChange={hFormChange}
           />
         </p>
@@ -86,7 +94,7 @@ export default function ViewProfil() {
           <input
             type="text"
             name="email"
-            value={userProfil.email}
+            value={users.email}
             onChange={hFormChange}
           />
         </p>
