@@ -40,6 +40,7 @@ export default function Favoris() {
           </ul>
         );
       })}
+      <NavBar />
       <h1>Vos favoris</h1>
       <SearchBar />
       <Swiper
@@ -73,8 +74,6 @@ export default function Favoris() {
           );
         })}
       </Swiper>
-
-      <NavBar />
     </div>
   );
 }
