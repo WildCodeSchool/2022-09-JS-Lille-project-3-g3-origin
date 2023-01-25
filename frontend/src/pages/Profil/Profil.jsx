@@ -12,9 +12,7 @@ export default function Profil() {
   console.log(isAuthenticated);
   return (
     <div className="profil">
-      <h1>Profil</h1>
       <ViewProfil />
-      <ButtonEditProfil />
       <NavBar />
     </div>
   );
