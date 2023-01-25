@@ -18,9 +18,9 @@ export default function Home() {
 
   return (
     <header className="home">
+      <NavBar />
       <Registration />
       <SwiperHome />
-      <NavBar className="nav-bar-home" />
     </header>
   );
 }

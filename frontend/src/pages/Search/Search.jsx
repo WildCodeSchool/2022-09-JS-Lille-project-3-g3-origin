@@ -18,8 +18,8 @@ export default function Search() {
 
   return (
     <div className="search">
-      <SearchBarDetails />
       <NavBar />
+      <SearchBarDetails />
     </div>
   );
 }
