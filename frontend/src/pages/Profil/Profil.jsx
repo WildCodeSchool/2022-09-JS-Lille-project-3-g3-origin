@@ -19,8 +19,10 @@ export default function Profil() {
 
   return (
     <div className="profil">
-      <ViewProfil />
       <NavBar />
+      <h1>Profil</h1>
+      <ViewProfil />
+      <ButtonEditProfil />
     </div>
   );
 }

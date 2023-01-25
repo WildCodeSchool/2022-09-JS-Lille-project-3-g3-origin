@@ -84,7 +84,6 @@ export default function Favoris() {
             );
           })}
         </Swiper>
-
         <NavBar />
       </div>
     )
