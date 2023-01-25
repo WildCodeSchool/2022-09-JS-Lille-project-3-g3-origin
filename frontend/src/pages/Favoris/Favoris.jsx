@@ -35,7 +35,6 @@ export default function Favoris() {
           Accès : {currentUser.premium === 1 ? "premium" : "freemium"}
         </li>
       </ul>
-
       <h1>Vos favoris</h1>
       <SearchBar />
       <Swiper
@@ -69,8 +68,6 @@ export default function Favoris() {
           );
         })}
       </Swiper>
-
-      <NavBar />
     </div>
   );
 }

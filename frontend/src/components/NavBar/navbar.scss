@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-evenly;
   position: fixed;
-  bottom: 0;
   z-index: 1;
   width: 100%;
   background-color: rgb(1, 13, 24);
@@ -18,5 +17,17 @@
     text-decoration: none;
     background-color: rgb(1, 13, 24);
     color: white;
+  }
+}
+
+@media (max-width: 850px) {
+  .main-nav-bar {
+    bottom: 0;
+  }
+}
+
+@media (min-width: 851px) {
+  .main-nav-bar {
+    top: 0;
   }
 }
