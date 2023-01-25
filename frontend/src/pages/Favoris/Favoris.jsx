@@ -1,10 +1,10 @@
+import axios from "axios";
 import SearchBar from "@components/SearchBar/SearchBar";
 import YouTube from "react-youtube";
 import "./favoris.scss";
 import { Navigation, Pagination, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useContext } from "react";
-import SearchBar from "../../components/SearchBar/SearchBar";
+import { useContext, useEffect, useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import UserContext from "../../contexts/UserContext";
 /* eslint-disable import/no-unresolved */
@@ -12,29 +12,30 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 /* eslint-enable import/no-unresolved */
-import { useEffect, useState } from "react";
-import axios from "axios";
-import NavBar from "../../components/NavBar/NavBar";
-import "./favoris.scss";
 
 export default function Favoris() {
-  const { currentUser, isAuthenticated } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
+  const [videos, setVideos] = useState([]);
 
-  // console.log(currentUser);
-  // console.log(isAuthenticated);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/favoris/${currentUser.id}`)
+      .then(({ data }) => {
+        setVideos(data);
+      });
+  }, []);
 
   return (
     <div className="favoris">
-      {users.map((user) => {
-        return (
-          <ul className="account-favoris" key={user.id}>
-            <li className="element-account-favoris">Bonjour {user.username}</li>
-            <li className="element-account-favoris">
-              Accès : {user.premium === 1 ? "premium" : "freemium"}
-            </li>
-          </ul>
-        );
-      })}
+      <ul className="account-favoris" key={currentUser.id}>
+        <li className="element-account-favoris">
+          Bonjour {currentUser.username}
+        </li>
+        <li className="element-account-favoris">
+          Accès : {currentUser.premium === 1 ? "premium" : "freemium"}
+        </li>
+      </ul>
+
       <h1>Vos favoris</h1>
       <SearchBar />
       <Swiper

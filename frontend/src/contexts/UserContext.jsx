@@ -1,7 +1,6 @@
 import { createContext, useState, useMemo, useEffect } from "react";
 import { PropTypes } from "prop-types";
-import useApi from "@services/useApi";
-import Query from "@services/Query";
+import Query from "../services/Query";
 
 const UserContext = createContext({
   currentUser: {},
@@ -16,8 +15,6 @@ const UserContext = createContext({
 export default UserContext;
 
 export function UserInfosContext({ children }) {
-  const api = useApi();
-
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({
@@ -39,75 +36,35 @@ export function UserInfosContext({ children }) {
 
   const [userProfil, setUserProfil] = useState(currentUser);
 
-  // const { token } = currentUser;
-
-  const hLogin = async (evt) => {
-    evt.preventDefault();
-    const queryResult = await Query.login(loginForm);
+  const hUserQueryRes = async (func, loc) => {
+    const queryResult = await func;
     const { user } = queryResult;
 
     if (user !== undefined && Object.keys(user).length > 0) {
       setCurrentUser(user);
       setIsAuthenticated(true);
     } else {
-      console.error("Problem login context");
+      console.error(`Error ${loc} context`);
     }
-    // api
-    //   .post("/login", loginForm)
-    //   .then(({ data }) => {
-    //     console.log(data);
-    //     const { token, user } = data;
-    //     api.defaults.headers.authorization = `Bearer ${token}`;
-    //     setIsAuthenticated(true);
-    //     setCurrentUser(user);
-    //   })
-    //   .catch((err) => {
-    //     console.error("Error while logging in", err);
-    //   });
   };
 
-  const hRegistration = async (evt) => {
+  const hLogin = (evt) => {
     evt.preventDefault();
-    const queryResult = await Query.login(registrationForm);
-    const { user } = queryResult;
+    hUserQueryRes(Query.login(loginForm), "login");
+  };
 
-    if (user !== undefined && Object.keys(user).length > 0) {
-      setCurrentUser(user);
-      setIsAuthenticated(true);
-    } else {
-      console.error("Problem login context");
-    }
-    // api
-    //   .post("/users", registrationForm)
-    //   .then(({ data }) => {
-    //     const { token, user } = data;
-
-    //     api.defaults.headers.authorization = `Bearer ${token}`;
-    //     setIsAuthenticated(true);
-    //     setCurrentUser(user);
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //   });
+  const hRegistration = (evt) => {
+    evt.preventDefault();
+    hUserQueryRes(Query.registration(registrationForm), "registration");
   };
 
   const hEditFormSubmit = (evt) => {
     evt.preventDefault();
-    api
-      .put(`/users/${currentUser.id}`, userProfil)
-      .then(({ data }) => {
-        // const { token } = currentUser;
-        setCurrentUser(data);
-      })
-      .catch((err) => {
-        console.error("Error editing the user", err);
-      });
+    hUserQueryRes(Query.editUser(userProfil, currentUser.id), "editing user");
   };
 
   useEffect(() => {
     setUserProfil(currentUser);
-    // console.log(currentUser);
-    console.log("user profil : ", userProfil);
   }, [currentUser]);
 
   const context = useMemo(
@@ -137,7 +94,7 @@ export function UserInfosContext({ children }) {
       setCurrentUser,
     ]
   );
-  // console.log(currentUser);
+
   return (
     <UserContext.Provider value={context}>{children}</UserContext.Provider>
   );

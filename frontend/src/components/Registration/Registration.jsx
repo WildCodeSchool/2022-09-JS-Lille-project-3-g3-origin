@@ -26,16 +26,6 @@ export default function Registration() {
     hRegistration,
   } = useContext(UserContext);
 
-  // console.log(isLoginFromShowed);
-
-  // const [registrationForm, setRegistrationForm] = useState({
-  //   username: "",
-  //   lastname: "",
-  //   email: "",
-  //   password: "",
-  //   premium: 0,
-  // });
-
   const [showPassword, setShowPassword] = useState(false);
 
   const hLoginChange = (evt) => {
@@ -47,8 +37,6 @@ export default function Registration() {
       ...registrationForm,
       [evt.target.name]: evt.target.value,
     });
-
-  console.log(currentUser);
 
   return (
     <div className="home">

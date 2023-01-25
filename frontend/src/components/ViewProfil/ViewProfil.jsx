@@ -1,18 +1,14 @@
-import axios from "axios";
-import { useState, useContext, useEffect } from "react";
-import avatar1 from "@assets/avatar1.jpg";
+import { useContext } from "react";
+import avatar1 from "../../assets/avatar1.jpg";
 import "./viewProfil.scss";
 import UserContext from "../../contexts/UserContext";
 
 export default function ViewProfil() {
-  const { currentUser, hEditFormSubmit, userProfil, setUserProfil } =
+  const { hEditFormSubmit, userProfil, setUserProfil } =
     useContext(UserContext);
-
-  const { token } = currentUser;
 
   const hFormChange = (evt) =>
     setUserProfil({ ...userProfil, [evt.target.name]: evt.target.value });
-  console.log(userProfil);
 
   return (
     <form className="blocProfil" onSubmit={hEditFormSubmit}>
