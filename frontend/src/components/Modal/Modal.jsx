@@ -9,7 +9,7 @@ function Modal({ isShowing, hide, title, ...props }) {
           <div className="modalWrapper">
             <div className="modal">
               <div className="modalHeader">
-                <h4>{title}</h4>
+                <h4 className="modalTitle">{title}</h4>
                 <button
                   type="button"
                   className="modalCloseButton"

@@ -1,6 +1,5 @@
-import axios from "axios";
-import { useState, useContext, useEffect } from "react";
-import avatar1 from "@assets/avatar1.jpg";
+import { useContext } from "react";
+import avatar1 from "../../assets/avatar1.jpg";
 import "./viewProfil.scss";
 import UserContext from "../../contexts/UserContext";
 
@@ -15,6 +14,10 @@ export default function ViewProfil() {
     setUserProfil(currentUser);
   }, [currentUser]);
 
+  const { hEditFormSubmit, userProfil, setUserProfil } =
+    useContext(UserContext);
+
+
   useEffect(() => {
     axios.get("http://localhost:5000/users/8").then(({ data }) => {
       setUsers(data);
@@ -22,18 +25,6 @@ export default function ViewProfil() {
   }, []);
   const hFormChange = (evt) => {
     setUsers(evt.target);
-  };
-
-  const hEditFormSubmit = (evt) => {
-    evt.preventDefault();
-    axios
-      .put(`http://localhost:5000/users/${currentUser.id}`, userProfil)
-      .then(({ data }) => {
-        setCurrentUser(data);
-      })
-      .catch((err) => {
-        console.error("Error editing the user", err);
-      });
   };
 
   return (

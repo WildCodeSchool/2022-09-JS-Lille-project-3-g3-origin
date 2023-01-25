@@ -103,10 +103,9 @@ export default function SearchBarDetails() {
       </div>
       <div className="containerForm">
         {radios.map((radio) => (
-          <figure>
+          <figure key={radio.id}>
             <label htmlFor={radio.id}>
               <input
-                key={radio.id}
                 type="checkbox"
                 id={radio.id}
                 name={radio.name}
@@ -123,7 +122,7 @@ export default function SearchBarDetails() {
       <div className="YoutubeHome" key={videos.id}>
         {videos.map((video) => {
           return (
-            <div className="YoutubeVideo">
+            <div className="YoutubeVideo" key={video.id}>
               <YouTube videoId={video.url} />;
             </div>
           );
