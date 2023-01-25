@@ -88,8 +88,11 @@ export default function Registration() {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
+              className="HideShow"
             >
-              {showPassword ? "Hide" : "Show"}
+              {showPassword
+                ? "Masquer le mot de passe"
+                : "Afficher le mot de passe"}
             </button>
           </div>
           <div className="formGroup">
@@ -155,6 +158,7 @@ export default function Registration() {
         </form>
       </Modal>
       <Modal
+        className="SubscribeTo"
         isShowing={isSubscribeShowed}
         hide={toggleSubscribe}
         title="Subscribe to"
