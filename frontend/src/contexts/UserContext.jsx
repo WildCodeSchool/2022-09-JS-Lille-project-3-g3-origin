@@ -105,7 +105,7 @@ export function UserInfosContext({ children }) {
       setFavVideos,
     ]
   );
-  // console.log(currentUser);
+
   return (
     <UserContext.Provider value={context}>{children}</UserContext.Provider>
   );
