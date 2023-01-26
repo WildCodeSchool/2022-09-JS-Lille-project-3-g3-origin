@@ -2,7 +2,7 @@ import YouTube from "react-youtube";
 import "./favoris.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { Navigation, Pagination, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ButtonLike from "@components/ButtonLike/ButtonLike";
@@ -15,8 +15,9 @@ import "swiper/css/navigation";
 /* eslint-enable import/no-unresolved */
 
 export default function Favoris() {
-  const { currentUser, isAuthenticated, favVideos, setFavVideos } =
-    useContext(UserContext);
+  const { currentUser, isAuthenticated } = useContext(UserContext);
+
+  const [favVideos, setFavVideos] = useState([]);
 
   const navigate = useNavigate();
 
@@ -38,7 +39,9 @@ export default function Favoris() {
   }, [currentUser]);
 
   return (
-    isAuthenticated && (
+    isAuthenticated &&
+    favVideos &&
+    currentUser && (
       <div className="favoris">
         <ul className="account-favoris">
           <li className="element-account-favoris">

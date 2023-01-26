@@ -1,17 +1,23 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import avatar1 from "../../assets/avatar1.jpg";
 import "./viewProfil.scss";
 import UserContext from "../../contexts/UserContext";
+import Query from "../../services/Query";
 
 export default function ViewProfil() {
-  const { currentUser, userProfil, setUserProfil, hEditFormSubmit } =
-    useContext(UserContext);
+  const { hUserQueryRes, currentUser } = useContext(UserContext);
+  const [userProfil, setUserProfil] = useState(currentUser);
 
-  const hFormChange = (evt) => {
-    setUserProfil({
-      ...userProfil,
-      [evt.target.name]: evt.target.value,
-    });
+  useEffect(() => {
+    setUserProfil(currentUser);
+  }, [currentUser]);
+
+  const hFormChange = (evt) =>
+    setUserProfil({ ...userProfil, [evt.target.name]: evt.target.value });
+
+  const hEditFormSubmit = (evt) => {
+    evt.preventDefault();
+    hUserQueryRes(Query.editUser(userProfil, currentUser.id), "editing user");
   };
 
   return (
