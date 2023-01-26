@@ -22,7 +22,6 @@ export default function Profil() {
       <NavBar />
       <h1>Profil</h1>
       <ViewProfil />
-      <ButtonEditProfil />
     </div>
   );
 }
