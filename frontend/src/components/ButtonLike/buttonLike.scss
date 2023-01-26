@@ -2,14 +2,14 @@
 
 @media (min-width: 851px) {
   .is_it_liked {
-    color: #ff2415;
+    color: variables.$red-color;
     height: 5vh;
     width: 5vh;
     cursor: pointer;
   }
 
   .is_not_liked {
-    color: #faf8ff;
+    color: variables.$white-color;
     height: 5vh;
     width: 5vh;
     cursor: pointer;
@@ -25,14 +25,14 @@
 }
 @media (max-width: 850px) {
   .is_it_liked {
-    color: #ff2415;
+    color: variables.$red-color;
     height: 4vh;
     width: 4vh;
     cursor: pointer;
   }
 
   .is_not_liked {
-    color: #faf8ff;
+    color: variables.$white-color;
     height: 4vh;
     width: 4vh;
     cursor: pointer;

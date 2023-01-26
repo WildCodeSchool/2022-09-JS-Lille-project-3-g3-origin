@@ -67,9 +67,9 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  const { videos_id, user_id } = req.body;
+  const { video_id: videoId, user_id: userId } = req.body;
   models.favoris
-    .deleteFav(videos_id, user_id)
+    .deleteFav(videoId, userId)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -84,13 +84,13 @@ const destroy = (req, res) => {
 };
 
 const like = (req, res) => {
-  const { videos_id, user_id } = req.body;
+  const { video_id: videoId, user_id: userId } = req.body;
   models.favoris
-    .addFav(videos_id, user_id)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
-        models.favoris.deleteFav(videos_id, user_id).then(([result]) => {
-          if (result.affectedRows === 0) {
+    .addFav(videoId, userId)
+    .then(([resultFav]) => {
+      if (resultFav.affectedRows === 0) {
+        models.favoris.deleteFav(videoId, userId).then(([resultDel]) => {
+          if (resultDel.affectedRows === 0) {
             res.sendStatus(404);
           } else {
             res.sendStatus(204);
@@ -100,7 +100,7 @@ const like = (req, res) => {
         res.sendStatus(204);
       }
     })
-    .catch((error) => {
+    .catch(() => {
       return res.status(500);
     });
 };

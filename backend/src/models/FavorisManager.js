@@ -5,17 +5,17 @@ class videoManager extends AbstractManager {
     super({ table: "favoris" });
   }
 
-  deleteFav(videos_id, user_id) {
+  deleteFav(videoId, userId) {
     return this.connection.query(
       `delete from ${this.table} where video_id= ? AND user_id=?`,
-      [videos_id, user_id]
+      [videoId, userId]
     );
   }
 
-  addFav(videos_id, user_id) {
+  addFav(videoId, userId) {
     return this.connection.query(
       `INSERT IGNORE INTO ${this.table} (video_id, user_id) values (?, ?)`,
-      [videos_id, user_id]
+      [videoId, userId]
     );
   }
 }

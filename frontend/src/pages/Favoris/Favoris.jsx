@@ -6,33 +6,39 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 /* eslint-enable import/no-unresolved */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import NavBar from "../../components/NavBar/NavBar";
-import "./favoris.scss";
 import ButtonLike from "@components/ButtonLike/ButtonLike";
+import NavBar from "../../components/NavBar/NavBar";
+import UserContext from "../../contexts/UserContext";
+import "./favoris.scss";
 
 export default function Favoris() {
-  const [users, setusers] = useState([]);
+  const { currentUser } = useContext(UserContext);
+  const [user, setuser] = useState([]);
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/users/6`).then(({ data }) => {
-      setusers(data);
-    });
+    axios
+      .get(`http://localhost:5000/users/${currentUser.id}`)
+      .then(({ data }) => {
+        setuser(data);
+      });
   }, []);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/favoris/6").then(({ data }) => {
-      setVideos(data);
-    });
+    axios
+      .get(`http://localhost:5000/favoris/${currentUser.id}`)
+      .then(({ data }) => {
+        setVideos(data);
+      });
   }, []);
   return (
     <div className="favoris">
-      <ul className="favoris-account" key={users.id}>
-        <li className="favoris-user">Bonjour {users.username}</li>
+      <ul className="favoris-account" key={user.id}>
+        <li className="favoris-user">Bonjour {user.username}</li>
         <li className="favoris-user">
-          Accès : {users.premium === 1 ? "premium" : "freemium"}
+          Accès : {user.premium === 1 ? "premium" : "freemium"}
         </li>
       </ul>
 
@@ -53,7 +59,7 @@ export default function Favoris() {
               <YouTube className="favoris-video" videoId={video.url} />
               <ul>
                 <li className="favoris-details-video">
-                  <ButtonLike usersId={users.id} videoId={video.id} />
+                  <ButtonLike userId={user.id} videoId={video.id} />
                   {video.title}
                 </li>
                 <li className="favoris-details-video">
