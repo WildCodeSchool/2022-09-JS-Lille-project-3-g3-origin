@@ -7,6 +7,7 @@ export default function SearchBarDetails() {
   const [filterVideos, setFilterVideos] = useState("");
   const [videos, setVideos] = useState([]);
   const [selectedRadio, setSelectedRadio] = useState("");
+  const optionIframe = { width: "auto" }; // Responsive Youtube Video
   const resultSearch = (evt) => {
     evt.preventDefault();
     setFilterVideos(
@@ -18,19 +19,19 @@ export default function SearchBarDetails() {
 
   const radios = [
     {
-      name: "Comedy",
+      name: "Comédie",
       id: 1,
       genre_id: 5,
       category_id: 14,
     },
     {
-      name: "Sci Fi",
+      name: "Science Fiction",
       id: 2,
       genre_id: 5,
       category_id: 16,
     },
     {
-      name: "Adventure",
+      name: "Aventure",
       id: 3,
       genre_id: 6,
       category_id: 18,
@@ -42,7 +43,7 @@ export default function SearchBarDetails() {
       category_id: 22,
     },
     {
-      name: "History",
+      name: "Histoire",
       id: 5,
       genre_id: 6,
       category_id: 24,
@@ -54,14 +55,14 @@ export default function SearchBarDetails() {
       category_id: 25,
     },
     {
-      name: "Spy",
+      name: "Espion",
       id: 7,
       genre_id: 5,
       category_id: 26,
     },
 
     {
-      name: "All",
+      name: "Tous",
       id: 0,
       genre_id: 5,
       category_id: 0,
@@ -103,10 +104,9 @@ export default function SearchBarDetails() {
       </div>
       <div className="containerForm">
         {radios.map((radio) => (
-          <figure>
+          <figure key={radio.id}>
             <label htmlFor={radio.id}>
               <input
-                key={radio.id}
                 type="checkbox"
                 id={radio.id}
                 name={radio.name}
@@ -120,14 +120,15 @@ export default function SearchBarDetails() {
           </figure>
         ))}
       </div>
-
-      {videos.map((video) => {
-        return (
-          <div className="YoutubeHome" key={video.id}>
-            <YouTube videoId={video.url} />
-          </div>
-        );
-      })}
+      <div className="YoutubeHome" key={videos.id}>
+        {videos.map((video) => {
+          return (
+            <div className="YoutubeVideo" key={video.id}>
+              <YouTube opts={optionIframe} videoId={video.url} />;
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }

@@ -2,10 +2,10 @@
 
 h2 {
   width: auto;
-  margin-bottom: 0px;
+  padding-top: 8rem;
   font-family: "Red Hat Display", sans-serif;
   color: #ff8200;
-  font-size: 44px;
+  font-size: 4rem;
   font-weight: 800;
   text-align: center;
 }
@@ -82,7 +82,7 @@ figure:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding-top: 4rem;
+  padding-top: 2rem;
   width: 100vw;
   color: #ff8200;
   align-items: center;
@@ -90,10 +90,41 @@ figure:hover {
 }
 
 .YoutubeHome {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  padding-top: 4rem;
-  height: 40vw;
+  padding-top: 3vw;
+}
+
+.YoutubeVideo {
+  margin: 3vw;
+}
+
+@media (min-width: 851px) {
+  .YoutubeHome {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .YoutubeVideo {
+    overflow: hidden;
+    padding-bottom: 20%;
+    position: relative;
+    height: 0;
+    width: 40%;
+  }
+  .YoutubeVideo iframe {
+    left: 0;
+    top: 0;
+    width: 100%;
+    position: absolute;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 850px) {
+  h2 {
+    padding-top: 3rem;
+  }
 }

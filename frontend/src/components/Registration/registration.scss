@@ -12,7 +12,7 @@ $secondary-color: #ff2415;
 button.modalToggle,
 input[type="submit"],
 input[type="button"] {
-  border-radius: 15px;
+  border-radius: 2.5rem;
   margin-top: 2%;
   background: linear-gradient(
     to right,
@@ -49,12 +49,33 @@ button.modalToggle:not(:first-child) {
   margin-top: 10px;
 }
 
+.formGroupPassword {
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2.5rem;
+}
+
+.inputPassword {
+  width: 90%;
+}
+
+.ShowHidePassword {
+  font-size: 25px;
+  background-color: none;
+  border: none;
+  background: none;
+}
+
 input[type="text"],
 input[type="password"],
 input[type="email"] {
   box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
   padding: 0.5rem 0.7rem;
+  border-radius: 2.5rem;
+  border: 0;
 }
 
 .buttonWrapper {
@@ -77,6 +98,12 @@ input[type="email"] {
     width: 100%;
     height: 50%;
   }
+}
+
+.HideShow {
+  background-color: transparent;
+  border: none;
+  color: rgb(167, 167, 167);
 }
 
 @media screen and (max-width: 700px) {

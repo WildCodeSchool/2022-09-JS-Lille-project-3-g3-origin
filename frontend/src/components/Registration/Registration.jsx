@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import axios from "axios";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import UserContext from "../../contexts/UserContext";
 import useModal from "../useModal/useModal";
 import Modal from "../Modal/Modal";
@@ -17,16 +17,15 @@ export default function Registration() {
   const { isShowing: isPremiumSelectedShowed, toggle: togglePremiumSelected } =
     useModal();
 
-  const { hLogin, setLoginForm, loginForm, setCurrentUser } =
-    useContext(UserContext);
-
-  const [registrationForm, setRegistrationForm] = useState({
-    username: "",
-    lastname: "",
-    email: "",
-    password: "",
-    premium: 0,
-  });
+  const {
+    hLogin,
+    setLoginForm,
+    loginForm,
+    registrationForm,
+    setRegistrationForm,
+    currentUser,
+    hRegistration,
+  } = useContext(UserContext);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -39,18 +38,6 @@ export default function Registration() {
       ...registrationForm,
       [evt.target.name]: evt.target.value,
     });
-
-  const hRegistration = (evt) => {
-    evt.preventDefault();
-    axios
-      .post("http://localhost:5000/users", registrationForm)
-      .then(({ data }) => {
-        setCurrentUser(data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
 
   return (
     <div className="home">
@@ -68,6 +55,11 @@ export default function Registration() {
       </div>
       <Modal isShowing={isLoginFromShowed} hide={toggleLoginForm} title="Login">
         <form onSubmit={hLogin}>
+          <h2>
+            {currentUser.username !== ""
+              ? `Welcome ${currentUser.username}`
+              : ""}
+          </h2>
           <div className="formGroup">
             <input
               name="username"
@@ -77,8 +69,9 @@ export default function Registration() {
               value={loginForm.username}
             />
           </div>
-          <div className="formGroup">
+          <div className="formGroupPassword">
             <input
+              className="inputPassword"
               name="password"
               type={showPassword ? "text" : "password"}
               placeholder="Password"
@@ -86,10 +79,11 @@ export default function Registration() {
               value={loginForm.password}
             />
             <button
+              className="ShowHidePassword"
               type="button"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? "Hide" : "Show"}
+              {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
             </button>
           </div>
           <div className="formGroup">
@@ -134,14 +128,22 @@ export default function Registration() {
             />
           </div>
 
-          <div className="formGroup">
+          <div className="formGroupPassword">
             <input
-              type="password"
+              className="inputPassword"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               name="password"
               onChange={hRegistrationChange}
               value={registrationForm.password}
             />
+            <button
+              className="ShowHidePassword"
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+            </button>
           </div>
 
           <div className="formGroup">
@@ -155,6 +157,7 @@ export default function Registration() {
         </form>
       </Modal>
       <Modal
+        className="SubscribeTo"
         isShowing={isSubscribeShowed}
         hide={toggleSubscribe}
         title="Subscribe to"
