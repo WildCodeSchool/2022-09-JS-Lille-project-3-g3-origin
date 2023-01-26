@@ -1,13 +1,12 @@
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import YouTube from "react-youtube";
 import "./SearchBarDetails.scss";
 
 export default function SearchBarDetails() {
   const [filterVideos, setFilterVideos] = useState("");
   const [videos, setVideos] = useState([]);
   const [selectedRadio, setSelectedRadio] = useState("");
-  const optionIframe = { width: "auto" }; // Responsive Youtube Video
   const resultSearch = (evt) => {
     evt.preventDefault();
     setFilterVideos(
@@ -124,7 +123,7 @@ export default function SearchBarDetails() {
         {videos.map((video) => {
           return (
             <div className="YoutubeVideo" key={video.id}>
-              <YouTube opts={optionIframe} videoId={video.url} />;
+              <LiteYouTubeEmbed id={video.url} />;
             </div>
           );
         })}
