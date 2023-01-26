@@ -36,6 +36,4 @@ router.put("/videos/:id", videoControllers.edit);
 router.put("/users/:id", userControllers.edit);
 router.put("/favoris/:id", favorisControllers.like);
 
-router.use(auth.verifyToken);
-
 module.exports = router;

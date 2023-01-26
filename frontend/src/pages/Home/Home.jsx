@@ -1,4 +1,3 @@
-import SwiperHome from "@components/SwiperHome/SwiperHome";
 import { useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import SwiperHome from "../../components/SwiperHome/SwiperHome";

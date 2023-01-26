@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useContext } from "react";
 import { Navigation, Pagination, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SearchBar from "../../components/SearchBar/SearchBar";
+import ButtonLike from "@components/ButtonLike/ButtonLike";
 import NavBar from "../../components/NavBar/NavBar";
 import UserContext from "../../contexts/UserContext";
 /* eslint-disable import/no-unresolved */
@@ -50,7 +50,6 @@ export default function Favoris() {
         </ul>
 
         <h1>Vos favoris</h1>
-        <SearchBar />
         <Swiper
           slidesPerView={1}
           spaceBetween={8}
@@ -67,7 +66,7 @@ export default function Favoris() {
                 <YouTube className="favoris-video" videoId={video.url} />
                 <ul>
                   <li className="details-video">
-                    <ButtonLike userId={user.id} videoId={video.id} />
+                    <ButtonLike userId={currentUser.id} videoId={video.id} />
                     {video.title}
                     {video.title}
                   </li>
