@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 /* eslint-enable import/no-unresolved */
 import "./swiperHome.scss";
+import ButtonLike from "@components/ButtonLike/ButtonLike";
 
 export default function SwiperHome() {
   const [videos, setVideos] = useState([]);
@@ -58,6 +59,7 @@ export default function SwiperHome() {
             return (
               <SwiperSlide className="home-series-youtube" key={serie.id}>
                 <YouTube className="home-video" videoId={serie.url} />
+                <ButtonLike userId={6} videoId={serie.id} />
               </SwiperSlide>
             );
           })}
@@ -81,6 +83,7 @@ export default function SwiperHome() {
             return (
               <SwiperSlide className="home-films-youtube" key={film.id}>
                 <YouTube className="home-video" videoId={film.url} />
+                <ButtonLike userId={6} videoId={film.id} />
               </SwiperSlide>
             );
           })}

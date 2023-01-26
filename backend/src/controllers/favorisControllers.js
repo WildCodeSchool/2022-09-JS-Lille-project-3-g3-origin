@@ -67,8 +67,9 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
+  const { videos_id, user_id } = req.body;
   models.favoris
-    .delete(req.params.id)
+    .deleteFav(videos_id, user_id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -82,10 +83,33 @@ const destroy = (req, res) => {
     });
 };
 
+const like = (req, res) => {
+  const { videos_id, user_id } = req.body;
+  models.favoris
+    .addFav(videos_id, user_id)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        models.favoris.deleteFav(videos_id, user_id).then(([result]) => {
+          if (result.affectedRows === 0) {
+            res.sendStatus(404);
+          } else {
+            res.sendStatus(204);
+          }
+        });
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((error) => {
+      return res.status(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
   edit,
   add,
   destroy,
+  like,
 };

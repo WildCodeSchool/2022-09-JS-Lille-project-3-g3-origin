@@ -4,16 +4,16 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import "./buttonLike.scss";
 
-function ButtonLike({ usersId, videosId }) {
+function ButtonLike(props) {
+  const { usersId, videoId } = props;
   const [liked, setLiked] = useState(false);
-  const [button, setButton] = useState({
-    videos_id: { videosId },
-    user_id: { usersId },
+  const [button] = useState({
+    videos_id: videoId,
+    user_id: usersId,
   });
 
   function handleClick() {
     setLiked(!liked);
-    setButton();
     axios.put(`${import.meta.env.VITE_BACKEND_URL}/favoris/6`, button);
   }
 
@@ -27,6 +27,6 @@ function ButtonLike({ usersId, videosId }) {
 export default ButtonLike;
 
 ButtonLike.propTypes = {
-  videosId: PropTypes.string.isRequired,
-  usersId: PropTypes.string.isRequired,
+  videoId: PropTypes.number,
+  userId: PropTypes.number,
 };

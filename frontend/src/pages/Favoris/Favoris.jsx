@@ -8,9 +8,9 @@ import "swiper/css/navigation";
 /* eslint-enable import/no-unresolved */
 import { useEffect, useState } from "react";
 import axios from "axios";
-import ButtonLike from "@components/ButtonLike/ButtonLike";
 import NavBar from "../../components/NavBar/NavBar";
 import "./favoris.scss";
+import ButtonLike from "@components/ButtonLike/ButtonLike";
 
 export default function Favoris() {
   const [users, setusers] = useState([]);
@@ -53,7 +53,7 @@ export default function Favoris() {
               <YouTube className="favoris-video" videoId={video.url} />
               <ul>
                 <li className="favoris-details-video">
-                  <ButtonLike usersId={users.id} videoId={videos.id} />
+                  <ButtonLike usersId={users.id} videoId={video.id} />
                   {video.title}
                 </li>
                 <li className="favoris-details-video">
