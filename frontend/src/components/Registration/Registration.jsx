@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import axios from "axios";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import UserContext from "../../contexts/UserContext";
 import useModal from "../useModal/useModal";

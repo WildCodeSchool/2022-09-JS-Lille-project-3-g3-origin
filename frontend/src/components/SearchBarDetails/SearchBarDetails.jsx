@@ -7,6 +7,7 @@ export default function SearchBarDetails() {
   const [filterVideos, setFilterVideos] = useState("");
   const [videos, setVideos] = useState([]);
   const [selectedRadio, setSelectedRadio] = useState("");
+  const optionIframe = { width: "auto" }; // Responsive Youtube Video
   const resultSearch = (evt) => {
     evt.preventDefault();
     setFilterVideos(
@@ -123,7 +124,7 @@ export default function SearchBarDetails() {
         {videos.map((video) => {
           return (
             <div className="YoutubeVideo" key={video.id}>
-              <YouTube videoId={video.url} />;
+              <YouTube opts={optionIframe} videoId={video.url} />;
             </div>
           );
         })}

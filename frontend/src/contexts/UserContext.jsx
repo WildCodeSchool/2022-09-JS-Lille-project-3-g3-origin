@@ -24,6 +24,9 @@ export function UserInfosContext({ children }) {
     lastname: "",
     email: "",
     premium: 0,
+    city: "",
+    address: "",
+    firstname: "",
   });
 
   const [registrationForm, setRegistrationForm] = useState({
@@ -31,6 +34,9 @@ export function UserInfosContext({ children }) {
     lastname: "",
     email: "",
     password: "",
+    firstname: "",
+    address: "",
+    city: "",
     premium: 0,
   });
 
