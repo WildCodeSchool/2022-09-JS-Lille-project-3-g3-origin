@@ -6,7 +6,6 @@ import UserContext from "../../contexts/UserContext";
 export default function ViewProfil() {
   const { hEditFormSubmit, userProfil, setUserProfil } =
     useContext(UserContext);
-
   const hFormChange = (evt) =>
     setUserProfil({ ...userProfil, [evt.target.name]: evt.target.value });
 
@@ -31,7 +30,7 @@ export default function ViewProfil() {
           <input
             type="text"
             name="firstname"
-            value={userProfil.lastname}
+            value={userProfil.firstname}
             onChange={hFormChange}
           />
         </p>
@@ -39,8 +38,8 @@ export default function ViewProfil() {
           Nom
           <input
             type="text"
-            name="nom"
-            value={userProfil.firstname}
+            name="lastname"
+            value={userProfil.lastname}
             onChange={hFormChange}
           />
         </p>
@@ -48,7 +47,7 @@ export default function ViewProfil() {
           Adresse
           <input
             type="text"
-            name="adresse"
+            name="address"
             value={userProfil.address}
             onChange={hFormChange}
           />
@@ -57,7 +56,7 @@ export default function ViewProfil() {
           Ville
           <input
             type="text"
-            name="ville"
+            name="city"
             value={userProfil.city}
             onChange={hFormChange}
           />
