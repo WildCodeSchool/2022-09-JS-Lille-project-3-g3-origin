@@ -18,9 +18,5 @@
   "devDependencies": {
     "concurrently": "^7.0.0",
     "husky": "^7.0.0"
-  },
-  "dependencies": {
-    "react-lite-youtube-embed": "^2.3.52",
-    "react-youtube-embed": "^1.0.3"
   }
 }
