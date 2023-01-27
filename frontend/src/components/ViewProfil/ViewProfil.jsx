@@ -6,7 +6,7 @@ import UserContext from "../../contexts/UserContext";
 export default function ViewProfil() {
   const { currentUser, userProfil, setUserProfil, hEditFormSubmit } =
     useContext(UserContext);
-    
+
   const hFormChange = (evt) => {
     setUserProfil({
       ...userProfil,

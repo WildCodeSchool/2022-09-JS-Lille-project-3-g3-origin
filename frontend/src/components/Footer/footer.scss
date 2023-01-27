@@ -1,11 +1,14 @@
+@use "../src/variables.scss";
+
 .footerContainer {
+  height: 10rem;
   color: blanchedalmond;
   display: flex;
-  flex-flow: column;
+  justify-content: space-between;
   align-items: center;
   gap: 6px;
   padding-bottom: 1%;
-  border-top: solid 1px orange;
+  border-top: solid 1px variables.$orange-color;
 }
 
 .footerLogoContainer {
@@ -14,17 +17,17 @@
 }
 .footerLogo {
   width: 5vw;
-  height: 10vh;
 }
 
 .footerTermsPrivacy {
+  color: variables.$orange-color;
   display: flex;
   gap: 10px;
   padding-bottom: 1%;
 }
 
 .footerText {
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
