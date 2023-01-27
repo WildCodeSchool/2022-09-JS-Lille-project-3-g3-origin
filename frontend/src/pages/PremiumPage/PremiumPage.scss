@@ -1,87 +1,106 @@
 @use "../src/variables.scss";
 .premiumPage {
   max-height: 100%;
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .logo {
-      display: flex;
-      margin: 3vw;
-      height: 10vh;
-    }
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+    padding: 1vw;
+    font-size: 2rem;
+    color: variables.$orange-color;
   }
-  .video {
+  .logo {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    aspect-ratio: 16/9;
-    top: 0%;
+    margin: 3vw;
+    height: 10vh;
+  }
+}
+.video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  aspect-ratio: 16/9;
+  top: 0%;
 
-    iframe {
-      width: 100%;
-      height: 100%;
-    }
+  iframe {
+    width: 100%;
+    height: 100%;
   }
-  .goPremium {
-    display: flex;
-    justify-content: center;
+}
+.goPremium {
+  display: flex;
+  justify-content: center;
+}
+.goPremium1 {
+  margin-bottom: 5vh;
+  box-sizing: border-box;
+  width: 40vw;
+  padding: 0.5rem 0.7rem;
+  border-radius: 2.5rem;
+  border: 0;
+  color: white;
+  background: linear-gradient(
+    to right,
+    #ff8200,
+    #ff7100,
+    #ff5d02,
+    #ff460c,
+    #ff2415
+  );
+
+  cursor: url("../../assets/popcorn.png"), auto;
+  padding: 0.5rem 2rem;
+  border: none;
+  font-size: 22px;
+  color: #fff;
+  &:hover {
+    background: linear-gradient(
+      to right,
+      #ff2415,
+      #ff460c,
+      #ff5d02,
+      #ff7100,
+      #ff8200
+    );
   }
-  .goPremium1 {
-    display: inline-block;
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 7vh;
-    margin-top: 5vh;
-    border-radius: 10rem;
-    color: #fff;
-    text-transform: uppercase;
+}
+.chart {
+  width: 70vw;
+  margin: auto;
+  margin-bottom: 3vh;
+}
+.presentation {
+  width: 70vw;
+  font-size: 1.5rem;
+  margin: auto;
+  margin-bottom: 3vh;
+  color: variables.$orange-color;
+}
+.logo1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  width: 40vw;
+}
+
+@media screen and (max-width: 850px) {
+  .premiumPage {
     font-size: 1rem;
-    letter-spacing: 0.15rem;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-    z-index: 0;
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: variables.$orange-color;
-      border-radius: 10rem;
-      z-index: -2;
-    }
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      background-color: darken(variables.$red-color, 10%);
-      transition: all 0.3s;
-      border-radius: 10rem;
-      z-index: -1;
-    }
-    &:hover {
-      color: #fff;
-      &:before {
-        width: 100%;
-      }
+    margin-top: 1vh;
+    .goPremium1 {
+      width: 40vw;
+      font-size: 1rem;
     }
   }
   .chart {
-    width: 70vw;
+    width: 100vw;
     margin: auto;
-    color: variables.$orange-color;
-    padding: 2rem;
-  }
-  .presentation {
-    width: 70vw;
-    margin: auto;
-    color: variables.$orange-color;
-    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3vh;
   }
 }

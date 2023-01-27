@@ -6,6 +6,7 @@ const router = express.Router();
 const Auth = require("./controllers/AuthController");
 const videoControllers = require("./controllers/videoControllers");
 const userControllers = require("./controllers/userControllers");
+const favorisControllers = require("./controllers/favorisControllers");
 
 router.get("/videos", videoControllers.browse);
 router.get("/videosfilter", videoControllers.filterAllVideo);
@@ -33,4 +34,6 @@ router.delete("/users/:id", userControllers.destroy);
 
 router.put("/videos/:id", videoControllers.edit);
 router.put("/users/:id", userControllers.edit);
+router.put("/favoris/:id", favorisControllers.like);
+
 module.exports = router;

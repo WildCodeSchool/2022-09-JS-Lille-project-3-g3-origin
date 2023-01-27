@@ -72,7 +72,7 @@ input[type="text"],
 input[type="password"],
 input[type="email"] {
   box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
   padding: 0.5rem 0.7rem;
   border-radius: 2.5rem;
   border: 0;
@@ -98,6 +98,12 @@ input[type="email"] {
     width: 100%;
     height: 50%;
   }
+}
+
+.HideShow {
+  background-color: transparent;
+  border: none;
+  color: rgb(167, 167, 167);
 }
 
 @media screen and (max-width: 700px) {

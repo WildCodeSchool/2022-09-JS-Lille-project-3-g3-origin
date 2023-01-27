@@ -1,7 +1,6 @@
 import "./profil.scss";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import ButtonEditProfil from "../../components/ButtonProfil/ButtonEditProfil";
 import ViewProfil from "../../components/ViewProfil/ViewProfil";
 import NavBar from "../../components/NavBar/NavBar";
 import UserContext from "../../contexts/UserContext";
@@ -22,7 +21,6 @@ export default function Profil() {
       <NavBar />
       <h1>Profil</h1>
       <ViewProfil />
-      <ButtonEditProfil />
     </div>
   );
 }

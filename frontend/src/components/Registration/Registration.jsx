@@ -162,6 +162,7 @@ export default function Registration() {
         </form>
       </Modal>
       <Modal
+        className="SubscribeTo"
         isShowing={isSubscribeShowed}
         hide={toggleSubscribe}
         title="Subscribe to"

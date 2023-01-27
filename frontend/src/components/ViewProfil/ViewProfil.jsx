@@ -4,15 +4,20 @@ import "./viewProfil.scss";
 import UserContext from "../../contexts/UserContext";
 
 export default function ViewProfil() {
-  const { hEditFormSubmit, userProfil, setUserProfil } =
+  const { currentUser, userProfil, setUserProfil, hEditFormSubmit } =
     useContext(UserContext);
-  const hFormChange = (evt) =>
-    setUserProfil({ ...userProfil, [evt.target.name]: evt.target.value });
+
+  const hFormChange = (evt) => {
+    setUserProfil({
+      ...userProfil,
+      [evt.target.name]: evt.target.value,
+    });
+  };
 
   return (
     <form className="blocProfil" onSubmit={hEditFormSubmit}>
       <header>
-        <h1>Username</h1>
+        <h1 key={currentUser.id}>Hello {currentUser.username} </h1>
         <img className="avatar" src={avatar1} alt="avatar profil" />
       </header>
       <div className="inputProf">
