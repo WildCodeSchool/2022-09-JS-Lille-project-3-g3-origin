@@ -93,8 +93,17 @@ figure:hover {
   padding-top: 3vw;
 }
 
-.YoutubeVideo {
-  margin: 3vw;
+.yt-lite {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 50%;
+  height: 22rem;
+}
+
+.yt-lite > .lty-playbtn,
+.yt-lite > .lty-playbtn:before {
+  display: none;
 }
 
 @media (min-width: 851px) {
@@ -105,16 +114,13 @@ figure:hover {
   }
 
   .YoutubeVideo {
-    overflow: hidden;
     padding-bottom: 20%;
     position: relative;
     height: 0;
-    width: 40%;
+    width: 50%;
   }
   .YoutubeVideo iframe {
-    left: 0;
-    top: 0;
-    width: 100%;
+    width: 50%;
     position: absolute;
   }
 }
