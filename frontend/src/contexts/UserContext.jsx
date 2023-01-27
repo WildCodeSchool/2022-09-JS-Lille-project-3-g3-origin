@@ -1,5 +1,6 @@
 import { createContext, useState, useMemo, useEffect } from "react";
 import { PropTypes } from "prop-types";
+import swal from "sweetalert";
 import Query from "../services/Query";
 
 const UserContext = createContext({
@@ -53,23 +54,47 @@ export function UserInfosContext({ children }) {
       setCurrentUser(user);
       setIsAuthenticated(true);
     } else {
-      console.error(`Error ${loc} context`);
+      console.error(loc);
+      swal({
+        title: "Aie !",
+        text: "Il y a eu une erreur !",
+        icon: "error",
+      });
     }
   };
 
   const hLogin = (evt) => {
     evt.preventDefault();
     hUserQueryRes(Query.login(loginForm), "login");
+    swal({
+      title: "Bienvenue !",
+      text: "Bon visionnage !",
+      icon: "success",
+      buttons: false,
+      timer: 1000,
+    });
   };
 
   const hRegistration = (evt) => {
     evt.preventDefault();
     hUserQueryRes(Query.registration(registrationForm), "registration");
+    swal({
+      title: "Bienvenue !",
+      text: "Bon visionnage !",
+      icon: "success",
+      buttons: false,
+      timer: 1000,
+    });
   };
 
   const hEditFormSubmit = (evt) => {
     evt.preventDefault();
     hUserQueryRes(Query.editUser(userProfil, currentUser.id), "editing user");
+    swal({
+      title: "C'est noté !",
+      text: "Nous avons pris en compte vos changement !",
+      icon: "success",
+    });
   };
 
   useEffect(() => {

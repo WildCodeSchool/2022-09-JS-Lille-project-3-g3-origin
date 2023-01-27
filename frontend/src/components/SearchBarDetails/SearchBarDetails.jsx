@@ -85,7 +85,7 @@ export default function SearchBarDetails() {
 
   return (
     <>
-      <h2>Recherche vidéos</h2>
+      <h2 className="titleSearchBar">Recherche vidéos</h2>
       <div className="search">
         <form onSubmit={resultSearch}>
           <label>
