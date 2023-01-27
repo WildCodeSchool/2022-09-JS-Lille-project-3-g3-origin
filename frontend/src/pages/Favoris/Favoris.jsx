@@ -68,7 +68,6 @@ export default function Favoris() {
                   <li className="details-video">
                     <ButtonLike userId={currentUser.id} videoId={video.id} />
                     {video.title}
-                    {video.title}
                   </li>
                   <li className="details-video">Résumé : {video.synopsis}</li>
                   <li className="details-video">
