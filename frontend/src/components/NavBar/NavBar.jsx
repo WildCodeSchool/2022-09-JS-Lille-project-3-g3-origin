@@ -4,6 +4,7 @@ import { FiHeart } from "react-icons/fi";
 import { BsSearch } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { BiHomeAlt } from "react-icons/bi";
+import ButtonLogOut from "../ButtonLogOut/ButtonLogOut";
 
 export default function NavBar() {
   const activeStyle = {
@@ -32,6 +33,7 @@ export default function NavBar() {
           Search <BsSearch />
         </li>
       </NavLink>
+      <ButtonLogOut />
       <NavLink
         to="/profil"
         className="nav-links"

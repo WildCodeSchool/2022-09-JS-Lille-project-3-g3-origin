@@ -115,6 +115,7 @@ export function UserInfosContext({ children }) {
       setCurrentUser,
       setLoginForm,
       setFavVideos,
+      setIsAuthenticated,
       hLogin,
       hRegistration,
       hEditFormSubmit,
