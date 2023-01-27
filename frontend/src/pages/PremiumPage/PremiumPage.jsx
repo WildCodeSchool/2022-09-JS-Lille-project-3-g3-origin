@@ -2,7 +2,6 @@ import "./PremiumPage.scss";
 import { useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import YouTube from "react-youtube";
-import Registration from "../../components/Registration/Registration";
 import Modal from "../../components/Modal/Modal";
 import useModal from "../../components/useModal/useModal";
 import logo from "../../assets/logo.png";
@@ -31,7 +30,7 @@ export default function PremiumPage() {
       <div className="premiumPage">
         <div className="header">
           <img className="logo" src={logo} alt="logo" />
-          <Registration className="header" />
+          <h1 key={currentUser.id}>Hello {currentUser.username} </h1>
         </div>
         <YouTube className="video" videoId={video.url} />;
         <div className="presentation">
@@ -115,6 +114,7 @@ export default function PremiumPage() {
               </div>
             </form>
           </Modal>
+          <img className="logo1" src={logo} alt="logo" />
         </div>
       </div>
     )

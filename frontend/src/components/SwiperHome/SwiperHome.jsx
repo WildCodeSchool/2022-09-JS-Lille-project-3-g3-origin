@@ -1,4 +1,4 @@
-import YouTube from "react-youtube";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -35,7 +35,7 @@ export default function SwiperHome() {
           .map((video) => {
             return (
               <SwiperSlide className="home-youtube" key={video.id}>
-                <YouTube className="home-video" videoId={video.url} />
+                <LiteYouTubeEmbed className="yt-lite" id={video.url} />
               </SwiperSlide>
             );
           })}
@@ -58,7 +58,8 @@ export default function SwiperHome() {
           .map((serie) => {
             return (
               <SwiperSlide className="home-series-youtube" key={serie.id}>
-                <YouTube className="home-video" videoId={serie.url} />
+
+                <LiteYouTubeEmbed className="yt-lite" id={serie.url} />
                 <ButtonLike userId={11} videoId={serie.id} />
               </SwiperSlide>
             );
@@ -82,8 +83,10 @@ export default function SwiperHome() {
           .map((film) => {
             return (
               <SwiperSlide className="home-films-youtube" key={film.id}>
-                <YouTube className="home-video" videoId={film.url} />
-                <ButtonLike userId={11} videoId={film.id} />
+
+                <LiteYouTubeEmbed className="yt-lite" id={film.url} />
+                  <ButtonLike userId={11} videoId={film.id} />
+
               </SwiperSlide>
             );
           })}

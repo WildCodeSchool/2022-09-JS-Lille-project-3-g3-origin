@@ -67,6 +67,7 @@ export default function Registration() {
               placeholder="Username"
               onChange={hLoginChange}
               value={loginForm.username}
+              required
             />
           </div>
           <div className="formGroupPassword">
@@ -77,6 +78,7 @@ export default function Registration() {
               placeholder="Password"
               onChange={hLoginChange}
               value={loginForm.password}
+              required
             />
             <button
               className="ShowHidePassword"
@@ -105,6 +107,7 @@ export default function Registration() {
               name="email"
               onChange={hRegistrationChange}
               value={registrationForm.email}
+              required
             />
           </div>
 
@@ -115,6 +118,7 @@ export default function Registration() {
               name="username"
               onChange={hRegistrationChange}
               value={registrationForm.username}
+              required
             />
           </div>
 
@@ -136,6 +140,7 @@ export default function Registration() {
               name="password"
               onChange={hRegistrationChange}
               value={registrationForm.password}
+              required
             />
             <button
               className="ShowHidePassword"

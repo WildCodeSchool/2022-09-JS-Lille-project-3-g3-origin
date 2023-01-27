@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap");
+
 body {
   width: 100vw;
   height: 100vh;
@@ -18,10 +20,13 @@ body {
   align-items: center;
   gap: 5%;
   background: url("../../frontend/src/assets/wallpaper.jpg");
+  padding-bottom: 2%;
+  padding-top: 2%;
 }
 .imagePresentationPage {
   display: flex;
   flex-flow: column;
+  justify-content: center;
   animation-name: slideInRight;
   animation-duration: 2s;
   animation-iteration-count: 1;
@@ -33,23 +38,38 @@ body {
   }
 }
 
-.popcorn {
-  padding-top: 2%;
-}
-
 .textPresentationPage {
   color: white;
   background-color: rgb(2, 29, 53);
   left: 5%;
   top: 15%;
   font-size: 23px;
-  width: 25vw;
-  padding: 5%;
+  width: 30vw;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 2%;
   text-align: center;
   border-radius: 5%;
   animation-name: slideIn;
   animation-duration: 2s;
   animation-iteration-count: 1;
+  border: solid 1px orange;
+}
+
+.titleTextPresentation {
+  width: auto;
+  padding: 2.5rem;
+  color: #ff8200;
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  font-family: "Red Hat Display", sans-serif;
+}
+
+.sentenceTextPresentation {
+  width: auto;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .backgroundSampleHome {
@@ -117,7 +137,7 @@ body {
   width: 35vw;
   padding: 5%;
   text-align: center;
-  border-radius: 5%;
+  border-radius: 2.5rem;
   border: solid 1px orange;
 }
 
