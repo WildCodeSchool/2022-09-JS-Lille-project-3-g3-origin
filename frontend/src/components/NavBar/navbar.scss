@@ -1,18 +1,6 @@
-// @media (max-width: 850px) {
-//   .main-nav-bar {
-//     bottom: 0;
-//   }
-// }
-
-// @media (min-width: 850px) {
-//   .main-nav-bar {
-//     top: 0;
-//   }
-// }
-
 .navbarContainer {
   display: flex;
-  gap: 10px;
+
   width: 100%;
   background-color: rgb(1, 13, 24);
   padding-top: 1%;
@@ -23,21 +11,21 @@
 .main-nav-bar {
   display: flex;
   justify-content: center;
-  gap: 140px;
+  gap: 10px;
   text-align: center;
-  width: 80%;
+  width: 40%;
 }
 
 .nav-links {
   text-decoration: none;
   background-color: white;
   border-radius: 2.5rem;
-  padding: 0.7%;
+  padding: 1%;
   border: 1px solid orange;
   color: black;
   height: 30%;
   font-size: 1.2rem;
-  width: 7%;
+  width: 10%;
   &:hover {
     background-color: #ff8200;
   }
