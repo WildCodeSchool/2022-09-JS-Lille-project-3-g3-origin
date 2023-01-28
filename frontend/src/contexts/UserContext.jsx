@@ -15,7 +15,10 @@ export default UserContext;
 export function UserInfosContext({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [videos, setVideos] = useState([]);
+  const [favVideos, setFavVideos] = useState([]);
+  const [updateFav, setUpdateFav] = useState(false);
   const [currentUser, setCurrentUser] = useState({
+    id: 0,
     username: "",
     lastname: "",
     email: "",
@@ -44,14 +47,54 @@ export function UserInfosContext({ children }) {
     }
   };
 
+  const mapFav = (myVideos) => {
+    return myVideos.map((myVideo) => {
+      for (let i = 0; i < favVideos.length; i += 1) {
+        if (favVideos[i].id === myVideo.id) {
+          return { ...myVideo, isFav: true };
+        }
+      }
+
+      return { ...myVideo, isFav: false };
+    });
+  };
+
+  const hLogOut = () => {
+    setCurrentUser({});
+    setIsAuthenticated(false);
+  };
+
+  useEffect(() => {
+    Query.getFavVideos(currentUser.id ? currentUser.id : 0)
+      .then((videosFav) => setFavVideos(videosFav))
+      .catch((err) => console.error(err));
+  }, [currentUser, updateFav]);
+
   const context = useMemo(
     () => ({
       currentUser,
       isAuthenticated,
       videos,
+      favVideos,
+      updateFav,
+      setVideos,
+      setUpdateFav,
+      setFavVideos,
+      mapFav,
+      hLogOut,
       hUserQueryRes,
     }),
-    [currentUser, isAuthenticated, videos, hUserQueryRes]
+    [
+      currentUser,
+      isAuthenticated,
+      videos,
+      updateFav,
+      favVideos,
+      hUserQueryRes,
+      setUpdateFav,
+      setFavVideos,
+      setVideos,
+    ]
   );
 
   return (
