@@ -37,6 +37,13 @@ export function UserInfosContext({ children }) {
     if (user !== undefined && Object.keys(user).length > 0) {
       setCurrentUser(user);
       setIsAuthenticated(true);
+      swal({
+        title: "Bienvenue !",
+        text: "Bon visionnage !",
+        icon: "success",
+        buttons: false,
+        timer: 1000,
+      });
     } else {
       console.error(loc);
       swal({
@@ -54,7 +61,6 @@ export function UserInfosContext({ children }) {
           return { ...myVideo, isFav: true };
         }
       }
-
       return { ...myVideo, isFav: false };
     });
   };
@@ -62,6 +68,11 @@ export function UserInfosContext({ children }) {
   const hLogOut = () => {
     setCurrentUser({});
     setIsAuthenticated(false);
+    swal({
+      title: "Au revoir !",
+      text: "A Bientot !",
+      icon: "success",
+    });
   };
 
   useEffect(() => {
@@ -94,6 +105,8 @@ export function UserInfosContext({ children }) {
       setUpdateFav,
       setFavVideos,
       setVideos,
+      hLogOut,
+      mapFav,
     ]
   );
 

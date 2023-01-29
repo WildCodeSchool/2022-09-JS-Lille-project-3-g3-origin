@@ -11,7 +11,7 @@ function ButtonLike(props) {
 
   const handleClick = () => {
     setUpdateFav(!updateFav);
-    Query.handleFav(currentUser.id, videoId).catch((err) => console.error(err));
+    Query.handleFav(currentUser.id, videoId);
   };
 
   return (

@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from "react";
+import swal from "sweetalert";
 import avatar1 from "../../assets/avatar1.jpg";
 import "./viewProfil.scss";
 import UserContext from "../../contexts/UserContext";
@@ -18,6 +19,11 @@ export default function ViewProfil() {
   const hEditFormSubmit = (evt) => {
     evt.preventDefault();
     hUserQueryRes(Query.editUser(userProfil, currentUser.id), "editing user");
+    swal({
+      title: "C'est noté !",
+      text: "Nous avons pris en compte vos changement !",
+      icon: "success",
+    });
   };
 
   return (
