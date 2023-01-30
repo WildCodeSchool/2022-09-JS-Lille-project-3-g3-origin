@@ -13,7 +13,7 @@ export default function SearchBarDetails() {
   const [filterVideos, setFilterVideos] = useState("");
   const [filteredVideos, setFilteredVideos] = useState(videos);
   const [videoSelected, setVideoSelected] = useState({});
-  const [selectedRadio, setSelectedRadio] = useState();
+  const [selectedRadio, setSelectedRadio] = useState(0);
 
   const radios = [
     {
