@@ -55,11 +55,15 @@ export function UserInfosContext({ children }) {
   };
 
   const mapFav = (myVideos) => {
+    const copyFavVids = favVideos.slice(0);
     return myVideos.map((myVideo) => {
-      for (let i = 0; i < favVideos.length; i += 1) {
-        if (favVideos[i].id === myVideo.id) {
+      let i = 0;
+      while (i < copyFavVids.length && copyFavVids[i].id <= myVideo.id) {
+        if (copyFavVids[i].id === myVideo.id) {
+          copyFavVids.splice(i, 1);
           return { ...myVideo, isFav: true };
         }
+        i += 1;
       }
       return { ...myVideo, isFav: false };
     });
