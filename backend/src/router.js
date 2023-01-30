@@ -23,6 +23,7 @@ router.post(
   Auth.login
 );
 router.post("/videos", videoControllers.add);
+router.put("/favoris/:id", favorisControllers.like);
 
 router.use(passport.authenticate("jwt"), (req, res, next) => {
   delete req.user.hashedPassword;
@@ -34,6 +35,5 @@ router.delete("/users/:id", userControllers.destroy);
 
 router.put("/videos/:id", videoControllers.edit);
 router.put("/users/:id", userControllers.edit);
-router.put("/favoris/:id", favorisControllers.like);
 
 module.exports = router;

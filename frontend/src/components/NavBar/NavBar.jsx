@@ -5,6 +5,7 @@ import { BsSearch } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { BiHomeAlt } from "react-icons/bi";
 import Logo from "../../assets/logo.png";
+import ButtonLogOut from "../ButtonLogOut/ButtonLogOut";
 
 export default function NavBar() {
   const activeStyle = {
