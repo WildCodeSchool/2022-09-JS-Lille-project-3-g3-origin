@@ -1,9 +1,13 @@
 // file for all api calls
 
 import axios from "axios";
+import localStorage from "./localStorage";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_URL,
+  headers: {
+    authorization: `Bearer ${localStorage.getItem("token")}`,
+  },
 });
 
 class Query {
@@ -31,9 +35,7 @@ class Query {
     await api
       .post("/login", loginForm)
       .then(({ data }) => {
-        const { token, user } = data;
-        api.defaults.headers.authorization = `Bearer ${token}`;
-        currentUser.user = user;
+        currentUser.user = data;
       })
       .catch((err) => {
         console.error(err);
@@ -47,9 +49,7 @@ class Query {
     await api
       .post("/users", registerForm)
       .then(({ data }) => {
-        const { token, user } = data;
-        api.defaults.headers.authorization = `Bearer ${token}`;
-        currentUser.user = user;
+        currentUser.user = data;
       })
       .catch((err) => {
         console.error(err);
