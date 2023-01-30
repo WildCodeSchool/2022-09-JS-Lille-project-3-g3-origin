@@ -5,13 +5,8 @@ import Modal from "../Modal/Modal";
 import "./buttonLogOut.scss";
 
 export default function ButtonLogOut() {
-  const { setCurrentUser, setIsAuthenticated } = useContext(UserContext);
+  const { hLogOut } = useContext(UserContext);
   const { isShowing: isShowConfirm, toggle: toggleConfirm } = useModal();
-
-  const hLogOut = () => {
-    setIsAuthenticated(false);
-    setCurrentUser({});
-  };
 
   return (
     <>
