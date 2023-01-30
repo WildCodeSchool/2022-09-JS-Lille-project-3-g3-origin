@@ -1,16 +1,8 @@
+ORIGINS DIGITAL
+
 ## Concept
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying as simple as possible to use.
-
-## Setup & Use
-
-### Project Initialization
-
-- In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
-- Clone this repo, enter it
-- Run command `npm run setup`
-- _NB: To launch the backend server, you'll need an environment file with database credentials. You'll find a template one in `backend/.env.sample`_
+Streaming video platform developed by 5 students from Wild Code School.
 
 ### Available Commands
 
@@ -22,8 +14,6 @@ It's pre-configured with a set of tools which'll help students produce industry-
 - `lint` : Runs validation tools, and refuses unclean code (will be executed on every _commit_)
 - `fix` : Fixes linter errors (run it if `lint` growls on your code !)
 
-## FAQ
-
 ### Tools
 
 - _Concurrently_ : Allows for several commands to run concurrently in the same CLI
@@ -33,3 +23,39 @@ It's pre-configured with a set of tools which'll help students produce industry-
 - _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
 - _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
 - _Nodemon_ : Allows to restart the server everytime a .js file is udated
+
+### Dependencies
+
+- Axios: A library for making HTTP requests, used for communicating with APIs.
+- Prop-types: A library for type checking React props, ensuring proper usage of components.
+- React: A JavaScript library for building user interfaces.
+- React-dom: A package for React to work with the DOM.
+- React-icons: A library for using various icons in React applications.
+- React-lite-youtube-embed: A light-weight React component for embedding YouTube videos.
+- React-router-dom: A routing library for React applications.
+- React-youtube: A React component for embedding YouTube videos.
+- Sweetalert: A library for creating customizable alerts and dialog boxes.
+- Swiper: A library for creating touch-enabled slideshows.
+- Typewriter-effect: A library for creating a typewriter effect for text.
+- Argon2: A library for password hashing, used for secure password storage.
+- Cors: A library for handling cross-origin resource sharing, used for handling API requests.
+- Dotenv: A library for loading environment variables from a .env file.
+- Express: A framework for building web applications with Node.js.
+- Express-session: A library for managing user sessions in Express applications.
+- Jsonwebtoken: A library for generating JSON Web Tokens, used for user authentication.
+- Mysql2: A library for connecting to MySQL databases.
+- Passport: A library for authentication middleware in Node.js applications.
+- Passport-jwt: A strategy for authenticating with JSON Web Tokens in Passport.
+- Passport-local: A strategy for authenticating with username and password in Passport.
+
+### Installation
+
+Clone the repository and run npm install to install the required dependencies.
+
+### Usage
+
+Run npm run dev to start the development server.
+
+### Contributing
+
+Please follow the Airbnb coding standard when contributing to the project.
