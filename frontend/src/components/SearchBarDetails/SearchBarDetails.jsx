@@ -122,7 +122,7 @@ export default function SearchBarDetails() {
       <div className="YoutubeHome" key={videos.id}>
         {videos.map((video) => {
           return (
-            <div className="YoutubeVideo" key={video.id}>
+            <div className="yt-lite" key={video.id}>
               <LiteYouTubeEmbed id={video.url} />;
             </div>
           );
