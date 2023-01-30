@@ -56,6 +56,7 @@ export default function NavBar() {
           </li>
         </NavLink>
       </ul>
+      <ButtonLogOut />
     </div>
   );
 }
