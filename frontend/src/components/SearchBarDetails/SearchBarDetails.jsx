@@ -111,7 +111,7 @@ export default function SearchBarDetails() {
                 id={radio.id}
                 name={radio.name}
                 checked={radio.category_id === selectedRadio}
-                onChange={() => setSelectedRadio(radio.category_id)}
+                onChange={(evt) => setSelectedRadio(evt.target.value)}
                 value={radio.category_id}
               />
             </label>
