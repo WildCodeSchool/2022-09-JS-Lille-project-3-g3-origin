@@ -58,7 +58,6 @@ export default function SwiperHome() {
           .map((serie) => {
             return (
               <SwiperSlide className="home-series-youtube" key={serie.id}>
-
                 <LiteYouTubeEmbed className="yt-lite" id={serie.url} />
                 <ButtonLike userId={11} videoId={serie.id} />
               </SwiperSlide>
@@ -83,10 +82,8 @@ export default function SwiperHome() {
           .map((film) => {
             return (
               <SwiperSlide className="home-films-youtube" key={film.id}>
-
                 <LiteYouTubeEmbed className="yt-lite" id={film.url} />
-                  <ButtonLike userId={11} videoId={film.id} />
-
+                <ButtonLike userId={11} videoId={film.id} />
               </SwiperSlide>
             );
           })}
