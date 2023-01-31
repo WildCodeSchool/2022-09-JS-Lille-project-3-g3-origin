@@ -9,6 +9,7 @@
     align-content: center;
   }
   header {
+    margin-top: 10vh;
     color: variables.$orange-color;
     text-align: center;
     font-family: variables.$font-family;
@@ -24,7 +25,7 @@
     border-radius: 50%;
     display: flex;
     margin: auto;
-    margin-top: 2vh;
+    margin-top: 6vh;
     margin-bottom: 0vh;
     box-shadow: -2px 2px 50px variables.$orange-color;
   }
@@ -59,7 +60,7 @@
 }
 @media (min-width: 800px) {
   .blocProfil {
-    height: 150vh;
+    height: 120vh;
     display: flex;
     flex-direction: column;
     margin: auto;

@@ -29,8 +29,8 @@ export default function ViewProfil() {
   return (
     <form className="blocProfil" onSubmit={hEditFormSubmit}>
       <header>
-        <h1 key={currentUser.id}>Hello {currentUser.username} </h1>
         <img className="avatar" src={avatar1} alt="avatar profil" />
+        <h1 key={currentUser.id}>Hello {currentUser.username} </h1>
       </header>
       <div className="inputProf">
         <p className="viewProfil">
