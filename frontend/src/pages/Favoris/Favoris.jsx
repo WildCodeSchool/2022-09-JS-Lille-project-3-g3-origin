@@ -1,11 +1,10 @@
 import YouTube from "react-youtube";
 import "./favoris.scss";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useContext } from "react";
 import { Navigation, Pagination, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ButtonLike from "@components/ButtonLike/ButtonLike";
+import ButtonLike from "../../components/ButtonLike/ButtonLike";
 import NavBar from "../../components/NavBar/NavBar";
 import UserContext from "../../contexts/UserContext";
 /* eslint-disable import/no-unresolved */
@@ -15,8 +14,7 @@ import "swiper/css/navigation";
 /* eslint-enable import/no-unresolved */
 
 export default function Favoris() {
-  const { currentUser, isAuthenticated, favVideos, setFavVideos } =
-    useContext(UserContext);
+  const { currentUser, isAuthenticated, favVideos } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -26,19 +24,10 @@ export default function Favoris() {
     if (!currentUser.premium) navigate("/premium");
   }, [isAuthenticated, currentUser]);
 
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/favoris/${currentUser.id}`)
-      .then(({ data }) => {
-        setFavVideos(data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, [currentUser]);
-
   return (
-    isAuthenticated && (
+    isAuthenticated &&
+    favVideos &&
+    currentUser && (
       <div className="favoris">
         <ul className="account-favoris">
           <li className="element-account-favoris">
@@ -66,7 +55,11 @@ export default function Favoris() {
                 <YouTube className="favoris-video" videoId={video.url} />
                 <ul>
                   <li className="details-video">
-                    <ButtonLike userId={currentUser.id} videoId={video.id} />
+                    <ButtonLike
+                      userId={currentUser.id}
+                      videoId={video.id}
+                      liked={video.isFav}
+                    />
                     {video.title}
                   </li>
                   <li className="details-video">Résumé : {video.synopsis}</li>
