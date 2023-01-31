@@ -1,12 +1,12 @@
 const models = require("../models");
 
 const like = (req, res) => {
-  const { video_id: videoId, user_id: userId } = req.body;
+  const { videoID, userID } = req.body;
   models.favoris
-    .addFav(videoId, userId)
+    .addFav(videoID, userID)
     .then(([resultFav]) => {
       if (resultFav.affectedRows === 0) {
-        models.favoris.deleteFav(videoId, userId).then(([resultDel]) => {
+        models.favoris.deleteFav(videoID, userID).then(([resultDel]) => {
           if (resultDel.affectedRows === 0) {
             res.sendStatus(404);
           } else {

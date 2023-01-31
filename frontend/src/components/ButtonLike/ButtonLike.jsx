@@ -1,26 +1,18 @@
 import { FaHeart } from "react-icons/fa";
-import { useState, useContext } from "react";
-import axios from "axios";
+import { useContext } from "react";
 import PropTypes from "prop-types";
 import UserContext from "../../contexts/UserContext";
+import Query from "../../services/Query";
 import "./buttonLike.scss";
 
 function ButtonLike(props) {
-  const { currentUser } = useContext(UserContext);
-  const { videoId } = props;
-  const [liked, setLiked] = useState(false);
-  const [button] = useState({
-    video_id: videoId,
-    user_id: currentUser.id,
-  });
+  const { currentUser, updateFav, setUpdateFav } = useContext(UserContext);
+  const { videoId, liked } = props;
 
-  function handleClick() {
-    setLiked(!liked);
-    axios.put(
-      `${import.meta.env.VITE_BACKEND_URL}/favoris/${currentUser.id}`,
-      button
-    );
-  }
+  const handleClick = () => {
+    setUpdateFav(!updateFav);
+    Query.handleFav(currentUser.id, videoId);
+  };
 
   return (
     <button type="submit" onClick={handleClick} className="buttonLike">
@@ -32,5 +24,11 @@ function ButtonLike(props) {
 export default ButtonLike;
 
 ButtonLike.propTypes = {
-  videoId: PropTypes.number.isRequired,
+  videoId: PropTypes.number,
+  liked: PropTypes.bool,
+};
+
+ButtonLike.defaultProps = {
+  liked: false,
+  videoId: 0,
 };

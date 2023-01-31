@@ -83,6 +83,7 @@ figure:hover {
   flex-direction: row;
   flex-wrap: wrap;
   padding-top: 2rem;
+  margin-bottom: 2rem;
   width: 100vw;
   color: #ff8200;
   align-items: center;
@@ -90,15 +91,16 @@ figure:hover {
 }
 
 .YoutubeHome {
-  padding-top: 3vw;
+  margin-top: 3vw;
 }
 
 .yt-lite {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 50%;
-  height: 22rem;
+  height: 22.5rem;
+  background-repeat: no-repeat;
+  width: 30vw;
 }
 
 .yt-lite > .lty-playbtn,
@@ -111,13 +113,24 @@ figure:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 2rem;
+    overflow-y: scroll;
   }
 
   .YoutubeVideo {
     padding-bottom: 20%;
     position: relative;
     height: 0;
-    width: 50%;
+    width: fit-content;
+
+    .over-vids {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
   }
   .YoutubeVideo iframe {
     width: 50%;
