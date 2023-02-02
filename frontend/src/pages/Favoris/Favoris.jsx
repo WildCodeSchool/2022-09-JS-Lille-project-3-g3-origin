@@ -1,7 +1,6 @@
 import YouTube from "react-youtube";
 import "./favoris.scss";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { Navigation, Pagination, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ButtonLike from "../../components/ButtonLike/ButtonLike";
@@ -15,14 +14,6 @@ import "swiper/css/navigation";
 
 export default function Favoris() {
   const { currentUser, isAuthenticated, favVideos } = useContext(UserContext);
-
-  const navigate = useNavigate();
-
-  // TO DO : handle routes with router
-  useEffect(() => {
-    if (!isAuthenticated) navigate("/");
-    if (!currentUser.premium) navigate("/premium");
-  }, [isAuthenticated, currentUser]);
 
   return (
     isAuthenticated &&

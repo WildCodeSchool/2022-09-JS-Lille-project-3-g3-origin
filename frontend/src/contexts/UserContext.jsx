@@ -2,6 +2,7 @@ import { createContext, useState, useMemo, useEffect } from "react";
 import { PropTypes } from "prop-types";
 import swal from "sweetalert";
 import Query from "../services/Query";
+import localStorage from "../services/localStorage";
 
 const UserContext = createContext({
   currentUser: {},
@@ -28,6 +29,19 @@ export function UserInfosContext({ children }) {
     firstname: "",
   });
 
+  useEffect(() => {
+    const user = localStorage.getItem("currentUser");
+    if (user !== null) setCurrentUser(user);
+  }, []);
+
+  useEffect(() => {
+    if (currentUser.id) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+  }, [currentUser]);
+
   useEffect(() => async () => setVideos(await Query.getAllVideos()), []);
 
   const hUserQueryRes = async (func, loc) => {
@@ -35,8 +49,9 @@ export function UserInfosContext({ children }) {
     const { user } = queryResult;
 
     if (user !== undefined && Object.keys(user).length > 0) {
-      setCurrentUser(user);
-      setIsAuthenticated(true);
+      setCurrentUser(user.user);
+      localStorage.saveItem("currentUser", user.user);
+      localStorage.saveItem("token", user.token);
       swal({
         title: "Bienvenue !",
         text: "Bon visionnage !",
@@ -71,7 +86,7 @@ export function UserInfosContext({ children }) {
 
   const hLogOut = () => {
     setCurrentUser({});
-    setIsAuthenticated(false);
+    localStorage.clearStorage();
     swal({
       title: "Au revoir !",
       text: "A Bientot !",
