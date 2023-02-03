@@ -1,7 +1,7 @@
 @use "../src/variables.scss";
 
 .footerContainer {
-  height: 10rem;
+  height: 30vh;
   color: blanchedalmond;
   display: flex;
   justify-content: space-between;
@@ -9,6 +9,8 @@
   gap: 6px;
   padding-bottom: 1%;
   border-top: solid 1px variables.$orange-color;
+  margin-right: 2vw;
+  margin-left: 2vw;
 }
 
 .footerLogoContainer {

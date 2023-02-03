@@ -123,7 +123,7 @@ export default function SearchBarDetails() {
       <div className="YoutubeHome" key={videos.id}>
         {filteredVideos.map((video) => {
           return (
-            <div className="YoutubeVideo" key={video.id}>
+            <div className="yt-lite" key={video.id}>
               <div
                 className="over-vids"
                 onClick={(evt) => hVideoShow(evt, video)}

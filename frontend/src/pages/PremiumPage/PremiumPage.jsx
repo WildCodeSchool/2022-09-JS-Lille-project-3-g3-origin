@@ -1,4 +1,5 @@
 import "./PremiumPage.scss";
+import ButtonLogOut from "@components/ButtonLogOut/ButtonLogOut";
 import { useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import YouTube from "react-youtube";
@@ -17,6 +18,7 @@ export default function PremiumPage() {
   useEffect(() => {
     setVideo([videos]); // TO DO : randomize video
   }, [videos]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,21 +30,29 @@ export default function PremiumPage() {
       <div className="premiumPage">
         <div className="header">
           <img className="logo" src={logo} alt="logo" />
-          <h1 key={currentUser.id}>Hello {currentUser.username} </h1>
+          <h1 key={currentUser.id}>Bonjour {currentUser.username} </h1>
+          <ButtonLogOut />
         </div>
-        <YouTube className="video" videoId={video.url} />;
+        {videos
+          .filter((videoFiltered) => videoFiltered.id > 67)
+          .map((videoFiltered) => (
+            <YouTube
+              className="video"
+              key={videoFiltered.id}
+              videoId={videoFiltered.url}
+            />
+          ))}
         <div className="presentation">
-          <h2> Présentation</h2>
           <p>
-            Bienvenue sur notre site <span>Origin's Digital</span> ! Nous sommes
-            ravis de vous accueillir sur notre plateforme de diffusion en ligne.
+            Bienvenue sur notre site Origin's Digital ! Nous sommes ravis de
+            vous accueillir sur notre plateforme de diffusion en ligne.
             <br />
             <br />
-            Notre site <span>Origin's Digital</span> vous offre un accés limité,
-            à une selection de 3 vidéos ( films, séries, documentaire ...) et
-            est accessible sur de nombreux appareils et plateformes :
-            ordinateurs, téléviseurs, smartphones, tablettes. Vous pouvez
-            profiter de nos contenus où que vous soyez.
+            Notre site Origin's Digital vous offre un accés limité, à une
+            selection d'une vidéo ( films, séries, documentaire ...) et est
+            accessible sur de nombreux appareils et plateformes : ordinateurs,
+            téléviseurs, smartphones, tablettes. Vous pouvez profiter de nos
+            contenus où que vous soyez.
             <br />
             <br />
             Nous vous proposons également un abonnement. Vous pouvez choisir de
@@ -51,8 +61,7 @@ export default function PremiumPage() {
             <br />
             Rejoignez notre communauté et découvrez toutes les nouveautés et les
             avantages que nous vous réservons. Nous espérons que vous
-            apprécierez votre expérience sur notre site{" "}
-            <span>Origin's Digital</span> !
+            apprécierez votre expérience sur notre site Origin's Digital !
           </p>
         </div>
         <div className="chart">
