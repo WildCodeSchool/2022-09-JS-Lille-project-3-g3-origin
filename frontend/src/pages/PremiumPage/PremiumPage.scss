@@ -6,6 +6,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-right: 2vw;
+  padding: 1vw;
   h1 {
     padding: 1vw;
     font-size: 2rem;
@@ -13,10 +15,10 @@
   }
   .logo {
     display: flex;
-    margin: 3vw;
     height: 10vh;
   }
 }
+
 .video {
   display: flex;
   justify-content: center;
@@ -73,12 +75,14 @@
   margin-bottom: 3vh;
 }
 .presentation {
-  width: 70vw;
+  width: 60vw;
   font-size: 1.5rem;
   margin: auto;
   margin-bottom: 3vh;
+  margin-top: 3vh;
   color: variables.$orange-color;
 }
+
 .logo1 {
   display: flex;
   justify-content: space-between;
@@ -88,6 +92,21 @@
 }
 
 @media screen and (max-width: 850px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2vw;
+    padding: 1vw;
+    h1 {
+      font-size: 1rem;
+      color: variables.$orange-color;
+    }
+    .logo {
+      display: flex;
+      height: 5vh;
+    }
+  }
   .premiumPage {
     font-size: 1rem;
     margin-top: 1vh;
@@ -95,6 +114,13 @@
       width: 40vw;
       font-size: 1rem;
     }
+  }
+  .presentation {
+    width: 90vw;
+    font-size: 1rem;
+    margin: auto;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
   }
   .chart {
     width: 100vw;

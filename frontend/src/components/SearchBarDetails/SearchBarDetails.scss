@@ -16,7 +16,7 @@
   height: 2.5rem;
   text-align: center;
   margin: 1rem 0 1rem 0;
-  margin-top: 5vw;
+  margin-top: 2vh;
 }
 
 .search {
@@ -35,7 +35,8 @@ figure {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 33%;
+  margin: auto;
+  width: 12vw;
 }
 
 label[for="0"] {
@@ -43,34 +44,42 @@ label[for="0"] {
   display: flex;
   justify-content: center;
   cursor: pointer;
+  width: 12vw;
 }
 label[for="1"] {
   content: url("../../assets/comedy.svg");
   cursor: pointer;
+  width: 12vw;
 }
 label[for="2"] {
   content: url("../../assets/sci-fi.svg");
   cursor: pointer;
+  width: 12vw;
 }
 label[for="3"] {
   content: url("../../assets/action.svg");
   cursor: pointer;
+  width: 12vw;
 }
 label[for="4"] {
   content: url("../../assets/western.svg");
   cursor: pointer;
+  width: 12vw;
 }
 label[for="5"] {
   content: url("../../assets/police-movie.svg");
   cursor: pointer;
+  width: 12vw;
 }
 label[for="6"] {
   content: url("../../assets/child-movie.svg");
   cursor: pointer;
+  width: 12vw;
 }
 label[for="7"] {
   content: url("../../assets/thriller.svg");
   cursor: pointer;
+  width: 12vw;
 }
 figure:hover {
   color: whitesmoke;
@@ -131,5 +140,21 @@ body {
 @media (max-width: 850px) {
   .titleSearchBar {
     padding-top: 3rem;
+    font-size: 2rem;
+  }
+
+  figure {
+    font-size: 1rem;
+    padding: 4vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  .containerForm {
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
   }
 }
