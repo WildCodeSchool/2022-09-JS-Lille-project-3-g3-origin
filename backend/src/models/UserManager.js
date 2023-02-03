@@ -40,7 +40,7 @@ class userManager extends AbstractManager {
 
   getUserFromUsername(username) {
     return this.connection.query(
-      `SELECT ${this.table}.*, avatar.path FROM ${this.table} LEFT JOIN origin.avatar ON avatar.id=${this.table}.avatar_id where ${this.table}.username=?`,
+      `SELECT ${this.table}.*, user_avatar.path FROM ${this.table} LEFT JOIN origin.user_avatar ON user_avatar.id=${this.table}.avatar_id where ${this.table}.username=?`,
       [username]
     );
   }

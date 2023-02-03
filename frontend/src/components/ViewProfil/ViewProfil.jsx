@@ -4,10 +4,11 @@ import useModal from "../useModal/useModal";
 import Modal from "../Modal/Modal";
 import Query from "../../services/Query";
 import "./viewProfil.scss";
+import localStorage from "../../services/localStorage";
 import UserContext from "../../contexts/UserContext";
 
 export default function ViewProfil() {
-  const { hUserQueryRes, currentUser, avatars } = useContext(UserContext);
+  const { setCurrentUser, currentUser, userAvatars } = useContext(UserContext);
   const [userProfil, setUserProfil] = useState(currentUser);
 
   useEffect(() => {
@@ -18,9 +19,17 @@ export default function ViewProfil() {
   const hFormChange = (evt) =>
     setUserProfil({ ...userProfil, [evt.target.name]: evt.target.value });
 
-  const hEditFormSubmit = (evt) => {
+  const hEditFormSubmit = async (evt) => {
     evt.preventDefault();
-    hUserQueryRes(Query.editUser(userProfil, currentUser.id), "editing user");
+    try {
+      Query.editUser(userProfil, currentUser.id).then((result) => {
+        const { user } = result;
+        localStorage.saveItem("currentUser", user);
+        setCurrentUser(user);
+      });
+    } catch (err) {
+      console.error(err);
+    }
     swal({
       title: "C'est noté !",
       text: "Nous avons pris en compte vos changement !",
@@ -58,15 +67,15 @@ export default function ViewProfil() {
           hide={toggleAvatarsShow}
           title="Choose your avatar"
         >
-          <div className="avatars">
-            {avatars.map((avatar) => {
+          <div className="user-avatars">
+            {userAvatars.map((userAvatar) => {
               return (
                 <img
-                  className="avatar"
-                  src={avatar.path.replace(`/http://localhost:3000/g`, "")}
+                  className="user-avatar"
+                  src={userAvatar.path}
                   alt="avatar choice"
-                  key={avatar.id}
-                  id={avatar.id}
+                  key={userAvatar.id}
+                  id={userAvatar.id}
                   onClick={hAvatarChoice}
                   role="presentation"
                   name="avatar_id"
@@ -78,8 +87,8 @@ export default function ViewProfil() {
         <header>
           <h1 key={currentUser.id}>Hello {currentUser.username} </h1>
           <img
-            className="avatar"
-            src={userProfil.path.replace(`/http://localhost:3000/g`, "")}
+            className="user-avatar"
+            src={userProfil.path}
             alt="avatar profil"
             onClick={toggleAvatarsShow}
             role="presentation"
@@ -142,7 +151,11 @@ export default function ViewProfil() {
             />
           </p>
         </div>
-        <input className="boutonValid" type="submit" value="Enregistrer" />
+        <input
+          className="upt-profil-sbmt-button"
+          type="submit"
+          value="Enregistrer"
+        />
       </form>
     )
   );

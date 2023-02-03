@@ -19,69 +19,71 @@ import Footer from "./components/Footer/Footer";
 function App() {
   const { isAuthenticated, currentUser } = useContext(UserContext);
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              isAuthenticated ? (
-                <Navigate replace to="/premium" />
-              ) : (
-                <PresentationPage />
-              )
-            }
-          />
-          <Route
-            path="/premium"
-            element={
-              isAuthenticated ? <PremiumPage /> : <Navigate replace to="/" />
-            }
-          />
-          <Route
-            path="/home"
-            element={
-              currentUser.premium ? (
-                <Home />
-              ) : (
-                <Navigate replace to="/premium" />
-              )
-            }
-          />
-          <Route
-            path="/search"
-            element={
-              currentUser.premium ? (
-                <Search />
-              ) : (
-                <Navigate replace to="/premium" />
-              )
-            }
-          />
-          <Route
-            path="/profil"
-            element={
-              currentUser.premium ? (
-                <Profil />
-              ) : (
-                <Navigate replace to="/premium" />
-              )
-            }
-          />
-          <Route
-            path="/favoris"
-            element={
-              currentUser.premium ? (
-                <Favoris />
-              ) : (
-                <Navigate replace to="/premium" />
-              )
-            }
-          />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    currentUser && (
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                isAuthenticated ? (
+                  <Navigate replace to="/premium" />
+                ) : (
+                  <PresentationPage />
+                )
+              }
+            />
+            <Route
+              path="/premium"
+              element={
+                isAuthenticated ? <PremiumPage /> : <Navigate replace to="/" />
+              }
+            />
+            <Route
+              path="/home"
+              element={
+                currentUser.premium ? (
+                  <Home />
+                ) : (
+                  <Navigate replace to="/premium" />
+                )
+              }
+            />
+            <Route
+              path="/search"
+              element={
+                currentUser.premium ? (
+                  <Search />
+                ) : (
+                  <Navigate replace to="/premium" />
+                )
+              }
+            />
+            <Route
+              path="/profil"
+              element={
+                currentUser.premium ? (
+                  <Profil />
+                ) : (
+                  <Navigate replace to="/premium" />
+                )
+              }
+            />
+            <Route
+              path="/favoris"
+              element={
+                currentUser.premium ? (
+                  <Favoris />
+                ) : (
+                  <Navigate replace to="/premium" />
+                )
+              }
+            />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    )
   );
 }
 

@@ -18,7 +18,7 @@ export function UserInfosContext({ children }) {
   const [videos, setVideos] = useState([]);
   const [favVideos, setFavVideos] = useState([]);
   const [updateFav, setUpdateFav] = useState(false);
-  const [avatars, setAvatars] = useState([]);
+  const [userAvatars, setUserAvatars] = useState([]);
   const [currentUser, setCurrentUser] = useState({
     id: 0,
     username: "",
@@ -34,16 +34,11 @@ export function UserInfosContext({ children }) {
 
   useEffect(() => {
     const user = localStorage.getItem("currentUser");
-    if (user !== null) setCurrentUser(user);
-  }, []);
-
-  useEffect(() => {
-    if (currentUser.id) {
+    if (user !== null) {
+      setCurrentUser(user);
       setIsAuthenticated(true);
-    } else {
-      setIsAuthenticated(false);
     }
-  }, [currentUser]);
+  }, []);
 
   useEffect(() => async () => setVideos(await Query.getAllVideos()), []);
 
@@ -53,6 +48,7 @@ export function UserInfosContext({ children }) {
 
     if (user !== undefined && Object.keys(user).length > 0) {
       setCurrentUser(user.user);
+      setIsAuthenticated(true);
       localStorage.saveItem("currentUser", user.user);
       localStorage.saveItem("token", user.token);
       swal({
@@ -89,6 +85,7 @@ export function UserInfosContext({ children }) {
 
   const hLogOut = () => {
     setCurrentUser({});
+    setIsAuthenticated(false);
     localStorage.clearStorage();
     swal({
       title: "Au revoir !",
@@ -105,7 +102,7 @@ export function UserInfosContext({ children }) {
 
   useEffect(
     () => async () => {
-      setAvatars(await Query.getAvatars());
+      setUserAvatars(await Query.getUserAvatars());
     },
     []
   );
@@ -117,12 +114,13 @@ export function UserInfosContext({ children }) {
       videos,
       favVideos,
       updateFav,
-      avatars,
+      userAvatars,
       setVideos,
       setUpdateFav,
       setFavVideos,
       mapFav,
       hLogOut,
+      setCurrentUser,
       hUserQueryRes,
     }),
     [
@@ -131,11 +129,11 @@ export function UserInfosContext({ children }) {
       videos,
       updateFav,
       favVideos,
-      avatars,
-      hUserQueryRes,
+      userAvatars,
       setUpdateFav,
       setFavVideos,
       setVideos,
+      setCurrentUser,
       hLogOut,
       mapFav,
     ]

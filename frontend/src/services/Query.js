@@ -36,6 +36,7 @@ class Query {
       .post("/login", loginForm)
       .then(({ data }) => {
         currentUser.user = data;
+        api.defaults.headers.authorization = `Bearer ${currentUser.user.token}`;
       })
       .catch((err) => {
         console.error(err);
@@ -50,6 +51,7 @@ class Query {
       .post("/users", registerForm)
       .then(({ data }) => {
         currentUser.user = data;
+        api.defaults.headers.authorization = `Bearer ${currentUser.user.token}`;
       })
       .catch((err) => {
         console.error(err);
@@ -118,10 +120,10 @@ class Query {
     api.put(`/favoris`, { userID, videoID }).catch((err) => console.error(err));
   }
 
-  static async getAvatars() {
+  static async getUserAvatars() {
     const avatars = [];
     await api
-      .get("/avatars")
+      .get("/user-avatars")
       .then(({ data }) => this.copyDatas(data, avatars))
       .catch((err) => {
         console.error(err);

@@ -1,7 +1,7 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.avatar
+  models.user_avatar
     .findAll()
     .then(([rows]) => {
       res.send(rows);

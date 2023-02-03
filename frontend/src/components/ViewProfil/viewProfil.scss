@@ -2,6 +2,7 @@
 
 .blocProfil {
   height: 130vh;
+  gap: 2rem;
 
   input {
     border-radius: 50px;
@@ -10,14 +11,12 @@
     align-content: center;
   }
   header {
-    margin-top: 10vh;
     color: variables.$orange-color;
     text-align: center;
     font-family: variables.$font-family;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 8vw;
     gap: 1rem;
 
     h1 {
@@ -26,7 +25,7 @@
     }
   }
 
-  img.avatar {
+  img.user-avatar {
     width: 15vw;
     border-radius: 50%;
     display: flex;
@@ -50,7 +49,7 @@
     padding: 3vh;
     color: variables.$orange-color;
   }
-  .boutonValid {
+  .upt-profil-sbmt-button {
     display: flex;
     justify-content: center;
     margin: auto;
@@ -71,10 +70,11 @@
     margin: auto;
     justify-content: center;
     padding-bottom: 15vh;
+    margin-top: 120px;
     .viewProfil {
       width: 50vw;
     }
-    .boutonValid {
+    .upt-profil-sbmt-button {
       width: 20vw;
     }
     h1 {
@@ -84,15 +84,16 @@
   }
 }
 
-.avatars {
+.user-avatars {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   gap: 1rem;
   height: 50vh;
   overflow-y: scroll;
-  .avatar {
+  .user-avatar {
     width: 10vw;
     cursor: pointer;
+    border-radius: 50%;
   }
 }
