@@ -1,0 +1,70 @@
+@use "../src/variables.scss" as v;
+
+.button-log-out {
+  position: fixed;
+  right: 2%;
+  font-size: 1rem;
+  border-radius: 2.5rem;
+  background: linear-gradient(
+    to right,
+    #ff8200,
+    #ff7100,
+    #ff5d02,
+    #ff460c,
+    #ff2415
+  );
+  cursor: url("../../assets/popcorn.png"), auto;
+  border: none;
+  width: 7%;
+  height: 4%;
+  color: #fff;
+  &:hover {
+    color: white;
+    background: linear-gradient(
+      to right,
+      #ff2415,
+      #ff460c,
+      #ff5d02,
+      #ff7100,
+      #ff8200
+    );
+  }
+}
+.button-log-out-modal {
+  font-size: 1rem;
+  border-radius: 2.5rem;
+  background: linear-gradient(
+    to right,
+    #ff8200,
+    #ff7100,
+    #ff5d02,
+    #ff460c,
+    #ff2415
+  );
+  cursor: url("../../assets/popcorn.png"), auto;
+  border: none;
+  width: 30%;
+  padding: 2%;
+  color: #fff;
+  &:hover {
+    color: white;
+    background: linear-gradient(
+      to right,
+      #ff2415,
+      #ff460c,
+      #ff5d02,
+      #ff7100,
+      #ff8200
+    );
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .button-log-out {
+    width: 15%;
+    font-size: 0.7rem;
+  }
+  .button-log-out-modal {
+    font-size: 0.7rem;
+  }
+}

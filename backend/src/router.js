@@ -34,6 +34,6 @@ router.delete("/users/:id", userControllers.destroy);
 
 router.put("/videos/:id", videoControllers.edit);
 router.put("/users/:id", userControllers.edit);
-router.put("/favoris/:id", favorisControllers.like);
+router.put("/favoris", favorisControllers.like);
 
 module.exports = router;

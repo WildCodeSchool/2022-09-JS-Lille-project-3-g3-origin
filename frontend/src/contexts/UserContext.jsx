@@ -2,16 +2,14 @@ import { createContext, useState, useMemo, useEffect } from "react";
 import { PropTypes } from "prop-types";
 import swal from "sweetalert";
 import Query from "../services/Query";
+import localStorage from "../services/localStorage";
 
 const UserContext = createContext({
   currentUser: {},
-  registrationForm: {},
-  setRegistrationForm: null,
-  userProfil: {},
-  setUserProfil: null,
-  setLoginForm: null,
-  loginForm: {},
-  hLogin: null,
+  videos: {},
+  favVideos: {},
+  isAuthenticated: 0,
+  hUserQueryRes: null,
 });
 export default UserContext;
 
@@ -19,7 +17,9 @@ export function UserInfosContext({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [videos, setVideos] = useState([]);
   const [favVideos, setFavVideos] = useState([]);
+  const [updateFav, setUpdateFav] = useState(false);
   const [currentUser, setCurrentUser] = useState({
+    id: 0,
     username: "",
     lastname: "",
     email: "",
@@ -29,20 +29,18 @@ export function UserInfosContext({ children }) {
     firstname: "",
   });
 
-  const [registrationForm, setRegistrationForm] = useState({
-    username: "",
-    lastname: "",
-    email: "",
-    password: "",
-    firstname: "",
-    address: "",
-    city: "",
-    premium: 0,
-  });
+  useEffect(() => {
+    const user = localStorage.getItem("currentUser");
+    if (user !== null) setCurrentUser(user);
+  }, []);
 
-  const [loginForm, setLoginForm] = useState({ username: "", password: "" });
-
-  const [userProfil, setUserProfil] = useState(currentUser);
+  useEffect(() => {
+    if (currentUser.id) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+  }, [currentUser]);
 
   useEffect(() => async () => setVideos(await Query.getAllVideos()), []);
 
@@ -51,8 +49,16 @@ export function UserInfosContext({ children }) {
     const { user } = queryResult;
 
     if (user !== undefined && Object.keys(user).length > 0) {
-      setCurrentUser(user);
-      setIsAuthenticated(true);
+      setCurrentUser(user.user);
+      localStorage.saveItem("currentUser", user.user);
+      localStorage.saveItem("token", user.token);
+      swal({
+        title: "Bienvenue !",
+        text: "Bon visionnage !",
+        icon: "success",
+        buttons: false,
+        timer: 1000,
+      });
     } else {
       console.error(loc);
       swal({
@@ -63,75 +69,63 @@ export function UserInfosContext({ children }) {
     }
   };
 
-  const hLogin = (evt) => {
-    evt.preventDefault();
-    hUserQueryRes(Query.login(loginForm), "login");
-    swal({
-      title: "Bienvenue !",
-      text: "Bon visionnage !",
-      icon: "success",
-      buttons: false,
-      timer: 1000,
+  const mapFav = (myVideos) => {
+    const copyFavVids = favVideos.slice(0);
+    return myVideos.map((myVideo) => {
+      let i = 0;
+      while (i < copyFavVids.length && copyFavVids[i].id <= myVideo.id) {
+        if (copyFavVids[i].id === myVideo.id) {
+          copyFavVids.splice(i, 1);
+          return { ...myVideo, isFav: true };
+        }
+        i += 1;
+      }
+      return { ...myVideo, isFav: false };
     });
   };
 
-  const hRegistration = (evt) => {
-    evt.preventDefault();
-    hUserQueryRes(Query.registration(registrationForm), "registration");
+  const hLogOut = () => {
+    setCurrentUser({});
+    localStorage.clearStorage();
     swal({
-      title: "Bienvenue !",
-      text: "Bon visionnage !",
-      icon: "success",
-      buttons: false,
-      timer: 1000,
-    });
-  };
-
-  const hEditFormSubmit = (evt) => {
-    evt.preventDefault();
-    hUserQueryRes(Query.editUser(userProfil, currentUser.id), "editing user");
-    swal({
-      title: "C'est noté !",
-      text: "Nous avons pris en compte vos changement !",
+      title: "Au revoir !",
+      text: "A Bientot !",
       icon: "success",
     });
   };
 
   useEffect(() => {
-    setUserProfil(currentUser);
-  }, [currentUser]);
+    Query.getFavVideos(currentUser.id ? currentUser.id : 0)
+      .then((videosFav) => setFavVideos(videosFav))
+      .catch((err) => console.error(err));
+  }, [currentUser, updateFav]);
 
   const context = useMemo(
     () => ({
       currentUser,
-      loginForm,
-      registrationForm,
-      userProfil,
       isAuthenticated,
       videos,
       favVideos,
-      setUserProfil,
-      setRegistrationForm,
-      setCurrentUser,
-      setLoginForm,
+      updateFav,
+      setVideos,
+      setUpdateFav,
       setFavVideos,
-      hLogin,
-      hRegistration,
-      hEditFormSubmit,
+      mapFav,
+      hLogOut,
+      hUserQueryRes,
     }),
     [
       currentUser,
-      loginForm,
-      registrationForm,
-      userProfil,
       isAuthenticated,
       videos,
+      updateFav,
       favVideos,
-      setUserProfil,
-      setRegistrationForm,
-      setLoginForm,
-      setCurrentUser,
+      hUserQueryRes,
+      setUpdateFav,
       setFavVideos,
+      setVideos,
+      hLogOut,
+      mapFav,
     ]
   );
 

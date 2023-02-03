@@ -9,7 +9,7 @@ import chart from "../../assets/chart.jpg";
 import UserContext from "../../contexts/UserContext";
 
 export default function PremiumPage() {
-  const { isAuthenticated, currentUser, videos } = useContext(UserContext);
+  const { currentUser, videos } = useContext(UserContext);
   const { isShowing: isPremiumSelectedShowed, toggle: togglePremiumSelected } =
     useModal();
   const [video, setVideo] = useState();
@@ -19,10 +19,8 @@ export default function PremiumPage() {
   }, [videos]);
   const navigate = useNavigate();
 
-  // TO DO : handle routes with router
   useEffect(() => {
     if (currentUser.premium) navigate("/home");
-    if (!isAuthenticated) navigate("/");
   }, [currentUser]);
 
   return (

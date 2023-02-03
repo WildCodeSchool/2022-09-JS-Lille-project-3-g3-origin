@@ -1,12 +1,14 @@
-import { useContext, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import UserContext from "../../contexts/UserContext";
 import useModal from "../useModal/useModal";
 import Modal from "../Modal/Modal";
 import "./registration.scss";
 import chart from "../../assets/chart.jpg";
+import Query from "../../services/Query";
 
 export default function Registration() {
+  const { currentUser, hUserQueryRes } = useContext(UserContext);
   const { isShowing: isLoginFromShowed, toggle: toggleLoginForm } = useModal();
   const {
     isShowing: isRegistrationFormShowed,
@@ -17,27 +19,43 @@ export default function Registration() {
   const { isShowing: isPremiumSelectedShowed, toggle: togglePremiumSelected } =
     useModal();
 
-  const {
-    hLogin,
-    setLoginForm,
-    loginForm,
-    registrationForm,
-    setRegistrationForm,
-    currentUser,
-    hRegistration,
-  } = useContext(UserContext);
+  const [loginForm, setLoginForm] = useState({ username: "", password: "" });
+
+  const [registrationForm, setRegistrationForm] = useState({
+    username: "",
+    lastname: "",
+    email: "",
+    password: "",
+    firstname: "",
+    address: "",
+    city: "",
+    premium: 0,
+  });
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const hLoginChange = (evt) => {
-    setLoginForm({ ...loginForm, [evt.target.name]: evt.target.value });
-  };
+  const hLoginChange = useCallback(
+    (evt) => {
+      setLoginForm({ ...loginForm, [evt.target.name]: evt.target.value });
+    },
+    [loginForm]
+  );
 
   const hRegistrationChange = (evt) =>
     setRegistrationForm({
       ...registrationForm,
       [evt.target.name]: evt.target.value,
     });
+
+  const hLogin = (evt) => {
+    evt.preventDefault();
+    hUserQueryRes(Query.login(loginForm), "login");
+  };
+
+  const hRegistration = (evt) => {
+    evt.preventDefault();
+    hUserQueryRes(Query.registration(registrationForm), "registration");
+  };
 
   return (
     <div className="home">
@@ -56,9 +74,7 @@ export default function Registration() {
       <Modal isShowing={isLoginFromShowed} hide={toggleLoginForm} title="Login">
         <form onSubmit={hLogin}>
           <h2>
-            {currentUser.username !== ""
-              ? `Welcome ${currentUser.username}`
-              : ""}
+            {currentUser.username ? `Welcome ${currentUser.username}` : ""}
           </h2>
           <div className="formGroup">
             <input

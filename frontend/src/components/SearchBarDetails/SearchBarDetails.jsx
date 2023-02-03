@@ -1,20 +1,19 @@
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import Query from "../../services/Query";
 import "./SearchBarDetails.scss";
+import UserContext from "../../contexts/UserContext";
+import ButtonLike from "../ButtonLike/ButtonLike";
+import useModal from "../useModal/useModal";
+import Modal from "../Modal/Modal";
 
 export default function SearchBarDetails() {
+  const { videos, mapFav, favVideos, updateFav } = useContext(UserContext);
+  const { isShowing: isVideoZoomed, toggle: toggleVideoZoom } = useModal();
   const [filterVideos, setFilterVideos] = useState("");
-  const [videos, setVideos] = useState([]);
-  const [selectedRadio, setSelectedRadio] = useState("");
-  const resultSearch = (evt) => {
-    evt.preventDefault();
-    setFilterVideos(
-      axios.video.filter(() =>
-        videos.title.toLowerCase().includes(videos.toLowerCase())
-      )
-    );
-  };
+  const [filteredVideos, setFilteredVideos] = useState(videos);
+  const [videoSelected, setVideoSelected] = useState({});
+  const [selectedRadio, setSelectedRadio] = useState(0);
 
   const radios = [
     {
@@ -69,24 +68,26 @@ export default function SearchBarDetails() {
   ];
 
   useEffect(() => {
-    axios
-      .get(
-        `http://localhost:5000/videos?category_id=${selectedRadio}&needle=${filterVideos}`
-      )
-      .then(({ data }) => {
-        setVideos(
-          data.filter((video, id) => {
-            return id < 10;
-          })
-        );
-      });
-  }, [selectedRadio, filterVideos]);
+    Query.getFilteredVideos(selectedRadio, filterVideos)
+      .then((vid) => setFilteredVideos(mapFav(vid)))
+      .catch((err) => console.error(err));
+  }, [selectedRadio, filterVideos, favVideos]);
+
+  const hVideoShow = (evt, video) => {
+    evt.preventDefault();
+    setVideoSelected(video);
+    toggleVideoZoom();
+  };
+
+  useEffect(() => {
+    setVideoSelected({ ...videoSelected, isFav: !videoSelected.isFav });
+  }, [updateFav]);
 
   return (
     <>
       <h2 className="titleSearchBar">Recherche vidéos</h2>
       <div className="search">
-        <form onSubmit={resultSearch}>
+        <form>
           <label>
             <input
               type="search"
@@ -109,8 +110,8 @@ export default function SearchBarDetails() {
                 type="checkbox"
                 id={radio.id}
                 name={radio.name}
-                checked={radios === selectedRadio}
-                onChange={(e) => setSelectedRadio(e.target.value)}
+                checked={radio.category_id === selectedRadio}
+                onChange={(evt) => setSelectedRadio(evt.target.value)}
                 value={radio.category_id}
               />
             </label>
@@ -120,13 +121,24 @@ export default function SearchBarDetails() {
         ))}
       </div>
       <div className="YoutubeHome" key={videos.id}>
-        {videos.map((video) => {
+        {filteredVideos.map((video) => {
           return (
             <div className="yt-lite" key={video.id}>
               <LiteYouTubeEmbed id={video.url} />;
             </div>
           );
         })}
+        <Modal
+          hide={toggleVideoZoom}
+          isShowing={isVideoZoomed}
+          title={videoSelected.title}
+        >
+          <div>
+            Do you wanna watch {videoSelected.title}
+            <LiteYouTubeEmbed id={videoSelected.url} />
+          </div>
+          <ButtonLike videoId={videoSelected.id} liked={videoSelected.isFav} />
+        </Modal>
       </div>
     </>
   );
