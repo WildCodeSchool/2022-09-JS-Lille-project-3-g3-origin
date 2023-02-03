@@ -94,20 +94,6 @@ figure:hover {
   margin-top: 3vw;
 }
 
-.yt-lite {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  height: 22.5rem;
-  background-repeat: no-repeat;
-  width: 30vw;
-}
-
-.yt-lite > .lty-playbtn,
-.yt-lite > .lty-playbtn:before {
-  display: none;
-}
-
 @media (min-width: 851px) {
   .YoutubeHome {
     display: flex;
