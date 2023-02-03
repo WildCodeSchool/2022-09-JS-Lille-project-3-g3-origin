@@ -11,23 +11,23 @@ const api = axios.create({
 });
 
 class Query {
+  static copyDatas(datas, copyArr) {
+    for (let i = 0; i < datas.length; i += 1) {
+      copyArr.push(datas[i]);
+    }
+  }
+
   static getUsers() {
     const users = [];
     api
       .get("/users")
-      .then(({ data }) => {
-        for (let i = 0; i < data.length; i += 1) {
-          users.push(data[i]);
-        }
-      })
+      .then(({ data }) => this.copyDatas(data, users))
       .catch((err) => {
         console.error(err);
       });
 
     return users;
   }
-
-  // TO DO : function for handling datas
 
   static async login(loginForm) {
     const currentUser = {};
@@ -59,7 +59,6 @@ class Query {
 
   static async editUser(editedForm, userID) {
     const currentUser = {};
-
     await api
       .put(`/users/${userID}`, editedForm)
       .then(({ data }) => {
@@ -75,11 +74,7 @@ class Query {
     const videos = [];
     await api
       .get("/videosfilter")
-      .then(({ data }) => {
-        for (let i = 0; i < data.length; i += 1) {
-          videos.push(data[i]);
-        }
-      })
+      .then(({ data }) => this.copyDatas(data, videos))
       .catch((err) => {
         console.error(err);
       });
@@ -121,6 +116,18 @@ class Query {
 
   static handleFav(userID, videoID) {
     api.put(`/favoris`, { userID, videoID }).catch((err) => console.error(err));
+  }
+
+  static async getAvatars() {
+    const avatars = [];
+    await api
+      .get("/avatars")
+      .then(({ data }) => this.copyDatas(data, avatars))
+      .catch((err) => {
+        console.error(err);
+      });
+
+    return avatars;
   }
 }
 

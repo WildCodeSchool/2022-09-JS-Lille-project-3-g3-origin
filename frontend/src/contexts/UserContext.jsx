@@ -18,6 +18,7 @@ export function UserInfosContext({ children }) {
   const [videos, setVideos] = useState([]);
   const [favVideos, setFavVideos] = useState([]);
   const [updateFav, setUpdateFav] = useState(false);
+  const [avatars, setAvatars] = useState([]);
   const [currentUser, setCurrentUser] = useState({
     id: 0,
     username: "",
@@ -27,6 +28,8 @@ export function UserInfosContext({ children }) {
     city: "",
     address: "",
     firstname: "",
+    avatar_id: 1,
+    path: "",
   });
 
   useEffect(() => {
@@ -100,6 +103,13 @@ export function UserInfosContext({ children }) {
       .catch((err) => console.error(err));
   }, [currentUser, updateFav]);
 
+  useEffect(
+    () => async () => {
+      setAvatars(await Query.getAvatars());
+    },
+    []
+  );
+
   const context = useMemo(
     () => ({
       currentUser,
@@ -107,6 +117,7 @@ export function UserInfosContext({ children }) {
       videos,
       favVideos,
       updateFav,
+      avatars,
       setVideos,
       setUpdateFav,
       setFavVideos,
@@ -120,6 +131,7 @@ export function UserInfosContext({ children }) {
       videos,
       updateFav,
       favVideos,
+      avatars,
       hUserQueryRes,
       setUpdateFav,
       setFavVideos,
