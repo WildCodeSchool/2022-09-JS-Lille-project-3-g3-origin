@@ -152,17 +152,10 @@ h1 {
   }
 
   .home-films-youtube {
-    & > iframe {
-      width: 80%;
-      height: auto;
-    }
+    width: 100% !important;
   }
-
   .home-series-youtube {
-    & > iframe {
-      width: 80%;
-      height: auto;
-    }
+    width: 100% !important;
   }
   .home-title {
     font-size: 1rem;
