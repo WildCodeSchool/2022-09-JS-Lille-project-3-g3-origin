@@ -10,101 +10,126 @@
   flex-direction: column;
   justify-content: top;
   align-items: center;
+}
 
-  .favoris-title {
-    font-size: 2rem;
-    text-align: center;
-    padding-top: 1rem;
-    font-weight: bold;
-  }
+.favoris-title {
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 1rem;
+  font-weight: bold;
+}
 
-  .favoris-account {
-    margin-top: 1rem;
+.favoris-account {
+  margin-top: 1rem;
+}
+.favoris-video {
+  display: flex;
+  justify-content: center;
+  aspect-ratio: 16/9;
+}
+.favoris-details-video {
+  color: variables.$orange-color;
+}
+.text-bold {
+  font-weight: bold;
+  color: variables.$white-color;
+}
+
+.details-video {
+  padding-bottom: 1rem;
+}
+
+@media (min-width: 851px) {
+  .favoris-films {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5rem;
   }
   .favoris-video {
+    & > iframe {
+      width: 80%;
+      height: 100%;
+    }
+  }
+
+  .yt-lite {
+    display: block;
+    contain: content;
+    background-position: center center;
+    background-size: cover;
+    cursor: pointer;
+    height: 100vh;
+    width: 80vw;
+  }
+  .yt-lite > iframe {
+    width: auto;
+    height: 0vh;
+    position: relative;
+  }
+  .favoris-account {
     display: flex;
     justify-content: center;
-    aspect-ratio: 16/9;
   }
+  .favoris-user,
   .favoris-details-video {
-    color: variables.$orange-color;
+    padding: 1rem;
+    max-width: 80%;
+    margin: auto;
   }
+  .favoris-swiper {
+    width: 80vw;
+    .swiper-button-next {
+      color: variables.$red-color;
+      position: absolute;
+      top: 60vh;
+    }
 
-  @media (min-width: 851px) {
-    .favoris-films {
-      display: flex;
-      flex-direction: column;
-    }
-    .favoris-video {
-      & > iframe {
-        width: 80%;
-        height: 100%;
-      }
-    }
-    .favoris-account {
-      display: flex;
-      justify-content: center;
-    }
-    .favoris-user,
-    .favoris-details-video {
-      padding: 1rem;
-      max-width: 80%;
-      margin: auto;
-    }
-    .favoris-swiper {
-      width: 80vw;
-      .swiper-button-next {
-        color: variables.$red-color;
-        position: absolute;
-        top: 50vh;
-      }
-
-      .swiper-button-prev {
-        color: variables.$red-color;
-        position: absolute;
-        top: 50vh;
-      }
+    .swiper-button-prev {
+      color: variables.$red-color;
+      position: absolute;
+      top: 60vh;
     }
   }
-  @media (max-width: 850px) {
-    .favoris-details-video {
-      margin: 1rem;
-    }
-    .favoris-video {
-      & > iframe {
-        width: 90%;
-        height: 100%;
-      }
-    }
-    .favoris-swiper {
-      width: 80vw;
-      .swiper-button-next {
-        color: variables.$red-color;
-        position: absolute;
-        top: 15vh;
-        right: -1vw;
-      }
+}
 
-      .swiper-button-prev {
-        color: variables.$red-color;
-        position: absolute;
-        top: 15vh;
-        left: -1vw;
-      }
+@media (max-width: 850px) {
+  .favoris-details-video {
+    margin: 1rem;
+  }
+  .favoris-video {
+    & > iframe {
+      width: 90%;
+      height: 100%;
     }
-    .favoris-swipers {
-      width: 80vw;
-      .swiper-button-next {
-        color: variables.$red-color;
-        position: absolute;
-        top: 15vh;
-      }
+  }
+  .yt-lite {
+    display: block;
+    contain: content;
+    background-position: center center;
+    background-size: cover;
+    cursor: pointer;
+    height: 40vh;
+    width: 80vw;
+  }
+  .yt-lite > iframe {
+    width: auto;
+    height: 0vh;
+    position: relative;
+  }
+  .favoris-swiper {
+    width: 80vw;
+    .swiper-button-next {
+      color: variables.$red-color;
+      position: absolute;
+      top: 20vh;
+      right: -1vw;
+    }
 
-      .swiper-button-prev {
-        color: variables.$red-color;
-        position: absolute;
-        top: 15vh;
-      }
+    .swiper-button-prev {
+      color: variables.$red-color;
+      position: absolute;
+      top: 20vh;
+      left: -1vw;
     }
   }
 }
