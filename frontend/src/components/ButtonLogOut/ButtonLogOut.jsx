@@ -11,19 +11,19 @@ export default function ButtonLogOut() {
   return (
     <>
       <button type="button" className="button-log-out" onClick={toggleConfirm}>
-        Log Out
+        Déconnexion
       </button>
       <Modal
         isShowing={isShowConfirm}
         hide={toggleConfirm}
-        title="Are you sure ?"
+        title="Êtes vous sûr ?"
       >
         <button
           type="button"
           className="button-log-out-after"
           onClick={hLogOut}
         >
-          Yes, Log me Out
+          Oui !
         </button>
       </Modal>
     </>
