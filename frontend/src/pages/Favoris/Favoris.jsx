@@ -1,7 +1,6 @@
-import YouTube from "react-youtube";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import "./favoris.scss";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { Navigation, Pagination, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ButtonLike from "../../components/ButtonLike/ButtonLike";
@@ -15,14 +14,6 @@ import "swiper/css/navigation";
 
 export default function Favoris() {
   const { currentUser, isAuthenticated, favVideos } = useContext(UserContext);
-
-  const navigate = useNavigate();
-
-  // TO DO : handle routes with router
-  useEffect(() => {
-    if (!isAuthenticated) navigate("/");
-    if (!currentUser.premium) navigate("/premium");
-  }, [isAuthenticated, currentUser]);
 
   return (
     isAuthenticated &&
@@ -52,7 +43,10 @@ export default function Favoris() {
           {favVideos.map((video) => {
             return (
               <SwiperSlide className="favoris-films" key={video.id}>
-                <YouTube className="favoris-video" videoId={video.url} />
+                <LiteYouTubeEmbed
+                  activatedClass="yt-lite favoris-video"
+                  id={video.url}
+                />
                 <ul>
                   <li className="details-video">
                     <ButtonLike
@@ -60,19 +54,28 @@ export default function Favoris() {
                       videoId={video.id}
                       liked={video.isFav}
                     />
-                    {video.title}
+                    <span className="text-bold">{video.title}</span>
                   </li>
-                  <li className="details-video">Résumé : {video.synopsis}</li>
                   <li className="details-video">
-                    Producteur(s): {video.producer}
+                    <span className="text-bold">Résumé :</span> {video.synopsis}
                   </li>
-                  <li className="details-video">Acteur(s) : {video.actor}</li>
                   <li className="details-video">
-                    Durée : {video.duration} min
+                    <span className="text-bold">Producteur(s):</span>
                   </li>
-                  <li className="details-video">Genre : {video.label_genre}</li>
                   <li className="details-video">
-                    Catégorie : {video.label_category}
+                    <span className="text-bold">Acteur(s) :</span> {video.actor}
+                  </li>
+                  <li className="details-video">
+                    <span className="text-bold">Durée :</span> {video.duration}{" "}
+                    min
+                  </li>
+                  <li className="details-video">
+                    <span className="text-bold">Genre : </span>
+                    {video.label_genre}
+                  </li>
+                  <li className="details-video">
+                    <span className="text-bold">Catégorie : </span>
+                    {video.label_category}
                   </li>
                 </ul>
               </SwiperSlide>

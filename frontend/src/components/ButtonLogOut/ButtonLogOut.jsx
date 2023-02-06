@@ -18,7 +18,11 @@ export default function ButtonLogOut() {
         hide={toggleConfirm}
         title="Are you sure ?"
       >
-        <button type="button" className="button-log-out" onClick={hLogOut}>
+        <button
+          type="button"
+          className="button-log-out-after"
+          onClick={hLogOut}
+        >
           Yes, Log me Out
         </button>
       </Modal>

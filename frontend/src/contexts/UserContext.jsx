@@ -2,6 +2,7 @@ import { createContext, useState, useMemo, useEffect } from "react";
 import { PropTypes } from "prop-types";
 import swal from "sweetalert";
 import Query from "../services/Query";
+import localStorage from "../services/localStorage";
 
 const UserContext = createContext({
   currentUser: {},
@@ -17,6 +18,7 @@ export function UserInfosContext({ children }) {
   const [videos, setVideos] = useState([]);
   const [favVideos, setFavVideos] = useState([]);
   const [updateFav, setUpdateFav] = useState(false);
+  const [userAvatars, setUserAvatars] = useState([]);
   const [currentUser, setCurrentUser] = useState({
     id: 0,
     username: "",
@@ -26,7 +28,17 @@ export function UserInfosContext({ children }) {
     city: "",
     address: "",
     firstname: "",
+    avatar_id: 1,
+    path: "",
   });
+
+  useEffect(() => {
+    const user = localStorage.getItem("currentUser");
+    if (user !== null) {
+      setCurrentUser(user);
+      setIsAuthenticated(true);
+    }
+  }, []);
 
   useEffect(() => async () => setVideos(await Query.getAllVideos()), []);
 
@@ -35,8 +47,10 @@ export function UserInfosContext({ children }) {
     const { user } = queryResult;
 
     if (user !== undefined && Object.keys(user).length > 0) {
-      setCurrentUser(user);
+      setCurrentUser(user.user);
       setIsAuthenticated(true);
+      localStorage.saveItem("currentUser", user.user);
+      localStorage.saveItem("token", user.token);
       swal({
         title: "Bienvenue !",
         text: "Bon visionnage !",
@@ -72,6 +86,7 @@ export function UserInfosContext({ children }) {
   const hLogOut = () => {
     setCurrentUser({});
     setIsAuthenticated(false);
+    localStorage.clearStorage();
     swal({
       title: "Au revoir !",
       text: "A Bientot !",
@@ -85,6 +100,13 @@ export function UserInfosContext({ children }) {
       .catch((err) => console.error(err));
   }, [currentUser, updateFav]);
 
+  useEffect(
+    () => async () => {
+      setUserAvatars(await Query.getUserAvatars());
+    },
+    []
+  );
+
   const context = useMemo(
     () => ({
       currentUser,
@@ -92,11 +114,13 @@ export function UserInfosContext({ children }) {
       videos,
       favVideos,
       updateFav,
+      userAvatars,
       setVideos,
       setUpdateFav,
       setFavVideos,
       mapFav,
       hLogOut,
+      setCurrentUser,
       hUserQueryRes,
     }),
     [
@@ -105,10 +129,11 @@ export function UserInfosContext({ children }) {
       videos,
       updateFav,
       favVideos,
-      hUserQueryRes,
+      userAvatars,
       setUpdateFav,
       setFavVideos,
       setVideos,
+      setCurrentUser,
       hLogOut,
       mapFav,
     ]

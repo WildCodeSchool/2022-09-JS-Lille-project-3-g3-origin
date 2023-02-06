@@ -34,7 +34,11 @@ export default function SwiperHome() {
           .map((video) => {
             return (
               <SwiperSlide className="home-youtube" key={video.id}>
-                <LiteYouTubeEmbed className="yt-lite" id={video.url} />
+                <LiteYouTubeEmbed
+                  activatedClass="yt-lite full-home-video"
+                  id={video.url}
+                  title={video.title}
+                />
               </SwiperSlide>
             );
           })}
@@ -43,7 +47,7 @@ export default function SwiperHome() {
       <h2 className="home-title">Séries</h2>
 
       <Swiper
-        slidesPerView={1}
+        slidesPerView={3}
         spaceBetween={8}
         pagination={{
           clickable: true,
@@ -56,10 +60,16 @@ export default function SwiperHome() {
           .filter((video) => video.genre === "serie")
           .map((serie) => {
             return (
-              <SwiperSlide className="home-series-youtube" key={serie.id}>
-                <LiteYouTubeEmbed className="yt-lite" id={serie.url} />
+              <SwiperSlide
+                className="yt-lite home-series-youtube"
+                key={serie.id}
+              >
+                <LiteYouTubeEmbed
+                  className="yt-lite home-serie"
+                  id={serie.url}
+                />
                 <ButtonLike
-                  userId={currentUser.id}
+                  userId={11}
                   videoId={serie.id}
                   liked={serie.isFav}
                 />
@@ -71,7 +81,7 @@ export default function SwiperHome() {
       <h1 className="home-title">Films</h1>
 
       <Swiper
-        slidesPerView={1}
+        slidesPerView={3}
         spaceBetween={8}
         pagination={{
           clickable: true,
@@ -85,7 +95,7 @@ export default function SwiperHome() {
           .map((film) => {
             return (
               <SwiperSlide className="home-films-youtube" key={film.id}>
-                <LiteYouTubeEmbed className="yt-lite" id={film.url} />
+                <LiteYouTubeEmbed className="yt-lite home-film" id={film.url} />
                 <ButtonLike
                   userId={currentUser.id}
                   videoId={film.id}

@@ -147,6 +147,7 @@ body {
     flex-flow: column;
     padding-left: 0;
     height: 90vh;
+
   }
 
   .textPresentationPage {
@@ -160,7 +161,7 @@ body {
 
     img {
       width: 70vw;
-      height: 30vh;
+      height: 20vh;
       border-radius: 25%;
       padding: 2%;
     }
@@ -169,28 +170,33 @@ body {
     display: flex;
     flex-flow: column;
     align-items: center;
-    padding-top: 2%;
+    padding-top: 5%;
     padding-right: 0;
+    height: 150vh;
   }
 
   .textOfPremium {
     width: 80vw;
+  }
+  .backgroundSampleHome {
+    width: 70vw;
+    height: 30vh;
   }
 
   .presentationOfProfile {
     display: flex;
     flex-flow: column;
     padding-left: 0;
-    padding-top: 2%;
-    height: 100vh;
+    padding-top: 5%;
+    height: 150vh;
   }
 
   .textOfProfile {
     width: 80vw;
   }
   .outsideMovie {
-    width: 55vw;
-    height: 40vh;
+    width: 60vw;
+    height: 30vh;
   }
 
   .typeWriterPresentation {

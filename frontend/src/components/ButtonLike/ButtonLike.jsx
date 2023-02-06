@@ -15,7 +15,7 @@ function ButtonLike(props) {
   };
 
   return (
-    <button type="submit" onClick={handleClick} className="buttonLike">
+    <button type="submit" onClick={handleClick} className="button-like">
       <FaHeart className={liked ? "is_it_liked" : "is_not_liked"} />
     </button>
   );
