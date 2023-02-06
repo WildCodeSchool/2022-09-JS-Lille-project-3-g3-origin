@@ -61,14 +61,14 @@ export default function Registration() {
     <div className="home">
       <div className="buttonWrapper">
         <button type="button" className="modalToggle" onClick={toggleLoginForm}>
-          Login
+          Se connecter
         </button>
         <button
           type="button"
           className="modalToggle"
           onClick={toggleRegistrationForm}
         >
-          Register
+          S'enregistrer
         </button>
       </div>
       <Modal isShowing={isLoginFromShowed} hide={toggleLoginForm} title="Login">
