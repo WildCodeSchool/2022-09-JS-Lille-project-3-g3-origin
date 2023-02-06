@@ -25,7 +25,7 @@ export default function NavBar() {
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
           <li className="nav-option">
-            Home <BiHomeAlt />
+            <span className="nav-mobile">Accueil</span> <BiHomeAlt />
           </li>
         </NavLink>
         <NavLink
@@ -34,7 +34,7 @@ export default function NavBar() {
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
           <li className="nav-option">
-            Search <BsSearch />
+            <span className="nav-mobile">Recherche</span> <BsSearch />
           </li>
         </NavLink>
         <NavLink
@@ -43,7 +43,7 @@ export default function NavBar() {
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
           <li className="nav-option">
-            Profil <CgProfile />
+            <span className="nav-mobile">Profil</span> <CgProfile />
           </li>
         </NavLink>
         <NavLink
@@ -52,7 +52,7 @@ export default function NavBar() {
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
           <li className="nav-option">
-            Favoris <FiHeart />
+            <span className="nav-mobile">Favoris</span> <FiHeart />
           </li>
         </NavLink>
       </ul>
