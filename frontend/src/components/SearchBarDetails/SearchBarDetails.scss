@@ -30,6 +30,13 @@ figcaption {
   font-family: "Red Hat Display", sans-serif;
 }
 
+.search-youtube {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 22rem;
+}
+
 figure {
   display: flex;
   flex-direction: column;

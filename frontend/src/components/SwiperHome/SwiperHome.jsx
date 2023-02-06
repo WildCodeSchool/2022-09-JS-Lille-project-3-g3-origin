@@ -60,10 +60,7 @@ export default function SwiperHome() {
           .filter((video) => video.genre === "serie")
           .map((serie) => {
             return (
-              <SwiperSlide
-                className="yt-lite home-series-youtube"
-                key={serie.id}
-              >
+              <SwiperSlide className="home-series-youtube" key={serie.id}>
                 <LiteYouTubeEmbed
                   className="yt-lite home-serie"
                   id={serie.url}

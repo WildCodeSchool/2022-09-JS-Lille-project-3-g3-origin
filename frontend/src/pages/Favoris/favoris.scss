@@ -61,11 +61,13 @@
     height: 100vh;
     width: 80vw;
   }
+
   .yt-lite > iframe {
-    width: auto;
-    height: 0vh;
+    width: 100%;
+    height: 100%;
     position: relative;
   }
+
   .favoris-account {
     display: flex;
     justify-content: center;
