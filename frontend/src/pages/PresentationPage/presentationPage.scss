@@ -33,7 +33,6 @@ body {
 
   img {
     width: 40vw;
-    height: 40vh;
     border-radius: 25%;
   }
 }
@@ -54,6 +53,7 @@ body {
   animation-duration: 2s;
   animation-iteration-count: 1;
   border: solid 1px orange;
+  height: 85vh;
 }
 
 .titleTextPresentation {
@@ -106,7 +106,7 @@ body {
   display: flex;
   align-items: center;
   gap: 5%;
-  height: 100vh;
+  height: 85vh;
 }
 
 .textOfProfile {
@@ -146,15 +146,18 @@ body {
     display: flex;
     flex-flow: column;
     padding-left: 0;
-    height: 220vh;
+    height: 90vh;
+
   }
 
   .textPresentationPage {
     width: 80vw;
+    height: 90vh;
   }
   .imagePresentationPage {
     display: flex;
     flex-flow: column;
+    height: 90vh;
 
     img {
       width: 70vw;
@@ -198,5 +201,6 @@ body {
 
   .typeWriterPresentation {
     width: 60vw;
+    margin-bottom: 20vh;
   }
 }
