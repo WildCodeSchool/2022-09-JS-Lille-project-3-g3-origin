@@ -1,7 +1,7 @@
 @use "../src/variables.scss";
 
 .footerContainer {
-  height: 30vh;
+  height: 20vh;
   color: blanchedalmond;
   display: flex;
   justify-content: space-between;
@@ -20,7 +20,9 @@
 .footerLogo {
   width: 5vw;
 }
-
+.footerTextLegal {
+  font-size: 1.2rem;
+}
 .footerTermsPrivacy {
   color: variables.$orange-color;
   display: flex;
@@ -29,7 +31,7 @@
 }
 
 .footerText {
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
@@ -44,7 +46,23 @@
 }
 
 @media screen and (max-width: 850px) {
+  .imagePresentationPage img {
+    width: 70vw;
+    height: auto;
+  }
+  .backgroundSampleHome {
+    width: 100vw;
+  }
   .footerLogo {
     width: 10vw;
+  }
+  .titleTextPresentation {
+    font-size: 1.3rem;
+  }
+  .sentenceTextPresentation {
+    font-size: 1rem;
+  }
+  .typeWriterPresentation {
+    font-size: 1rem;
   }
 }

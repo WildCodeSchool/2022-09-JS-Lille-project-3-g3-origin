@@ -24,7 +24,7 @@ export default function PresentationPage() {
       <div className="presentationPage">
         <div className="textPresentationPage">
           <h2 className="titleTextPresentation">
-            Bienvenue sur Origins Digital !{" "}
+            Bienvenue sur Origins Digital !
           </h2>
 
           <br />
