@@ -32,18 +32,28 @@
 }
 .text-bold {
   font-weight: bold;
+  font-size: 1.5rem;
   color: variables.$white-color;
 }
 
 .details-video {
   padding-bottom: 1rem;
+  font-size: 1.5rem;
+}
+.account-favoris {
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 @media (min-width: 851px) {
   .favoris-films {
     display: flex;
     flex-direction: column;
-    padding-top: 5rem;
+    margin-top: 5rem;
   }
   .favoris-video {
     & > iframe {

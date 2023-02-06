@@ -29,7 +29,7 @@ export default function Favoris() {
           </li>
         </ul>
 
-        <h1>Vos favoris</h1>
+        <h1 className="favoris-title">Vos favoris</h1>
         <Swiper
           slidesPerView={1}
           spaceBetween={8}
