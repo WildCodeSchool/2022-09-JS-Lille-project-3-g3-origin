@@ -1,6 +1,4 @@
-$font-stack: "Raleway", serif;
-$primary-color: #ff8200;
-$secondary-color: #ff2415;
+@use "../src/variables.scss";
 
 .Registration {
   height: 100vh;
@@ -25,11 +23,11 @@ input[type="button"] {
   cursor: url("../../assets/popcorn.png"), auto;
   padding: 0.5rem 2rem;
   border: none;
-  font-family: $font-stack;
+  font-family: variables.$font-family;
   font-size: 22px;
-  color: #fff;
+  color: variables.$white-color;
   &:hover {
-    color: white;
+    color: variables.$white-color;
     background: linear-gradient(
       to right,
       #ff2415,
@@ -53,7 +51,7 @@ button.modalToggle:not(:first-child) {
   display: flex;
   margin-top: 10px;
   width: 100%;
-  background-color: #fff;
+  background-color: variables.$white-color;
   border-radius: 2.5rem;
 }
 

@@ -61,17 +61,21 @@ export default function Registration() {
     <div className="home">
       <div className="buttonWrapper">
         <button type="button" className="modalToggle" onClick={toggleLoginForm}>
-          Login
+          Se connecter
         </button>
         <button
           type="button"
           className="modalToggle"
           onClick={toggleRegistrationForm}
         >
-          Register
+          S'enregistrer
         </button>
       </div>
-      <Modal isShowing={isLoginFromShowed} hide={toggleLoginForm} title="Login">
+      <Modal
+        isShowing={isLoginFromShowed}
+        hide={toggleLoginForm}
+        title="Se connecter"
+      >
         <form onSubmit={hLogin}>
           <h2>
             {currentUser.username ? `Welcome ${currentUser.username}` : ""}
@@ -80,7 +84,7 @@ export default function Registration() {
             <input
               name="username"
               type="text"
-              placeholder="Username"
+              placeholder="Pseudo"
               onChange={hLoginChange}
               value={loginForm.username}
               required
@@ -91,7 +95,7 @@ export default function Registration() {
               className="inputPassword"
               name="password"
               type={showPassword ? "text" : "password"}
-              placeholder="Password"
+              placeholder="Mot de passe"
               onChange={hLoginChange}
               value={loginForm.password}
               required
@@ -113,13 +117,13 @@ export default function Registration() {
       <Modal
         isShowing={isRegistrationFormShowed}
         hide={toggleRegistrationForm}
-        title="Register"
+        title="S'enregistrer"
       >
         <form>
           <div className="formGroup">
             <input
               type="email"
-              placeholder="Email Address"
+              placeholder="E-mail"
               name="email"
               onChange={hRegistrationChange}
               value={registrationForm.email}
@@ -130,7 +134,7 @@ export default function Registration() {
           <div className="formGroup">
             <input
               type="text"
-              placeholder="Username"
+              placeholder="Pseudo"
               name="username"
               onChange={hRegistrationChange}
               value={registrationForm.username}
@@ -141,7 +145,7 @@ export default function Registration() {
           <div className="formGroup">
             <input
               type="text"
-              placeholder="Lastname"
+              placeholder="Nom"
               name="lastname"
               onChange={hRegistrationChange}
               value={registrationForm.lastname}
@@ -152,7 +156,7 @@ export default function Registration() {
             <input
               className="inputPassword"
               type={showPassword ? "text" : "password"}
-              placeholder="Password"
+              placeholder="Mot de passe"
               name="password"
               onChange={hRegistrationChange}
               value={registrationForm.password}
@@ -170,7 +174,7 @@ export default function Registration() {
           <div className="formGroup">
             <input
               type="button"
-              placeholder="Register"
+              placeholder="S'enregistrer"
               value="Register"
               onClick={toggleSubscribe}
             />
@@ -189,12 +193,12 @@ export default function Registration() {
             <div className="formGroup">
               <input
                 type="button"
-                value="Go Premium"
+                value="Devenir Premium"
                 onClick={togglePremiumSelected}
               />
             </div>
             <div className="formGroup">
-              <input type="submit" value="Stay Freemium" />
+              <input type="submit" value="Rester Freemium" />
             </div>
           </form>
         </div>
@@ -202,32 +206,35 @@ export default function Registration() {
       <Modal
         isShowing={isPremiumSelectedShowed}
         hide={togglePremiumSelected}
-        title="Registration field :"
+        title="Formulaire d'inscription:"
       >
         <form>
           <div className="formGroup">
-            <input type="text" placeholder="Firstname" />
+            <input type="text" placeholder="Prénom" />
           </div>
           <div className="formGroup">
-            <input type="text" placeholder="Lastname" />
+            <input type="text" placeholder="Nom" />
           </div>
           <div className="formGroup">
-            <input type="text" placeholder="Adress" name="adress" />
+            <input type="text" placeholder="Adresse" name="adress" />
           </div>
           <div className="formGroup">
-            <input type="text" placeholder="City" name="city" />
+            <input type="text" placeholder="Ville" name="city" />
           </div>
           <div className="formGroup">
-            <input type="text" placeholder="Credit Card Numbers" />
+            <input type="text" placeholder="N° de carte de crédit" />
           </div>
           <div className="formGroup">
             <input type="text" placeholder="CVV" />
           </div>
           <div className="formGroup">
-            <input type="text" placeholder="Expiration Date (Day/Month/Year)" />
+            <input
+              type="text"
+              placeholder="Date d'expiration (Day/Month/Year)"
+            />
           </div>
           <div className="formGroup">
-            <input type="submit" value="Confirm" />
+            <input type="submit" value="Confirmer" />
           </div>
         </form>
       </Modal>
