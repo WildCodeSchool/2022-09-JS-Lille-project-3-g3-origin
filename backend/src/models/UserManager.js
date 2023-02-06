@@ -23,7 +23,7 @@ class userManager extends AbstractManager {
 
   update(user) {
     return this.connection.query(
-      `update ${this.table} set username = ?, firstname = ?, lastname = ?, email = ?, city = ?, address = ?, premium = ? where id = ?`,
+      `update ${this.table} set username = ?, firstname = ?, lastname = ?, email = ?, city = ?, address = ?, premium = ?, avatar_id = ? where id = ?`,
       [
         user.username,
         user.firstname,
@@ -32,6 +32,7 @@ class userManager extends AbstractManager {
         user.city,
         user.address,
         user.premium,
+        user.avatar_id,
         user.id,
       ]
     );
@@ -39,7 +40,7 @@ class userManager extends AbstractManager {
 
   getUserFromUsername(username) {
     return this.connection.query(
-      `select * from ${this.table} where username = ?`,
+      `SELECT ${this.table}.*, user_avatar.path FROM ${this.table} LEFT JOIN origin.user_avatar ON user_avatar.id=${this.table}.avatar_id where ${this.table}.username=?`,
       [username]
     );
   }

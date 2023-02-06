@@ -7,12 +7,14 @@ const Auth = require("./controllers/AuthController");
 const videoControllers = require("./controllers/videoControllers");
 const userControllers = require("./controllers/userControllers");
 const favorisControllers = require("./controllers/favorisControllers");
+const avatarControllers = require("./controllers/userAvatarController");
 
 router.get("/videos", videoControllers.browse);
 router.get("/videosfilter", videoControllers.filterAllVideo);
 router.get("/videos/:id", videoControllers.read);
 router.get("/users/:id", userControllers.read);
 router.get("/favoris/:id", videoControllers.videoFav);
+router.get("/user-avatars", avatarControllers.browse);
 
 router.post("/users", Auth.signup);
 router.get("/users", userControllers.browse);

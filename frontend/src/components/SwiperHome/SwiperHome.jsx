@@ -60,7 +60,6 @@ export default function SwiperHome() {
           .filter((video) => video.genre === "serie")
           .map((serie) => {
             return (
-
               <SwiperSlide
                 className="yt-lite home-series-youtube"
                 key={serie.id}
@@ -69,8 +68,11 @@ export default function SwiperHome() {
                   className="yt-lite home-serie"
                   id={serie.url}
                 />
-                <ButtonLike userId={11} videoId={serie.id} />
-
+                <ButtonLike
+                  userId={11}
+                  videoId={serie.id}
+                  liked={serie.isFav}
+                />
               </SwiperSlide>
             );
           })}
@@ -99,7 +101,6 @@ export default function SwiperHome() {
                   videoId={film.id}
                   liked={film.isFav}
                 />
-
               </SwiperSlide>
             );
           })}

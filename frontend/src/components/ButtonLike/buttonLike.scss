@@ -1,50 +1,52 @@
 @use "../src/variables.scss";
 
 @media (min-width: 851px) {
-  .is_it_liked {
-    color: variables.$red-color;
-    height: 5vh;
-    width: 5vh;
-    cursor: pointer;
-  }
-
-  .is_not_liked {
-    color: variables.$white-color;
-    height: 5vh;
-    width: 5vh;
-    cursor: pointer;
-  }
-
-  .buttonLike {
+  .button-like {
     display: flex;
     justify-content: center;
     height: 6vh;
     width: 6vh;
     background-color: transparent;
     border: none;
+
+
+    .is_it_liked {
+      color: variables.$red-color;
+      height: 5vh;
+      width: 5vh;
+      cursor: pointer;
+    }
+
+    .is_not_liked {
+      color: variables.$white-color;
+      height: 5vh;
+      width: 5vh;
+      cursor: pointer;
+    }
   }
 }
 @media (max-width: 850px) {
-  .is_it_liked {
-    color: variables.$red-color;
-    height: 4vh;
-    width: 4vh;
-    cursor: pointer;
-  }
-
-  .is_not_liked {
-    color: variables.$white-color;
-    height: 4vh;
-    width: 4vh;
-    cursor: pointer;
-  }
-
-  .buttonLike {
+  .button-like {
     display: flex;
     justify-content: center;
     height: 5vh;
     width: 5vh;
     background-color: transparent;
     border: none;
+
+
+    .is_it_liked {
+      color: variables.$red-color;
+      height: 4vh;
+      width: 4vh;
+      cursor: pointer;
+    }
+
+    .is_not_liked {
+      color: variables.$white-color;
+      height: 4vh;
+      width: 4vh;
+      cursor: pointer;
+    }
   }
 }
