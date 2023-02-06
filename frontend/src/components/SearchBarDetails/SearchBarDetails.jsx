@@ -124,7 +124,12 @@ export default function SearchBarDetails() {
         {filteredVideos.map((video) => {
           return (
             <div className="yt-lite" key={video.id}>
-              <LiteYouTubeEmbed id={video.url} />;
+              <div
+                className="over-vids"
+                onClick={(evt) => hVideoShow(evt, video)}
+                role="presentation"
+              />
+              <LiteYouTubeEmbed id={video.url} title={video.title} />;
             </div>
           );
         })}

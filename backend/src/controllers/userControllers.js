@@ -17,7 +17,7 @@ const browse = (req, res) => {
 
 const read = (req, res) => {
   models.user
-    .find(req.params.id)
+    .getAllInfosOfUser(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404);
