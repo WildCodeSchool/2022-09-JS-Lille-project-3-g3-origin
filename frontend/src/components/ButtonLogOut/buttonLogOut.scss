@@ -15,11 +15,11 @@
   );
   cursor: url("../../assets/popcorn.png"), auto;
   border: none;
-  width: 7%;
+  width: 11%;
   height: 4%;
-  color: #fff;
+  color: #faf8ff;
   &:hover {
-    color: white;
+    color: #faf8ff;
     background: linear-gradient(
       to right,
       #ff2415,
@@ -46,9 +46,9 @@
   border: none;
   width: 10vw;
   height: 5vh;
-  color: #fff;
+  color: #faf8ff;
   &:hover {
-    color: white;
+    color: #faf8ff;
     background: linear-gradient(
       to right,
       #ff2415,
@@ -62,11 +62,11 @@
 
 @media screen and (max-width: 850px) {
   .button-log-out {
-    width: 15%;
-    font-size: 0.7rem;
+    width: 30%;
+    font-size: 1rem;
   }
   .button-log-out-modal {
-    font-size: 0.7rem;
+    font-size: 1rem;
     width: 40%;
   }
   .button-log-out-after {
