@@ -1,24 +1,23 @@
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useContext, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Mousewheel, Keyboard, FreeMode } from "swiper";
-import ButtonLike from "@components/ButtonLike/ButtonLike";
+import ButtonLike from "../ButtonLike/ButtonLike";
 /* eslint-disable import/no-unresolved */
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 /* eslint-enable import/no-unresolved */
 import "./swiperHome.scss";
+import UserContext from "../../contexts/UserContext";
 
 export default function SwiperHome() {
-  const [videos, setVideos] = useState([]);
+  const { videos, setVideos, favVideos, currentUser, mapFav } =
+    useContext(UserContext);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/videosfilter").then(({ data }) => {
-      setVideos(data);
-    });
-  }, []);
+    setVideos(mapFav(videos));
+  }, [favVideos]);
 
   return (
     <div>
@@ -31,7 +30,7 @@ export default function SwiperHome() {
         className="my-swiper"
       >
         {videos
-          .filter((video) => video.id > 50)
+          .filter((video) => video.id > 60)
           .map((video) => {
             return (
               <SwiperSlide className="home-youtube" key={video.id}>
@@ -59,7 +58,11 @@ export default function SwiperHome() {
             return (
               <SwiperSlide className="home-series-youtube" key={serie.id}>
                 <LiteYouTubeEmbed className="yt-lite" id={serie.url} />
-                <ButtonLike userId={11} videoId={serie.id} />
+                <ButtonLike
+                  userId={currentUser.id}
+                  videoId={serie.id}
+                  liked={serie.isFav}
+                />
               </SwiperSlide>
             );
           })}
@@ -83,7 +86,11 @@ export default function SwiperHome() {
             return (
               <SwiperSlide className="home-films-youtube" key={film.id}>
                 <LiteYouTubeEmbed className="yt-lite" id={film.url} />
-                <ButtonLike userId={11} videoId={film.id} />
+                <ButtonLike
+                  userId={currentUser.id}
+                  videoId={film.id}
+                  liked={film.isFav}
+                />
               </SwiperSlide>
             );
           })}

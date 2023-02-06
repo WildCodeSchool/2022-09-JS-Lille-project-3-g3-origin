@@ -86,6 +86,42 @@ class Query {
 
     return videos;
   }
+
+  static async getFilteredVideos(selectedRadio, videosFilter) {
+    const videos = [];
+
+    await api
+      .get(`/videos?category_id=${selectedRadio}&needle=${videosFilter}`)
+      .then(({ data }) => {
+        for (let i = 0; i < data.length; i += 1) {
+          videos.push(data[i]);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    return videos;
+  }
+
+  static async getFavVideos(userID) {
+    const videos = [];
+
+    await api
+      .get(`/favoris/${userID}`)
+      .then(({ data }) => {
+        for (let i = 0; i < data.length; i += 1) {
+          videos.push({ ...data[i], isFav: true });
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    return videos;
+  }
+
+  static handleFav(userID, videoID) {
+    api.put(`/favoris`, { userID, videoID }).catch((err) => console.error(err));
+  }
 }
 
 export default Query;

@@ -13,7 +13,7 @@ const browse = (req, res) => {
         })
         .filter((elt) => {
           if (!needle) return true;
-          return elt.title.includes(needle);
+          return elt.title.toLowerCase().includes(needle.toLowerCase());
         });
     })
     .then((movies) => {
