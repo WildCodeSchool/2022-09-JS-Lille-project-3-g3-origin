@@ -61,7 +61,7 @@ export default function ViewProfil() {
 
   return (
     userProfil && (
-      <form className="blocProfil" onSubmit={hEditFormSubmit}>
+      <form className="bloc-profil" onSubmit={hEditFormSubmit}>
         <Modal
           isShowing={showAvatars}
           hide={toggleAvatarsShow}
@@ -71,7 +71,7 @@ export default function ViewProfil() {
             {userAvatars.map((userAvatar) => {
               return (
                 <img
-                  className="user-avatar"
+                  className="user-avatar-list"
                   src={userAvatar.path}
                   alt="avatar choice"
                   key={userAvatar.id}
@@ -85,7 +85,10 @@ export default function ViewProfil() {
           </div>
         </Modal>
         <header>
-          <h1 key={currentUser.id}>Hello {currentUser.username} </h1>
+          <h1 key={currentUser.id}>
+            Hello
+            <span className="user-name-style"> {currentUser.username} </span>
+          </h1>
           <img
             className="user-avatar"
             src={userProfil.path}
@@ -94,8 +97,8 @@ export default function ViewProfil() {
             role="presentation"
           />
         </header>
-        <div className="inputProf">
-          <p className="viewProfil">
+        <div className="input-prof">
+          <p className="view-profil">
             Pseudo
             <input
               type="text"
@@ -104,7 +107,7 @@ export default function ViewProfil() {
               onChange={hFormChange}
             />
           </p>
-          <p className="viewProfil">
+          <p className="view-profil">
             Prénom
             <input
               type="text"
@@ -113,7 +116,7 @@ export default function ViewProfil() {
               onChange={hFormChange}
             />
           </p>
-          <p className="viewProfil">
+          <p className="view-profil">
             Nom
             <input
               type="text"
@@ -122,7 +125,7 @@ export default function ViewProfil() {
               onChange={hFormChange}
             />
           </p>
-          <p className="viewProfil">
+          <p className="view-profil">
             Adresse
             <input
               type="text"
@@ -131,7 +134,7 @@ export default function ViewProfil() {
               onChange={hFormChange}
             />
           </p>
-          <p className="viewProfil">
+          <p className="view-profil">
             Ville
             <input
               type="text"
@@ -141,7 +144,7 @@ export default function ViewProfil() {
             />
           </p>
 
-          <p className="viewProfil">
+          <p className="view-profil">
             E-mail:
             <input
               type="text"
@@ -152,7 +155,7 @@ export default function ViewProfil() {
           </p>
         </div>
         <input
-          className="upt-profil-sbmt-button"
+          className="upt-profil-sbmt-btn"
           type="submit"
           value="Enregistrer"
         />
