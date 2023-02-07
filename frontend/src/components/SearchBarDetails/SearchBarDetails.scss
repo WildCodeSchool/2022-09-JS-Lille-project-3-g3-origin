@@ -145,6 +145,14 @@ body {
 }
 
 @media (max-width: 850px) {
+  .YoutubeHome {
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+  }
+
   .titleSearchBar {
     padding-top: 3rem;
     font-size: 2rem;
@@ -163,5 +171,10 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     margin: auto;
+  }
+  .yt-lite > iframe {
+    width: 100%;
+    height: 100%;
+    position: relative;
   }
 }
