@@ -30,7 +30,6 @@ body {
   animation-name: slideInRight;
   animation-duration: 2s;
   animation-iteration-count: 1;
-
   img {
     width: 40vw;
     border-radius: 25%;
@@ -42,7 +41,7 @@ body {
   background-color: rgb(2, 29, 53);
   left: 5%;
   top: 15%;
-  font-size: 23px;
+  font-size: 2px;
   width: 30vw;
   padding-left: 5%;
   padding-right: 5%;
@@ -121,17 +120,18 @@ body {
     display: flex;
     flex-flow: column;
     padding-left: 0;
-    height: 90vh;
+    height: 80vh;
+    gap: 0;
   }
 
   .textPresentationPage {
     width: 80vw;
-    height: 90vh;
   }
   .imagePresentationPage {
     display: flex;
     flex-flow: column;
-    height: 90vh;
+    justify-content: flex-start;
+    height: 100vh;
 
     img {
       width: 70vw;
