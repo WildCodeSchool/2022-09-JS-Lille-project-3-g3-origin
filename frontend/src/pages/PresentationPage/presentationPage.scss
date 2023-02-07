@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap");
+@use "../src/variables.scss";
 
 body {
   width: 100vw;
@@ -30,7 +30,6 @@ body {
   animation-name: slideInRight;
   animation-duration: 2s;
   animation-iteration-count: 1;
-
   img {
     width: 40vw;
     border-radius: 25%;
@@ -38,32 +37,32 @@ body {
 }
 
 .textPresentationPage {
-  color: white;
+  color: variables.$white-color;
   background-color: rgb(2, 29, 53);
   left: 5%;
   top: 15%;
-  font-size: 23px;
+  font-size: 2px;
   width: 30vw;
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 2%;
   text-align: center;
-  border-radius: 5%;
+  border-radius: 1rem;
   animation-name: slideIn;
   animation-duration: 2s;
   animation-iteration-count: 1;
-  border: solid 1px orange;
+  border: solid 1px variables.$orange-color;
   height: 85vh;
 }
 
 .titleTextPresentation {
   width: auto;
-  padding: 2.5rem;
-  color: #ff8200;
-  font-size: 3rem;
+  padding: 2rem;
+  color: variables.$orange-color;
+  font-size: 2rem;
   font-weight: 800;
   text-align: center;
-  font-family: "Red Hat Display", sans-serif;
+  font-family: variables.$font-family;
 }
 
 .sentenceTextPresentation {
@@ -84,21 +83,8 @@ body {
   align-items: center;
   gap: 5%;
   height: 100vh;
-  border-top: solid 2px orange;
-  border-bottom: solid 2px orange;
-}
-
-.textOfPremium {
-  color: white;
-  background-color: rgb(2, 29, 53);
-  left: 5%;
-  top: 15%;
-  font-size: 23px;
-  width: 35vw;
-  padding: 5%;
-  text-align: center;
-  border-radius: 5%;
-  border: solid 1px orange;
+  border-top: solid 2px variables.$orange-color;
+  border-bottom: solid 2px variables.$orange-color;
 }
 
 .presentationOfProfile {
@@ -108,9 +94,10 @@ body {
   gap: 5%;
   height: 85vh;
 }
-
-.textOfProfile {
-  color: white;
+.textOfPremium,
+.textOfProfile,
+.typeWriterPresentation {
+  color: variables.$white-color;
   background-color: rgb(2, 29, 53);
   left: 5%;
   top: 15%;
@@ -118,8 +105,8 @@ body {
   width: 35vw;
   padding: 5%;
   text-align: center;
-  border-radius: 5%;
-  border: solid 1px orange;
+  border-radius: 1rem;
+  border: solid 1px variables.$orange-color;
 }
 
 .outsideMovie {
@@ -128,36 +115,23 @@ body {
   border-radius: 15%;
 }
 
-.typeWriterPresentation {
-  color: white;
-  background-color: rgb(2, 29, 53);
-  left: 5%;
-  top: 15%;
-  font-size: 23px;
-  width: 35vw;
-  padding: 5%;
-  text-align: center;
-  border-radius: 2.5rem;
-  border: solid 1px orange;
-}
-
 @media screen and (max-width: 850px) {
   .presentationPage {
     display: flex;
     flex-flow: column;
     padding-left: 0;
-    height: 90vh;
-
+    height: 80vh;
+    gap: 0;
   }
 
   .textPresentationPage {
     width: 80vw;
-    height: 90vh;
   }
   .imagePresentationPage {
     display: flex;
     flex-flow: column;
-    height: 90vh;
+    justify-content: flex-start;
+    height: 100vh;
 
     img {
       width: 70vw;
@@ -172,7 +146,7 @@ body {
     align-items: center;
     padding-top: 5%;
     padding-right: 0;
-    height: 150vh;
+    height: 70vh;
   }
 
   .textOfPremium {
@@ -180,7 +154,7 @@ body {
   }
   .backgroundSampleHome {
     width: 70vw;
-    height: 30vh;
+    height: auto;
   }
 
   .presentationOfProfile {
@@ -188,7 +162,7 @@ body {
     flex-flow: column;
     padding-left: 0;
     padding-top: 5%;
-    height: 150vh;
+    height: 80vh;
   }
 
   .textOfProfile {
@@ -201,6 +175,5 @@ body {
 
   .typeWriterPresentation {
     width: 60vw;
-    margin-bottom: 20vh;
   }
 }
