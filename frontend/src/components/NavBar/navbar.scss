@@ -1,83 +1,86 @@
 @use "../src/variables.scss";
 
-.navbarContainer {
+.nav-bar-container {
   display: flex;
-  gap: 20%;
+  gap: 2rem;
   width: 100%;
-  background-color: variables.$black-color;
-  padding-top: 1%;
+  background-color: #010d18;
   z-index: 2;
   position: fixed;
-  padding-bottom: 1%;
-}
+  justify-content: space-between;
+  align-items: center;
 
-.main-nav-bar {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  text-align: center;
-  width: 40%;
-}
-
-.nav-links {
-  text-decoration: none;
-  background-color: variables.$white-color;
-  border-radius: 2.5rem;
-  padding: 2%;
-  border: 1px solid variables.$orange-color;
-  color: variables.$black-color;
-  height: 30%;
-  font-size: 1.2rem;
-  min-width: 25%;
-  &:hover {
-    background-color: variables.$orange-color;
+  .logo-nav-bar {
+    width: 20%;
   }
-}
 
-.nav-option {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-}
+  .main-nav-bar {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    text-align: center;
+    width: 50%;
 
-.logoNavBar {
-  width: 10%;
-}
+    .nav-links {
+      text-decoration: none;
+      background-color: variables.$black-color;
+      border-radius: 1rem;
+      padding: 1.1rem;
+      border: 1px solid variables.$white-color;
+      color: variables.$white-color;
+      height: 30%;
+      font-size: 1.2rem;
+      flex: 1;
+      &:hover {
+        background-color: variables.$orange-color;
+        color: variables.$black-color;
+        border-color: variables.$orange-color;
+      }
 
-.logoNavBar {
-  width: 20%;
+      .nav-option {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 850px) {
-  .main-nav-bar {
-    display: flex;
-    justify-content: space-evenly;
-    position: fixed;
-    z-index: 2;
-    width: 100%;
-    background-color: variables.$black-color;
-    bottom: 0;
-    gap: 0;
-  }
+  .nav-bar-container {
+    padding: 0.5rem 0.3rem;
 
-  .nav-option {
-    text-align: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 2vh 0;
-    font-size: 2rem;
-  }
+    .main-nav-bar {
+      display: flex;
+      justify-content: space-evenly;
+      position: fixed;
+      z-index: 2;
+      width: 100%;
+      background-color: variables.$black-color;
+      bottom: 0;
+      gap: 0;
 
-  .nav-links {
-    text-decoration: none;
-    background-color: variables.$black-color;
-    color: variables.$white-color;
-    border-radius: 0;
-    padding: 0;
-    border: 0;
-    min-width: 25%;
-  }
-  .nav-mobile {
-    display: none;
+      .nav-links {
+        text-decoration: none;
+        background-color: variables.$black-color;
+        color: variables.$white-color;
+        border-radius: 0;
+        padding: 0;
+        border: 0;
+        min-width: 25%;
+
+        .nav-option {
+          text-align: center;
+          justify-content: center;
+          text-decoration: none;
+          padding: 2vh 0;
+          font-size: 2rem;
+
+          .nav-mobile {
+            display: none;
+          }
+        }
+      }
+    }
   }
 }
