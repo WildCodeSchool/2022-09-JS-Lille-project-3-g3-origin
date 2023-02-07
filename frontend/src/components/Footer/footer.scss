@@ -2,9 +2,9 @@
 
 .footerContainer {
   height: 20vh;
-  color: blanchedalmond;
+  color: variables.$white-color;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   gap: 6px;
   padding-bottom: 1%;
@@ -28,16 +28,18 @@
   display: flex;
   gap: 10px;
   padding-bottom: 1%;
+  text-decoration: none;
 }
 
 .footerText {
   font-size: 1.2rem;
   text-decoration: none;
+  color: variables.$white-color;
   &:hover {
     text-decoration: underline;
   }
   &:visited {
-    color: white;
+    color: variables.$white-color;
   }
 
   .footerTextLegal {
@@ -53,19 +55,19 @@
   .backgroundSampleHome {
     width: 100vw;
   }
-  .footerLogo {
-    width: 10vw;
+  .footerLogo,
+  .footerText {
+    display: none;
   }
-  .titleTextPresentation {
-    font-size: 1.3rem;
-  }
+  .titleTextPresentation,
+  .typeWriterPresentation,
   .sentenceTextPresentation {
-    font-size: 1rem;
-  }
-  .typeWriterPresentation {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
   .outsideMovie {
     width: 95vw;
+  }
+  .footerContainer {
+    height: 10vh;
   }
 }

@@ -34,7 +34,6 @@ export default function PresentationPage() {
             Souscrivez à notre offre premium et bénéficiez d'un accès illimité à
             notre catalogue !
           </h3>
-          <br />
           <Registration />
         </div>
         <div className="imagePresentationPage">
