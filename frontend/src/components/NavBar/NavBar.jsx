@@ -10,14 +10,14 @@ import ButtonLogOut from "../ButtonLogOut/ButtonLogOut";
 export default function NavBar() {
   const activeStyle = {
     backgroundColor: "#ff8200",
-    color: "black",
+    color: "#010d18",
     borderradius: "2.5rem",
-    border: "1px solid orange",
+    border: "1px solid #ff8200",
   };
 
   return (
-    <div className="navbarContainer">
-      <img className="logoNavBar" src={Logo} alt="logo" />
+    <div className="nav-bar-container">
+      <img className="logo-nav-bar" src={Logo} alt="origin-logo" />
       <ul className="main-nav-bar">
         <NavLink
           to="/home"

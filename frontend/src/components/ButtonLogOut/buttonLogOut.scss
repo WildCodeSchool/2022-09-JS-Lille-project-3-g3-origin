@@ -1,10 +1,10 @@
 @use "../src/variables.scss" as v;
 
 .button-log-out {
-  position: fixed;
-  right: 2%;
-  font-size: 1rem;
-  border-radius: 2.5rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
   background: linear-gradient(
     to right,
     #ff8200,
@@ -15,8 +15,6 @@
   );
   cursor: url("../../assets/popcorn.png"), auto;
   border: none;
-  width: 11%;
-  height: 4%;
   color: #faf8ff;
   &:hover {
     color: #faf8ff;
