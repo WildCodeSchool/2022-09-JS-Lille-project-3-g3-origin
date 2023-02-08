@@ -20,7 +20,7 @@ export default function SwiperHome() {
   }, [favVideos]);
 
   return (
-    <div>
+    <div className="home-swiper-top">
       <Swiper
         cssMode
         pagination
@@ -43,11 +43,9 @@ export default function SwiperHome() {
             );
           })}
       </Swiper>
-
       <h2 className="home-title">Séries</h2>
-
       <Swiper
-        slidesPerView={3}
+        slidesPerView={2}
         spaceBetween={8}
         pagination={{
           clickable: true,
@@ -61,12 +59,13 @@ export default function SwiperHome() {
           .map((serie) => {
             return (
               <SwiperSlide className="home-series-youtube" key={serie.id}>
+                <h3 className="home-title-swiper">{serie.title}</h3>
                 <LiteYouTubeEmbed
                   className="yt-lite home-serie"
                   id={serie.url}
                 />
                 <ButtonLike
-                  userId={11}
+                  userId={currentUser.id}
                   videoId={serie.id}
                   liked={serie.isFav}
                 />
@@ -78,7 +77,7 @@ export default function SwiperHome() {
       <h1 className="home-title">Films</h1>
 
       <Swiper
-        slidesPerView={3}
+        slidesPerView={2}
         spaceBetween={8}
         pagination={{
           clickable: true,
@@ -92,7 +91,9 @@ export default function SwiperHome() {
           .map((film) => {
             return (
               <SwiperSlide className="home-films-youtube" key={film.id}>
+                <h3 className="home-title-swiper">{film.title}</h3>
                 <LiteYouTubeEmbed className="yt-lite home-film" id={film.url} />
+
                 <ButtonLike
                   userId={currentUser.id}
                   videoId={film.id}
