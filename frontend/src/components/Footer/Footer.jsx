@@ -16,7 +16,7 @@ export default function Footer() {
           target="_blank"
           rel="noreferrer"
         >
-          Terms & Conditions
+          Conditions générales d'utilisation -
         </a>
         <a
           className="footerText"
@@ -24,11 +24,11 @@ export default function Footer() {
           target="_blank"
           rel="noreferrer"
         >
-          Privacy Policy
+          Politique de confidentialité
         </a>
       </div>
       <div className="footerTextLegal">
-        © 2013 - 2023 Origins. All rights reserved
+        © 2013 - 2023 Origins. Tous droits réservés
       </div>
     </div>
   );

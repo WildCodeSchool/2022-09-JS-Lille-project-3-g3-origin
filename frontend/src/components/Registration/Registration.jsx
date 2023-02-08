@@ -109,7 +109,7 @@ export default function Registration() {
             </button>
           </div>
           <div className="formGroup">
-            <input type="submit" value="Login" />
+            <input type="submit" value="Connexion" />
           </div>
         </form>
       </Modal>
@@ -175,7 +175,7 @@ export default function Registration() {
             <input
               type="button"
               placeholder="S'enregistrer"
-              value="Register"
+              value="Inscription"
               onClick={toggleSubscribe}
             />
           </div>
