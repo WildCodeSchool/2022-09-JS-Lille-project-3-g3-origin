@@ -120,12 +120,13 @@ body {
     display: flex;
     flex-flow: column;
     padding-left: 0;
-    height: 80vh;
-    gap: 0;
+    height: 100vh;
+    gap: 4rem;
   }
 
   .textPresentationPage {
     width: 80vw;
+    margin-top: 4rem;
   }
   .imagePresentationPage {
     display: flex;
