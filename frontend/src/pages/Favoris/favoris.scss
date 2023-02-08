@@ -41,7 +41,6 @@
   font-size: 1.5rem;
 }
 .account-favoris {
-  margin-top: 5rem;
   margin-bottom: 1rem;
   font-size: 1.5rem;
   display: flex;
@@ -50,6 +49,9 @@
 }
 
 @media (min-width: 851px) {
+  .account-favoris {
+    margin-top: 10rem;
+  }
   .favoris-films {
     display: flex;
     flex-direction: column;
@@ -105,6 +107,9 @@
 }
 
 @media (max-width: 850px) {
+  .account-favoris {
+    margin-top: 6rem;
+  }
   .favoris-details-video {
     margin: 1rem;
   }
