@@ -1,4 +1,4 @@
-@use "../src/variables.scss" as v;
+@use "../src/variables.scss";
 
 .button-log-out {
   padding: 0.5rem;
@@ -15,9 +15,9 @@
   );
   cursor: url("../../assets/popcorn.png"), auto;
   border: none;
-  color: #faf8ff;
+  color: variables.$white-color;
   &:hover {
-    color: #faf8ff;
+    color: variables.$white-color;
     background: linear-gradient(
       to right,
       #ff2415,
@@ -44,9 +44,9 @@
   border: none;
   width: 10vw;
   height: 5vh;
-  color: #faf8ff;
+  color: variables.$white-color;
   &:hover {
-    color: #faf8ff;
+    color: variables.$white-color;
     background: linear-gradient(
       to right,
       #ff2415,
@@ -60,7 +60,7 @@
 
 @media screen and (max-width: 850px) {
   .button-log-out {
-    width: 30%;
+    width: 40vw;
     font-size: 1rem;
   }
   .button-log-out-modal {

@@ -8,7 +8,7 @@
   align-items: center;
   margin-right: 2vw;
   padding: 1vw;
-  width: 50vw;
+
   h1 {
     padding: 1vw;
     font-size: 2rem;
@@ -96,9 +96,7 @@
   .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-right: 2vw;
-    padding: 1vw;
+
     h1 {
       font-size: 1rem;
       color: variables.$orange-color;
@@ -110,7 +108,6 @@
   }
   .premiumPage {
     font-size: 1rem;
-    margin-top: 1vh;
     .goPremium1 {
       width: 40vw;
       font-size: 1rem;
