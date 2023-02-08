@@ -32,7 +32,7 @@ export default function ViewProfil() {
     }
     swal({
       title: "C'est noté !",
-      text: "Nous avons pris en compte vos changement !",
+      text: "Nous avons pris en compte vos changements !",
       icon: "success",
     });
   };
@@ -51,8 +51,8 @@ export default function ViewProfil() {
     );
     setTimeout(() => toggleAvatarsShow(), 1000);
     swal({
-      title: "Done",
-      text: "Avatar changed",
+      title: "C'est fait !",
+      text: "Avatar changé",
       icon: "success",
       buttons: false,
       timer: 1000,
@@ -86,7 +86,7 @@ export default function ViewProfil() {
         </Modal>
         <header>
           <h1 key={currentUser.id}>
-            Hello
+            Bonjour
             <span className="user-name-style"> {currentUser.username} </span>
           </h1>
           <img

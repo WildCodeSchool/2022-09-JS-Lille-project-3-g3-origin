@@ -81,23 +81,23 @@ export default function PremiumPage() {
           <Modal
             isShowing={isPremiumSelectedShowed}
             hide={togglePremiumSelected}
-            title="Registration field :"
+            title="Champ d'inscription :"
           >
             <form>
               <div className="formGroup">
-                <input type="text" placeholder="Firstname" />
+                <input type="text" placeholder="Prénom" />
               </div>
               <div className="formGroup">
-                <input type="text" placeholder="Lastname" />
+                <input type="text" placeholder="Nom" />
               </div>
               <div className="formGroup">
-                <input type="text" placeholder="Adress" />
+                <input type="text" placeholder="Adresse" />
               </div>
               <div className="formGroup">
-                <input type="text" placeholder="City" />
+                <input type="text" placeholder="Ville" />
               </div>
               <div className="formGroup">
-                <input type="text" placeholder="Credit Card Numbers" />
+                <input type="text" placeholder="Carte de crédit" />
               </div>
               <div className="formGroup">
                 <input type="text" placeholder="CVV" />
@@ -105,14 +105,14 @@ export default function PremiumPage() {
               <div className="formGroup">
                 <input
                   type="text"
-                  placeholder="Expiration Date (Day/Month/Year)"
+                  placeholder="Date d'Expiration (Mois/Année)"
                 />
               </div>
               <div className="formGroup">
                 <input
                   className="formGroup1"
                   type="submit"
-                  value="Confirm"
+                  value="Confirmer"
                   onClick={(evt) => {
                     evt.preventDefault();
                     navigate("/home");
