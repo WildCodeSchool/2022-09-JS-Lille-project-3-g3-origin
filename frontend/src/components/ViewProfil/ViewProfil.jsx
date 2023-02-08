@@ -65,7 +65,7 @@ export default function ViewProfil() {
         <Modal
           isShowing={showAvatars}
           hide={toggleAvatarsShow}
-          title="Choose your avatar"
+          title="Choisis un avatar"
         >
           <div className="user-avatars">
             {userAvatars.map((userAvatar) => {
