@@ -27,19 +27,32 @@
   justify-content: center;
   aspect-ratio: 16/9;
 }
+
+.favoris-films {
+  .heart-in-video {
+    position: relative;
+  }
+}
+
 .favoris-details-video {
   color: variables.$orange-color;
 }
+
 .text-bold {
   font-weight: bold;
   font-size: 1.5rem;
   color: variables.$white-color;
 }
 
-.details-video {
-  padding-bottom: 1rem;
-  font-size: 1.5rem;
+.video-details-container {
+  margin-top: 2rem;
+
+  .details-video {
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+  }
 }
+
 .account-favoris {
   margin-top: 5rem;
   margin-bottom: 1rem;
@@ -60,6 +73,10 @@
       width: 80%;
       height: 100%;
     }
+  }
+
+  .account-favoris {
+    margin-top: 11rem;
   }
 
   .yt-lite {
@@ -129,6 +146,7 @@
 
   .favoris-swiper {
     width: 80vw;
+
     .swiper-button-next {
       color: variables.$red-color;
       position: absolute;

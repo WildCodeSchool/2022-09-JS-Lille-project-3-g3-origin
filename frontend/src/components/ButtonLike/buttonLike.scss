@@ -8,7 +8,9 @@
     width: 6vh;
     background-color: transparent;
     border: none;
-
+    position: absolute;
+    bottom: 0;
+    right: 0;
 
     .is_it_liked {
       color: variables.$red-color;
@@ -25,6 +27,7 @@
     }
   }
 }
+
 @media (max-width: 850px) {
   .button-like {
     display: flex;
@@ -33,7 +36,9 @@
     width: 5vh;
     background-color: transparent;
     border: none;
-
+    position: absolute;
+    bottom: 0;
+    right: 0;
 
     .is_it_liked {
       color: variables.$red-color;

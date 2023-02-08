@@ -43,17 +43,21 @@ export default function Favoris() {
           {favVideos.map((video) => {
             return (
               <SwiperSlide className="favoris-films" key={video.id}>
-                <LiteYouTubeEmbed
-                  activatedClass="yt-lite favoris-video"
-                  id={video.url}
-                />
-                <ul>
+                <div className="heart-in-video">
+                  <LiteYouTubeEmbed
+                    activatedClass="yt-lite favoris-video"
+                    id={video.url}
+                  />
+
+                  <ButtonLike
+                    userId={currentUser.id}
+                    videoId={video.id}
+                    liked={video.isFav}
+                  />
+                </div>
+
+                <ul className="video-details-container">
                   <li className="details-video">
-                    <ButtonLike
-                      userId={currentUser.id}
-                      videoId={video.id}
-                      liked={video.isFav}
-                    />
                     <span className="text-bold">{video.title}</span>
                   </li>
                   <li className="details-video">
