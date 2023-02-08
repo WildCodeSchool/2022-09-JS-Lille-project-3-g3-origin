@@ -1,13 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap");
+@use "../src/variables.scss";
 
 .titleSearchBar {
   width: auto;
   padding-top: 10rem;
-  font-family: "Red Hat Display", sans-serif;
-  color: #ff8200;
+  font-family: variables.$font-family;
+  color: variables.$orange-color;
   font-size: 4rem;
   font-weight: 800;
   text-align: center;
+}
+.search-title-video {
+  color: variables.$white-color;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 #idVideo {
@@ -27,7 +34,7 @@ figcaption {
   font-size: 1.5rem;
   padding-top: 0.5rem;
   padding-bottom: 1rem;
-  font-family: "Red Hat Display", sans-serif;
+  font-family: variables.$font-family;
 }
 
 .search-youtube {
@@ -88,8 +95,8 @@ label[for="7"] {
   width: 12vw;
 }
 figure:hover {
-  color: whitesmoke;
-  text-shadow: 1px 3px 30px whitesmoke;
+  color: variables.$white-color;
+  text-shadow: 1px 3px 30px variables.$white-color;
   text-decoration: underline;
 }
 
@@ -100,7 +107,7 @@ figure:hover {
   padding-top: 2rem;
   margin-bottom: 2rem;
   width: 100vw;
-  color: #ff8200;
+  color: variables.$orange-color;
   align-items: center;
   justify-items: center;
 }
@@ -150,6 +157,9 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     margin: auto;
+  }
+  .search-title-video {
+    margin-top: 2rem;
   }
 
   .titleSearchBar {

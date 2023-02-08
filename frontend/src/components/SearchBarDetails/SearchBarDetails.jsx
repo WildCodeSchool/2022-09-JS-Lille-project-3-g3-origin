@@ -129,6 +129,7 @@ export default function SearchBarDetails() {
                 onClick={(evt) => hVideoShow(evt, video)}
                 role="presentation"
               />
+              <h3 className="search-title-video">{video.title}</h3>
               <div className="search-youtube">
                 <LiteYouTubeEmbed id={video.url} title={video.title} />;
               </div>
